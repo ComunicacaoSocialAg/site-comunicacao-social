@@ -481,24 +481,38 @@ function playBigBangAudio(enabled = true) {
     if (!ctx) return;
     const now = ctx.currentTime;
 
-    // 1. Sub-bass boom (115Hz -> 24Hz)
+    // 1. Deep Sub-bass boom & sub-bass punch (130Hz -> 22Hz)
     const osc = ctx.createOscillator();
     const oscGain = ctx.createGain();
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(115, now);
-    osc.frequency.exponentialRampToValueAtTime(24, now + 1.8);
+    osc.frequency.setValueAtTime(130, now);
+    osc.frequency.exponentialRampToValueAtTime(22, now + 2.2);
 
     oscGain.gain.setValueAtTime(0.001, now);
-    oscGain.gain.linearRampToValueAtTime(0.85, now + 0.04);
-    oscGain.gain.exponentialRampToValueAtTime(0.001, now + 2.2);
+    oscGain.gain.linearRampToValueAtTime(0.92, now + 0.035);
+    oscGain.gain.exponentialRampToValueAtTime(0.001, now + 2.4);
 
     osc.connect(oscGain);
     oscGain.connect(ctx.destination);
     osc.start(now);
-    osc.stop(now + 2.3);
+    osc.stop(now + 2.5);
 
-    // 2. Noise burst
-    const bufferSize = ctx.sampleRate * 1.5;
+    // 1b. Secondary sub-triangle body for acoustic chest-weight
+    const subOsc = ctx.createOscillator();
+    const subGain = ctx.createGain();
+    subOsc.type = 'triangle';
+    subOsc.frequency.setValueAtTime(58, now);
+    subOsc.frequency.exponentialRampToValueAtTime(28, now + 1.6);
+    subGain.gain.setValueAtTime(0.001, now);
+    subGain.gain.linearRampToValueAtTime(0.45, now + 0.05);
+    subGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+    subOsc.connect(subGain);
+    subGain.connect(ctx.destination);
+    subOsc.start(now);
+    subOsc.stop(now + 1.9);
+
+    // 2. High-energy filtered noise burst
+    const bufferSize = ctx.sampleRate * 1.8;
     const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
     const output = noiseBuffer.getChannelData(0);
     for (let i = 0; i < bufferSize; i++) output[i] = Math.random() * 2 - 1;
@@ -507,37 +521,37 @@ function playBigBangAudio(enabled = true) {
 
     const filter = ctx.createBiquadFilter();
     filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(3200, now);
-    filter.frequency.exponentialRampToValueAtTime(70, now + 1.4);
-    filter.Q.setValueAtTime(4.0, now);
+    filter.frequency.setValueAtTime(3800, now);
+    filter.frequency.exponentialRampToValueAtTime(65, now + 1.6);
+    filter.Q.setValueAtTime(4.5, now);
 
     const noiseGain = ctx.createGain();
     noiseGain.gain.setValueAtTime(0.001, now);
-    noiseGain.gain.linearRampToValueAtTime(0.65, now + 0.03);
-    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 1.5);
+    noiseGain.gain.linearRampToValueAtTime(0.72, now + 0.025);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 1.7);
 
     whiteNoise.connect(filter);
     filter.connect(noiseGain);
     noiseGain.connect(ctx.destination);
     whiteNoise.start(now);
-    whiteNoise.stop(now + 1.6);
+    whiteNoise.stop(now + 1.8);
 
-    // 3. Cosmic sparkles
-    [1580, 2370, 3160].forEach((freq, idx) => {
+    // 3. Quad Celestial Sparkle Chimes
+    [1320, 1980, 2640, 3960].forEach((freq, idx) => {
       const sparkleOsc = ctx.createOscillator();
       const sparkleGain = ctx.createGain();
       sparkleOsc.type = 'sine';
-      sparkleOsc.frequency.setValueAtTime(freq, now);
-      sparkleOsc.frequency.exponentialRampToValueAtTime(freq * 1.35, now + 1.2);
+      sparkleOsc.frequency.setValueAtTime(freq, now + idx * 0.015);
+      sparkleOsc.frequency.exponentialRampToValueAtTime(freq * 1.45, now + 1.4);
 
-      sparkleGain.gain.setValueAtTime(0.001, now);
-      sparkleGain.gain.linearRampToValueAtTime(0.12 / (idx + 1), now + 0.08);
-      sparkleGain.gain.exponentialRampToValueAtTime(0.0001, now + 1.8);
+      sparkleGain.gain.setValueAtTime(0.001, now + idx * 0.015);
+      sparkleGain.gain.linearRampToValueAtTime(0.14 / (idx + 1), now + 0.06 + idx * 0.015);
+      sparkleGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.0);
 
       sparkleOsc.connect(sparkleGain);
       sparkleGain.connect(ctx.destination);
-      sparkleOsc.start(now);
-      sparkleOsc.stop(now + 1.9);
+      sparkleOsc.start(now + idx * 0.015);
+      sparkleOsc.stop(now + 2.1);
     });
   } catch (err) {
     console.warn('Big Bang Audio:', err);
@@ -720,6 +734,75 @@ function IntroVideo({ onComplete }) {
   );
 }
 
+// ─── HELPER: CIRCULAR GLOW PARTICLE SHADER ──────────────────────────────────
+// Strictly circular fragment shader: discards length(coord) > 0.5 to banish all square quad artifacts
+function createCircularParticleMaterial({ sizeMultiplier = 1.0 } = {}) {
+  return new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: {
+      uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
+      uSizeMultiplier: { value: sizeMultiplier }
+    },
+    vertexShader: `
+      uniform float uPixelRatio;
+      uniform float uSizeMultiplier;
+      
+      attribute float aSize;
+      attribute vec3 aColor;
+      attribute float aAlpha;
+      
+      varying vec3 vColor;
+      varying float vAlpha;
+      
+      void main() {
+        vColor = aColor;
+        vAlpha = aAlpha;
+        
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        float pointScale = (360.0 / -mvPosition.z) * uPixelRatio * uSizeMultiplier;
+        gl_PointSize = clamp(aSize * pointScale, 1.0, 180.0);
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `,
+    fragmentShader: `
+      precision highp float;
+      
+      varying vec3 vColor;
+      varying float vAlpha;
+      
+      void main() {
+        // Distance from center of point quad: [-0.5 .. 0.5]
+        vec2 coord = gl_PointCoord - vec2(0.5);
+        float dist = length(coord);
+        
+        // Strict circular cutoff: mathematically eliminates any square quad artifact
+        if (dist > 0.5) {
+          discard;
+        }
+        
+        // Anti-aliased soft outer perimeter
+        float edge = smoothstep(0.5, 0.40, dist);
+        
+        // Incandescent fusion core (white-hot center)
+        float core = smoothstep(0.18, 0.0, dist);
+        vec3 finalColor = mix(vColor, vec3(1.0, 1.0, 1.0), core * 0.9);
+        
+        // Inverse-exponential optical glow falloff
+        float radiance = exp(-dist * 4.0);
+        
+        float alpha = vAlpha * edge * radiance;
+        if (alpha < 0.002) {
+          discard;
+        }
+        
+        gl_FragColor = vec4(finalColor, alpha);
+      }
+    `
+  });
+}
+
 // ─── SPHERE GALLERY (3D BIG BANG UNIVERSE) ─────────────────────────────────────
 function SphereGallery({
   genesisTrigger,
@@ -786,74 +869,181 @@ function SphereGallery({
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     rendererRef.current = renderer;
 
-    // Helper: Soft Radial Glow Texture for High-End Cosmic Particles
-    const pCanvas = document.createElement('canvas');
-    pCanvas.width = 64;
-    pCanvas.height = 64;
-    const pCtx = pCanvas.getContext('2d');
-    const pGrad = pCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    pGrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    pGrad.addColorStop(0.22, 'rgba(247, 212, 6, 0.95)');
-    pGrad.addColorStop(0.6, 'rgba(247, 212, 6, 0.22)');
-    pGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    pCtx.fillStyle = pGrad;
-    pCtx.fillRect(0, 0, 64, 64);
-    const particleGlowTex = new THREE.CanvasTexture(pCanvas);
-
-    // Ambient Starfield Particles
-    const pCount = 1500;
+    // Ambient Starfield Particles (1,800 Circular Anti-Aliased Star Orbs)
+    const pCount = 1800;
     const pPos = new Float32Array(pCount * 3);
-    for (let i = 0; i < pCount * 3; i++) pPos[i] = (Math.random() - 0.5) * 120;
+    const pColor = new Float32Array(pCount * 3);
+    const pSize = new Float32Array(pCount);
+    const pAlpha = new Float32Array(pCount);
+
+    for (let i = 0; i < pCount; i++) {
+      const idx3 = i * 3;
+      pPos[idx3]     = (Math.random() - 0.5) * 140;
+      pPos[idx3 + 1] = (Math.random() - 0.5) * 140;
+      pPos[idx3 + 2] = (Math.random() - 0.5) * 140;
+
+      if (Math.random() > 0.25) {
+        // Brand Warm Gold
+        pColor[idx3]     = 0.968;
+        pColor[idx3 + 1] = 0.831;
+        pColor[idx3 + 2] = 0.024;
+      } else {
+        // Diamond Starlight White
+        pColor[idx3]     = 0.96;
+        pColor[idx3 + 1] = 0.97;
+        pColor[idx3 + 2] = 1.0;
+      }
+
+      pSize[i]  = Math.random() * 0.12 + 0.04;
+      pAlpha[i] = Math.random() * 0.42 + 0.14;
+    }
+
     const pGeo = new THREE.BufferGeometry();
     pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-    const pMat = new THREE.PointsMaterial({
-      size: 0.08,
-      map: particleGlowTex,
-      color: 0xf7d406,
-      transparent: true,
-      opacity: 0.32,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
+    pGeo.setAttribute('aColor', new THREE.BufferAttribute(pColor, 3));
+    pGeo.setAttribute('aSize', new THREE.BufferAttribute(pSize, 1));
+    pGeo.setAttribute('aAlpha', new THREE.BufferAttribute(pAlpha, 1));
+    const pMat = createCircularParticleMaterial({ sizeMultiplier: 1.0 });
     const ambientParticles = new THREE.Points(pGeo, pMat);
     scene.add(ambientParticles);
 
-    // Big Bang Explosion Cosmic Embers
-    const expCount = 650;
+    // Big Bang Explosion Cosmic Embers (2,600 Particles in 4 Physical Tiers)
+    const expCount = 2600;
     const expPos = new Float32Array(expCount * 3);
+    const expColor = new Float32Array(expCount * 3);
+    const expSize = new Float32Array(expCount);
+    const expAlpha = new Float32Array(expCount);
+
+    // Dynamic Physics Arrays
     const expVel = new Float32Array(expCount * 3);
+    const expDrag = new Float32Array(expCount);
+    const expDecay = new Float32Array(expCount);
+    const expMinAlpha = new Float32Array(expCount);
+    const expSwirl = new Float32Array(expCount);
+
     for (let i = 0; i < expCount; i++) {
-      expPos[i * 3]     = 0;
-      expPos[i * 3 + 1] = 0;
-      expPos[i * 3 + 2] = 0;
+      const idx3 = i * 3;
+      expPos[idx3]     = 0;
+      expPos[idx3 + 1] = 0;
+      expPos[idx3 + 2] = 0;
 
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const speed = Math.random() * 24 + 12;
-      const sinPhi = Math.sin(phi);
+      if (i < 450) {
+        // TIER 1: Needle Sparks (Hyper-Velocity White-Gold Piercing Rays)
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+        const speed = (Math.random() * 32 + 38) * 0.06;
+        const sinPhi = Math.sin(phi);
 
-      expVel[i * 3]     = Math.cos(theta) * sinPhi * speed * 0.055;
-      expVel[i * 3 + 1] = Math.sin(theta) * sinPhi * speed * 0.055;
-      expVel[i * 3 + 2] = Math.cos(phi) * speed * 0.055;
+        expVel[idx3]     = Math.cos(theta) * sinPhi * speed;
+        expVel[idx3 + 1] = Math.sin(theta) * sinPhi * speed;
+        expVel[idx3 + 2] = (Math.cos(phi) * 0.75 + 0.35) * speed;
+
+        expColor[idx3]     = 1.0;
+        expColor[idx3 + 1] = 0.98;
+        expColor[idx3 + 2] = 0.88;
+
+        expSize[idx3]     = Math.random() * 0.2 + 0.12;
+        expAlpha[idx3]    = 1.0;
+        expDrag[idx3]     = 0.942;
+        expDecay[idx3]    = 0.965;
+        expMinAlpha[idx3] = 0.0;
+        expSwirl[idx3]    = 0.0;
+
+      } else if (i < 1700) {
+        // TIER 2: Stellar Embers & Molten Fire (Dense 3D Swirl Cluster)
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+        const speed = (Math.random() * 24 + 14) * 0.052;
+        const sinPhi = Math.sin(phi);
+
+        expVel[idx3]     = Math.cos(theta) * sinPhi * speed;
+        expVel[idx3 + 1] = Math.sin(theta) * sinPhi * speed;
+        expVel[idx3 + 2] = Math.cos(phi) * speed;
+
+        const paletteChoice = Math.random();
+        if (paletteChoice < 0.65) {
+          expColor[idx3]     = 0.968;
+          expColor[idx3 + 1] = 0.831;
+          expColor[idx3 + 2] = 0.024; // #f7d406 Brand Gold
+        } else if (paletteChoice < 0.88) {
+          expColor[idx3]     = 1.0;
+          expColor[idx3 + 1] = 0.619;
+          expColor[idx3 + 2] = 0.0;   // #ff9e00 Solar Amber
+        } else {
+          expColor[idx3]     = 1.0;
+          expColor[idx3 + 1] = 0.282;
+          expColor[idx3 + 2] = 0.0;   // #ff4800 Incandescent Flare
+        }
+
+        expSize[idx3]     = Math.random() * 0.45 + 0.25;
+        expAlpha[idx3]    = 0.98;
+        expDrag[idx3]     = 0.956;
+        expDecay[idx3]    = 0.984;
+        expMinAlpha[idx3] = 0.0;
+        expSwirl[idx3]    = (Math.random() - 0.5) * 0.024;
+
+      } else if (i < 2350) {
+        // TIER 3: Persistent Cosmic Stardust (Lingers Around 3D Cards)
+        const u = Math.random();
+        const v = Math.random();
+        const theta = u * 2.0 * Math.PI;
+        const phi = Math.acos(2.0 * v - 1.0);
+        const speed = (Math.random() * 7.0 + 3.0) * 0.046;
+        const sinPhi = Math.sin(phi);
+
+        expVel[idx3]     = Math.cos(theta) * sinPhi * speed;
+        expVel[idx3 + 1] = Math.sin(theta) * sinPhi * speed;
+        expVel[idx3 + 2] = Math.cos(phi) * speed;
+
+        expColor[idx3]     = 0.98;
+        expColor[idx3 + 1] = 0.88;
+        expColor[idx3 + 2] = 0.36;
+
+        expSize[idx3]     = Math.random() * 0.22 + 0.12;
+        expAlpha[idx3]    = 0.92;
+        expDrag[idx3]     = 0.968;
+        expDecay[idx3]    = 0.992;
+        expMinAlpha[idx3] = Math.random() * 0.32 + 0.14; // Persistent glow!
+        expSwirl[idx3]    = (Math.random() - 0.5) * 0.008;
+
+      } else {
+        // TIER 4: Equatorial Shockwave Halo (Coherent Planar Expansion)
+        const angle = Math.random() * Math.PI * 2;
+        const speed = (Math.random() * 18 + 26) * 0.056;
+        const yJitter = (Math.random() - 0.5) * 1.6;
+
+        expVel[idx3]     = Math.cos(angle) * speed;
+        expVel[idx3 + 1] = yJitter * 0.056;
+        expVel[idx3 + 2] = Math.sin(angle) * speed;
+
+        expColor[idx3]     = 1.0;
+        expColor[idx3 + 1] = 0.96;
+        expColor[idx3 + 2] = 0.70;
+
+        expSize[idx3]     = Math.random() * 0.32 + 0.22;
+        expAlpha[idx3]    = 0.95;
+        expDrag[idx3]     = 0.945;
+        expDecay[idx3]    = 0.978;
+        expMinAlpha[idx3] = 0.0;
+        expSwirl[idx3]    = 0.016;
+      }
     }
+
     const expGeo = new THREE.BufferGeometry();
     expGeo.setAttribute('position', new THREE.BufferAttribute(expPos, 3));
-    const expMat = new THREE.PointsMaterial({
-      size: 0.32,
-      map: particleGlowTex,
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.98,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
+    expGeo.setAttribute('aColor', new THREE.BufferAttribute(expColor, 3));
+    expGeo.setAttribute('aSize', new THREE.BufferAttribute(expSize, 1));
+    expGeo.setAttribute('aAlpha', new THREE.BufferAttribute(expAlpha, 1));
+    const expMat = createCircularParticleMaterial({ sizeMultiplier: 1.15 });
     const expParticles = new THREE.Points(expGeo, expMat);
     scene.add(expParticles);
 
-    // Expanding Shockwave Rings
-    const ring1Geo = new THREE.RingGeometry(0.2, 0.9, 64);
+    // Expanding Shockwave Rings (Optical Precision Gradients)
+    const ring1Geo = new THREE.RingGeometry(0.2, 0.9, 96);
     const ring1Mat = new THREE.MeshBasicMaterial({
       color: 0xf7d406,
       side: THREE.DoubleSide,
@@ -866,44 +1056,55 @@ function SphereGallery({
     ring1.rotation.x = Math.PI / 2.2;
     scene.add(ring1);
 
-    gsap.fromTo(ring1.scale, { x: 0.01, y: 0.01, z: 0.01 }, { x: 48, y: 48, z: 48, duration: 1.8, ease: 'power2.out' });
-    gsap.fromTo(ring1Mat, { opacity: 0.95 }, { opacity: 0, duration: 1.8, ease: 'power2.out' });
+    gsap.fromTo(ring1.scale, { x: 0.01, y: 0.01, z: 0.01 }, { x: 56, y: 56, z: 56, duration: 2.0, ease: 'power2.out' });
+    gsap.fromTo(ring1Mat, { opacity: 0.95 }, { opacity: 0, duration: 2.0, ease: 'power2.out' });
 
-    const ring2Geo = new THREE.RingGeometry(0.2, 0.6, 64);
+    const ring2Geo = new THREE.RingGeometry(0.2, 0.65, 96);
     const ring2Mat = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       side: THREE.DoubleSide,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-    ring2.rotation.y = Math.PI / 3.5;
+    ring2.rotation.y = Math.PI / 3.4;
     scene.add(ring2);
 
-    gsap.fromTo(ring2.scale, { x: 0.01, y: 0.01, z: 0.01 }, { x: 36, y: 36, z: 36, duration: 1.5, delay: 0.06, ease: 'power2.out' });
-    gsap.fromTo(ring2Mat, { opacity: 0.85 }, { opacity: 0, duration: 1.5, delay: 0.06, ease: 'power2.out' });
+    gsap.fromTo(ring2.scale, { x: 0.01, y: 0.01, z: 0.01 }, { x: 44, y: 44, z: 44, duration: 1.6, delay: 0.05, ease: 'power2.out' });
+    gsap.fromTo(ring2Mat, { opacity: 0.9 }, { opacity: 0, duration: 1.6, delay: 0.05, ease: 'power2.out' });
 
-    // Camera FOV recoil & Camera Shake
+    // Camera FOV recoil & Spatial Kinetic Recoil
+    camera.position.set(0, 0, -1.6);
+    camera.fov = 94;
+    camera.updateProjectionMatrix();
+
+    gsap.to(camera.position, {
+      z: 0.01,
+      duration: 2.4,
+      ease: 'power4.out'
+    });
+
     gsap.to(camera, {
       fov: 65,
-      duration: 2.2,
+      duration: 2.4,
       ease: 'power3.out',
       onUpdate: () => camera.updateProjectionMatrix()
     });
 
-    const shake = { val: 0.25 };
+    const shake = { val: 0.38 };
     gsap.to(shake, {
       val: 0,
-      duration: 1.2,
+      duration: 1.35,
       ease: 'power2.out',
       onUpdate: () => {
         if (shake.val > 0.001) {
           camera.position.x = (Math.random() - 0.5) * shake.val;
           camera.position.y = (Math.random() - 0.5) * shake.val;
         } else if (!isTransitioningRef.current) {
-          camera.position.set(0, 0, 0.01);
+          camera.position.x = 0;
+          camera.position.y = 0;
         }
       }
     });
@@ -995,20 +1196,47 @@ function SphereGallery({
     function animate() {
       rafRef.current = requestAnimationFrame(animate);
 
-      // Decelerate and move explosion particles
+      // Dynamic physics update for Big Bang 4-Tier Particle System
       const pArr = expGeo.attributes.position.array;
+      const aArr = expGeo.attributes.aAlpha.array;
+      let needAlphaUpdate = false;
+
       for (let j = 0; j < expCount; j++) {
         const idx3 = j * 3;
+
+        // Apply velocities
         pArr[idx3]     += expVel[idx3];
         pArr[idx3 + 1] += expVel[idx3 + 1];
         pArr[idx3 + 2] += expVel[idx3 + 2];
-        expVel[idx3]     *= 0.94;
-        expVel[idx3 + 1] *= 0.94;
-        expVel[idx3 + 2] *= 0.94;
+
+        // Apply per-particle physical drag deceleration
+        const drag = expDrag[j];
+        expVel[idx3]     *= drag;
+        expVel[idx3 + 1] *= drag;
+        expVel[idx3 + 2] *= drag;
+
+        // Tangential vortex curl / swirl around central Y-axis
+        const swirl = expSwirl[j];
+        if (swirl !== 0) {
+          const cosS = Math.cos(swirl);
+          const sinS = Math.sin(swirl);
+          const px = pArr[idx3];
+          const pz = pArr[idx3 + 2];
+          pArr[idx3]     = px * cosS - pz * sinS;
+          pArr[idx3 + 2] = px * sinS + pz * cosS;
+        }
+
+        // Per-tier alpha decay with minimum floor (stardust persists!)
+        const minA = expMinAlpha[j];
+        if (aArr[j] > minA) {
+          aArr[j] = Math.max(minA, aArr[j] * expDecay[j]);
+          needAlphaUpdate = true;
+        }
       }
+
       expGeo.attributes.position.needsUpdate = true;
-      if (expMat.opacity > 0.01) {
-        expMat.opacity *= 0.985;
+      if (needAlphaUpdate) {
+        expGeo.attributes.aAlpha.needsUpdate = true;
       }
 
       if (!isDownRef.current && !isTransitioningRef.current) {
@@ -1025,6 +1253,7 @@ function SphereGallery({
       group.rotation.x = currentRotRef.current.y;
       wireSphere.rotation.y = currentRotRef.current.x * 0.25;
       ambientParticles.rotation.y += 0.00015;
+      expParticles.rotation.y += 0.0002;
 
       // Raycasting for cards
       if (!isTransitioningRef.current) {

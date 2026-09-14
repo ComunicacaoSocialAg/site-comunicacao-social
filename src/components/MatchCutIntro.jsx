@@ -246,6 +246,31 @@ function playCutTickSound(stepIndex, totalSteps, enabled = true) {
   } catch (e) {}
 }
 
+function playSuctionWhooshSound(enabled = true) {
+  if (!enabled) return;
+  try {
+    const ctx = getMatchAudioCtx();
+    if (!ctx) return;
+    const now = ctx.currentTime;
+
+    // Inward gravitational suction sweep (320Hz descending to 36Hz)
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(320, now);
+    osc.frequency.exponentialRampToValueAtTime(36, now + 0.28);
+
+    gain.gain.setValueAtTime(0.001, now);
+    gain.gain.linearRampToValueAtTime(0.55, now + 0.18);
+    gain.gain.linearRampToValueAtTime(0.001, now + 0.28);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + 0.29);
+  } catch (e) {}
+}
+
 function playClimaxSnapSound(enabled = true) {
   if (!enabled) return;
   try {
@@ -253,15 +278,15 @@ function playClimaxSnapSound(enabled = true) {
     if (!ctx) return;
     const now = ctx.currentTime;
 
-    // 1. Sub-bass Boom (105Hz -> 18Hz)
+    // 1. Sub-bass Boom (120Hz -> 18Hz)
     const subOsc = ctx.createOscillator();
     const subGain = ctx.createGain();
     subOsc.type = 'sine';
-    subOsc.frequency.setValueAtTime(105, now);
+    subOsc.frequency.setValueAtTime(120, now);
     subOsc.frequency.exponentialRampToValueAtTime(18, now + 1.8);
 
     subGain.gain.setValueAtTime(0.001, now);
-    subGain.gain.linearRampToValueAtTime(0.9, now + 0.02);
+    subGain.gain.linearRampToValueAtTime(0.95, now + 0.02);
     subGain.gain.exponentialRampToValueAtTime(0.0001, now + 2.0);
 
     subOsc.connect(subGain);
@@ -269,21 +294,21 @@ function playClimaxSnapSound(enabled = true) {
     subOsc.start(now);
     subOsc.stop(now + 2.1);
 
-    // 2. High Shimmer Detonation (2200Hz -> 3600Hz)
+    // 2. High Shimmer Detonation (2400Hz -> 3800Hz)
     const shimmerOsc = ctx.createOscillator();
     const shimmerGain = ctx.createGain();
     shimmerOsc.type = 'sine';
-    shimmerOsc.frequency.setValueAtTime(2200, now);
-    shimmerOsc.frequency.exponentialRampToValueAtTime(3600, now + 0.35);
+    shimmerOsc.frequency.setValueAtTime(2400, now);
+    shimmerOsc.frequency.exponentialRampToValueAtTime(3800, now + 0.38);
 
     shimmerGain.gain.setValueAtTime(0.001, now);
-    shimmerGain.gain.linearRampToValueAtTime(0.22, now + 0.02);
-    shimmerGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.6);
+    shimmerGain.gain.linearRampToValueAtTime(0.28, now + 0.02);
+    shimmerGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
 
     shimmerOsc.connect(shimmerGain);
     shimmerGain.connect(ctx.destination);
     shimmerOsc.start(now);
-    shimmerOsc.stop(now + 0.65);
+    shimmerOsc.stop(now + 0.7);
   } catch (e) {}
 }
 
@@ -338,16 +363,22 @@ export default function MatchCutIntro({ onComplete, soundEnabled = true, onToggl
     };
   }, []);
 
-  // 2. Ruptura de Clímax e Handover para o Big Bang
+  // 2. Ruptura de Clímax: Colapso Gravitacional em Singularidade e Detonação do Big Bang
   const triggerClimaxAndFinish = useCallback(() => {
     if (isFinishedRef.current) return;
     isFinishedRef.current = true;
     setIsClimax(true);
 
-    playClimaxSnapSound(soundEnabled);
-
     const wrap = frameWrapRef.current;
     const flash = flashRef.current;
+    const container = containerRef.current;
+    const heroBrand = container ? container.querySelector('.matchcut-hero-brand') : null;
+    const metaBar = container ? container.querySelector('.matchcut-meta-bar') : null;
+    const topBar = container ? container.querySelector('.matchcut-top-bar') : null;
+    const bottomMeter = container ? container.querySelector('.matchcut-bottom-meter') : null;
+
+    // Dispara som de sucção gravitacional
+    playSuctionWhooshSound(soundEnabled);
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -355,24 +386,69 @@ export default function MatchCutIntro({ onComplete, soundEnabled = true, onToggl
       },
     });
 
-    if (wrap) {
-      tl.to(wrap, {
-        scale: 1.65,
-        filter: 'brightness(3.0) contrast(1.3) blur(3px)',
-        duration: 0.38,
+    // A) Colapso Gravitacional dos elementos circundantes para o centro
+    if (heroBrand) {
+      tl.to(heroBrand, {
+        opacity: 0,
+        scale: 0.7,
+        y: 35,
+        duration: 0.24,
+        ease: 'power4.in',
+      }, 0);
+    }
+    if (metaBar) {
+      tl.to(metaBar, {
+        opacity: 0,
+        scale: 0.75,
+        y: -35,
+        duration: 0.24,
+        ease: 'power4.in',
+      }, 0);
+    }
+    if (topBar) {
+      tl.to(topBar, {
+        opacity: 0,
+        y: -20,
+        duration: 0.2,
         ease: 'power3.in',
-      });
+      }, 0);
+    }
+    if (bottomMeter) {
+      tl.to(bottomMeter, {
+        opacity: 0,
+        duration: 0.15,
+      }, 0);
     }
 
+    // B) A moldura do logo sofre implosão gravitacional instantânea em um ponto de singularidade pura
+    if (wrap) {
+      tl.to(wrap, {
+        scale: 0.05,
+        borderRadius: '50%',
+        filter: 'brightness(4.8) contrast(2.6) drop-shadow(0 0 70px #f7d406)',
+        boxShadow: '0 0 100px 30px rgba(247, 212, 6, 0.95), 0 0 180px 60px rgba(255, 255, 255, 0.8)',
+        duration: 0.28,
+        ease: 'power4.in',
+      }, 0.02);
+    }
+
+    // C) Detonação no ápice do colapso (frame zero)
+    tl.call(() => {
+      playClimaxSnapSound(soundEnabled);
+    }, null, 0.28);
+
+    // D) Flash estelar que emerge do ponto central de singularidade
     if (flash) {
-      tl.to(
+      tl.fromTo(
         flash,
+        { opacity: 0, scale: 0.08 },
         {
           opacity: 1,
-          duration: 0.24,
-          ease: 'power2.in',
+          scale: 1,
+          duration: 0.18,
+          ease: 'power3.out',
         },
-        '-=0.2'
+        0.27
       );
     }
   }, [onComplete, soundEnabled]);
