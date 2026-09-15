@@ -18,6 +18,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Planejamento & BI',
     accent: '#f7d406',
+    isConceptual: true,
     image: '/assets/projects/iluminismo.png',
     description: 'Campanha conceitual focada em clareza de dados, racionalismo analítico e design minimalista.',
     challenge: 'O cliente operava com dados dispersos em 6 plataformas diferentes, tomando decisões por intuição. A comunicação da marca não refletia a sofisticação analítica dos seus serviços — havia uma dissonância entre o que entregavam e como se apresentavam.',
@@ -40,6 +41,7 @@ const PROJECTS = [
     year: '2025',
     role: 'Branding & Direção de Arte',
     accent: '#c8a97e',
+    isConceptual: true,
     image: '/assets/projects/rupestre.png',
     description: 'Resgate histórico da comunicação humana traduzido em marca contemporânea.',
     challenge: 'Uma marca sem personalidade clara, disputando mercado em um segmento saturado de identidades genéricas. O cliente queria se diferenciar radicalmente, mas sem perder a seriedade. A pergunta era: como ser memorável sendo autêntico?',
@@ -62,6 +64,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Direção de Arte & Produção',
     accent: '#7c4dff',
+    isConceptual: true,
     image: '/assets/projects/neon-city.png',
     description: 'Campanha noturna que captura o pulso da metrópole moderna com estética cyberpunk e iluminação neon.',
     challenge: 'Uma marca de lifestyle urbano que precisava se conectar com o público jovem das capitais, mas cujo orçamento não comportava mídia tradicional em grande escala. O desafio era gerar impacto máximo com presença estratégica em poucos pontos.',
@@ -84,6 +87,7 @@ const PROJECTS = [
     year: '2025',
     role: 'Direção Criativa',
     accent: '#efefef',
+    isConceptual: true,
     image: '/assets/projects/moda-editorial.png',
     description: 'Editorial minimalista explorando geometria e silêncio como linguagem visual de alto impacto.',
     challenge: 'Uma marca de moda com DNA sofisticado mas comunicação inconsistente. O editorial precisava estabelecer de vez o tom visual da coleção outono/inverno e posicionar a marca no segmento premium, com cobertura em veículos especializados nacionais e internacionais.',
@@ -106,6 +110,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Produção Multimídia',
     accent: '#ff6b35',
+    isConceptual: true,
     image: '/assets/projects/era-do-radio-tv.png',
     description: 'Reposicionamento de marca inspirado na época de ouro da radiodifusão brasileira.',
     challenge: 'Uma rede de comunicação tradicional que perdia relevância para o streaming, mas ainda detinha uma base leal de ouvintes e telespectadores. A questão central: como transformar "antigo" em "atemporal" sem parecer retrô ou forçado?',
@@ -128,6 +133,7 @@ const PROJECTS = [
     year: '2024',
     role: 'Branding & Ativação',
     accent: '#ff9500',
+    isConceptual: true,
     image: '/assets/projects/festival.png',
     description: 'Identidade e ativação completa para festival de música de verão — 3 dias, 4 palcos, 8 mil pessoas.',
     challenge: 'Um festival estreante que precisava se posicionar em um mercado dominado por eventos consolidados com décadas de história. Sem histórico, sem artistas mega-headliners no orçamento. O desafio: criar antecipação e desejo antes mesmo do evento existir na memória coletiva.',
@@ -150,6 +156,7 @@ const PROJECTS = [
     year: '2024',
     role: 'Identidade & Comunicação',
     accent: '#d4a843',
+    isConceptual: true,
     image: '/assets/projects/tech-summit.png',
     description: 'Sistema de comunicação premium para conferência tecnológica com 2.400 executivos de 38 países.',
     challenge: 'Uma conferência com conteúdo de altíssimo nível mas apresentação visual genérica que não refletia a sofisticação do evento. O desafio: criar um sistema visual que comunicasse excelência técnica e autoridade global sem parecer frio ou inacessível.',
@@ -172,6 +179,7 @@ const PROJECTS = [
     year: '2025',
     role: 'Fotografia & Conteúdo',
     accent: '#e07b39',
+    isConceptual: true,
     image: '/assets/projects/gastronomia.png',
     description: 'Campanha visual celebrando a gastronomia brasileira com ingredientes locais e a cultura da mesa compartilhada.',
     challenge: 'Um restaurante de cozinha brasileira contemporânea que disputava espaço com franquias e redes. Os pratos eram excepcionais, mas a comunicação visual não fazia jus. As fotos existentes foram tiradas com celular sob iluminação artificial. O desafio: fazer a comida parecer tão boa quanto é.',
@@ -194,6 +202,7 @@ const PROJECTS = [
     year: '2025',
     role: 'Performance & Conteúdo',
     accent: '#00c896',
+    isConceptual: true,
     image: '/assets/projects/marketing-digital.png',
     description: 'Estratégia de amplificação de canais sociais com crescimento orgânico e pago sincronizados.',
     challenge: 'Uma empresa de consultoria com expertise real mas presença digital quase zero. Conteúdo irregular, sem estratégia, publicado sem critério de horário, tema ou audiência. O custo de aquisição de cliente era 3x acima da média do mercado por depender exclusivamente de indicação.',
@@ -216,6 +225,7 @@ const PROJECTS = [
     year: '2025',
     role: 'Estratégia & Identidade',
     accent: '#4caf50',
+    isConceptual: true,
     image: '/assets/projects/floresta.png',
     description: 'Identidade e comunicação para ONG de reflorestamento presente em 12 países.',
     challenge: 'Uma ONG com trabalho real e impactante que não conseguia traduzir sua missão em engajamento financeiro. A identidade visual era amadora, o tom de comunicação era culpabilizador (comum no setor ambiental) e a arrecadação estava estagnada há 3 anos.',
@@ -238,6 +248,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Lançamento & Branding',
     accent: '#f0c060',
+    isConceptual: true,
     image: '/assets/projects/imoveis.png',
     description: 'Campanha de lançamento de empreendimento residencial de alto padrão — 100% vendido em 72h.',
     challenge: 'Um empreendimento de alto padrão em um mercado com 14 outros lançamentos simultâneos. O produto era excepcional, mas o desafio era criar urgência e desejo em um público que compra com a razão e a emoção ao mesmo tempo — e que está acostumado com promessas vazias do setor.',
@@ -260,6 +271,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Direção Criativa & Produção',
     accent: '#ff3030',
+    isConceptual: true,
     image: '/assets/projects/esportes.png',
     description: 'Campanha de ativação de marca esportiva com conceito de velocidade sem limites.',
     challenge: 'Uma marca esportiva querendo se posicionar no segmento premium de performance, mas com comunicação que não se diferenciava das marcas mainstream. O público-alvo — atletas amadores sérios — sentia que a marca não os entendia de verdade.',
@@ -282,6 +294,7 @@ const PROJECTS = [
     year: 'Desde 2020',
     role: 'Quem Somos',
     accent: '#f7d406',
+    isConceptual: false,
     image: '/assets/projects/sobre.png',
     description: 'Nossa essência: estrategistas que pensam, criativos que realizam. Nascemos em Poços de Caldas, atuamos sem fronteiras.',
     challenge: 'Criar uma agência que realmente entregasse o que promete — não apenas campanhas bonitas, mas resultados mensuráveis. O mercado publicitário local estava acostumado com o medíocre. Queríamos mudar o padrão de referência.',
@@ -304,6 +317,7 @@ const PROJECTS = [
     year: '2026',
     role: 'UX/UI & Full-stack',
     accent: '#818cf8',
+    isConceptual: true,
     image: '/assets/projects/home-old.png',
     description: 'Sistema operacional integrado para gestão de agências criativas — CRM, Kanban e BI em uma interface premium.',
     challenge: 'Agências criativas gerenciando projetos em 5+ ferramentas diferentes: WhatsApp para briefing, planilha para financeiro, Trello para tarefas, Drive para arquivos, e-mail para aprovações. O caos operacional consumia horas que deveriam ir para criação.',
@@ -326,6 +340,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Branding Digital, UI/UX & Desenvolvimento',
     accent: '#f472b6',
+    isConceptual: false,
     image: '/assets/projects/livia-site.png',
     description: 'Experiência digital imersiva com animação 3D, scrollytelling lúdico e pré-cadastro inteligente que elimina o medo infantil de dentista.',
     challenge: 'A consulta odontopediátrica gera ansiedade nas crianças e nos pais. Sites convencionais de saúde são frios e burocráticos. O desafio era criar uma experiência acolhedora que transformasse a clínica no "Reino da Boca" e aumentasse a taxa de agendamentos.',
@@ -348,6 +363,7 @@ const PROJECTS = [
     year: '2026',
     role: 'Product Design & Full-Stack Development',
     accent: '#38bdf8',
+    isConceptual: false,
     image: '/assets/projects/livia-sistema.png',
     description: 'ERP clínico sob medida para odontopediatria — prontuário com odontograma decíduo interativo, IA comportamental e régua de WhatsApp.',
     challenge: 'Softwares médicos tradicionais são genéricos e pensados apenas para adultos. A clínica sofria com fichas de papel, alto índice de faltas e perda de tempo no preenchimento de evoluções e controle de dentes de leite.',
@@ -736,13 +752,14 @@ function IntroVideo({ onComplete }) {
 
 // ─── HELPER: CIRCULAR GLOW PARTICLE SHADER ──────────────────────────────────
 // Strictly circular fragment shader: discards length(coord) > 0.5 to banish all square quad artifacts
-function createCircularParticleMaterial({ sizeMultiplier = 1.0 } = {}) {
+function createCircularParticleMaterial({ sizeMultiplier = 1.0, pixelRatio = null } = {}) {
+  const pr = pixelRatio !== null ? pixelRatio : Math.min(typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1, 2);
   return new THREE.ShaderMaterial({
     transparent: true,
     depthWrite: false,
     blending: THREE.AdditiveBlending,
     uniforms: {
-      uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 2) },
+      uPixelRatio: { value: pr },
       uSizeMultiplier: { value: sizeMultiplier }
     },
     vertexShader: `
@@ -864,13 +881,16 @@ function SphereGallery({
     camera.position.set(0, 0, 0.01);
     cameraRef.current = camera;
 
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || /Mobi|Android|iPhone/i.test(navigator.userAgent));
+    const effectivePixelRatio = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 2);
+
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
     renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(effectivePixelRatio);
     rendererRef.current = renderer;
 
-    // Ambient Starfield Particles (1,800 Circular Anti-Aliased Star Orbs)
-    const pCount = 1800;
+    // Ambient Starfield Particles (450 Mobile / 1,800 Desktop Circular Anti-Aliased Star Orbs)
+    const pCount = isMobile ? 450 : 1800;
     const pPos = new Float32Array(pCount * 3);
     const pColor = new Float32Array(pCount * 3);
     const pSize = new Float32Array(pCount);
@@ -903,12 +923,12 @@ function SphereGallery({
     pGeo.setAttribute('aColor', new THREE.BufferAttribute(pColor, 3));
     pGeo.setAttribute('aSize', new THREE.BufferAttribute(pSize, 1));
     pGeo.setAttribute('aAlpha', new THREE.BufferAttribute(pAlpha, 1));
-    const pMat = createCircularParticleMaterial({ sizeMultiplier: 1.0 });
+    const pMat = createCircularParticleMaterial({ sizeMultiplier: 1.0, pixelRatio: effectivePixelRatio });
     const ambientParticles = new THREE.Points(pGeo, pMat);
     scene.add(ambientParticles);
 
-    // Big Bang Explosion Cosmic Embers (2,600 Particles in 4 Physical Tiers)
-    const expCount = 2600;
+    // Big Bang Explosion Cosmic Embers (600 Mobile / 2,600 Desktop in 4 Physical Tiers)
+    const expCount = isMobile ? 600 : 2600;
     const expPos = new Float32Array(expCount * 3);
     const expColor = new Float32Array(expCount * 3);
     const expSize = new Float32Array(expCount);
@@ -921,13 +941,17 @@ function SphereGallery({
     const expMinAlpha = new Float32Array(expCount);
     const expSwirl = new Float32Array(expCount);
 
+    const tier1Limit = Math.round(expCount * 0.17);
+    const tier2Limit = Math.round(expCount * 0.65);
+    const tier3Limit = Math.round(expCount * 0.90);
+
     for (let i = 0; i < expCount; i++) {
       const idx3 = i * 3;
       expPos[idx3]     = 0;
       expPos[idx3 + 1] = 0;
       expPos[idx3 + 2] = 0;
 
-      if (i < 450) {
+      if (i < tier1Limit) {
         // TIER 1: Needle Sparks (Hyper-Velocity White-Gold Piercing Rays)
         const u = Math.random();
         const v = Math.random();
@@ -944,14 +968,14 @@ function SphereGallery({
         expColor[idx3 + 1] = 0.98;
         expColor[idx3 + 2] = 0.88;
 
-        expSize[idx3]     = Math.random() * 0.2 + 0.12;
-        expAlpha[idx3]    = 1.0;
-        expDrag[idx3]     = 0.942;
-        expDecay[idx3]    = 0.965;
-        expMinAlpha[idx3] = 0.0;
-        expSwirl[idx3]    = 0.0;
+        expSize[i]     = Math.random() * 0.2 + 0.12;
+        expAlpha[i]    = 1.0;
+        expDrag[i]     = 0.942;
+        expDecay[i]    = 0.965;
+        expMinAlpha[i] = 0.0;
+        expSwirl[i]    = 0.0;
 
-      } else if (i < 1700) {
+      } else if (i < tier2Limit) {
         // TIER 2: Stellar Embers & Molten Fire (Dense 3D Swirl Cluster)
         const u = Math.random();
         const v = Math.random();
@@ -979,14 +1003,14 @@ function SphereGallery({
           expColor[idx3 + 2] = 0.0;   // #ff4800 Incandescent Flare
         }
 
-        expSize[idx3]     = Math.random() * 0.45 + 0.25;
-        expAlpha[idx3]    = 0.98;
-        expDrag[idx3]     = 0.956;
-        expDecay[idx3]    = 0.984;
-        expMinAlpha[idx3] = 0.0;
-        expSwirl[idx3]    = (Math.random() - 0.5) * 0.024;
+        expSize[i]     = Math.random() * 0.45 + 0.25;
+        expAlpha[i]    = 0.98;
+        expDrag[i]     = 0.956;
+        expDecay[i]    = 0.984;
+        expMinAlpha[i] = 0.0;
+        expSwirl[i]    = (Math.random() - 0.5) * 0.024;
 
-      } else if (i < 2350) {
+      } else if (i < tier3Limit) {
         // TIER 3: Persistent Cosmic Stardust (Lingers Around 3D Cards)
         const u = Math.random();
         const v = Math.random();
@@ -1003,12 +1027,12 @@ function SphereGallery({
         expColor[idx3 + 1] = 0.88;
         expColor[idx3 + 2] = 0.36;
 
-        expSize[idx3]     = Math.random() * 0.22 + 0.12;
-        expAlpha[idx3]    = 0.92;
-        expDrag[idx3]     = 0.968;
-        expDecay[idx3]    = 0.992;
-        expMinAlpha[idx3] = Math.random() * 0.32 + 0.14; // Persistent glow!
-        expSwirl[idx3]    = (Math.random() - 0.5) * 0.008;
+        expSize[i]     = Math.random() * 0.22 + 0.12;
+        expAlpha[i]    = 0.92;
+        expDrag[i]     = 0.968;
+        expDecay[i]    = 0.992;
+        expMinAlpha[i] = Math.random() * 0.32 + 0.14; // Persistent glow!
+        expSwirl[i]    = (Math.random() - 0.5) * 0.008;
 
       } else {
         // TIER 4: Equatorial Shockwave Halo (Coherent Planar Expansion)
@@ -1024,12 +1048,12 @@ function SphereGallery({
         expColor[idx3 + 1] = 0.96;
         expColor[idx3 + 2] = 0.70;
 
-        expSize[idx3]     = Math.random() * 0.32 + 0.22;
-        expAlpha[idx3]    = 0.95;
-        expDrag[idx3]     = 0.945;
-        expDecay[idx3]    = 0.978;
-        expMinAlpha[idx3] = 0.0;
-        expSwirl[idx3]    = 0.016;
+        expSize[i]     = Math.random() * 0.32 + 0.22;
+        expAlpha[i]    = 0.95;
+        expDrag[i]     = 0.945;
+        expDecay[i]    = 0.978;
+        expMinAlpha[i] = 0.0;
+        expSwirl[i]    = 0.016;
       }
     }
 
@@ -1038,7 +1062,7 @@ function SphereGallery({
     expGeo.setAttribute('aColor', new THREE.BufferAttribute(expColor, 3));
     expGeo.setAttribute('aSize', new THREE.BufferAttribute(expSize, 1));
     expGeo.setAttribute('aAlpha', new THREE.BufferAttribute(expAlpha, 1));
-    const expMat = createCircularParticleMaterial({ sizeMultiplier: 1.15 });
+    const expMat = createCircularParticleMaterial({ sizeMultiplier: 1.15, pixelRatio: effectivePixelRatio });
     const expParticles = new THREE.Points(expGeo, expMat);
     scene.add(expParticles);
 
@@ -1411,6 +1435,7 @@ function HUD({
   onToggleSound,
   filteredCount,
   onList,
+  onInstitutional,
   onReplayIntro
 }) {
   return (
@@ -1459,6 +1484,21 @@ function HUD({
             <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>
           <span>Intro</span>
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.95 }}
+          className="btn-ghost"
+          onClick={onInstitutional}
+          title="Conheça a Agência, Serviços e Hub Saúde"
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          Sobre & Serviços
         </motion.button>
 
         <motion.button
@@ -1644,8 +1684,33 @@ function ProjectPage({ project, allProjects, onClose, onNavigate }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Tags */}
-        <div className="pp-tags-row">
+        {/* Tags + Conceptual / Verified Case Badge */}
+        <div className="pp-tags-row" style={{ alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          {project.isConceptual ? (
+            <span
+              className="pp-tag"
+              style={{
+                background: 'rgba(247, 212, 6, 0.08)',
+                border: '1px dashed rgba(247, 212, 6, 0.45)',
+                color: 'var(--gold)',
+                fontWeight: 700
+              }}
+            >
+              Estudo Conceitual & Benchmark
+            </span>
+          ) : (
+            <span
+              className="pp-tag"
+              style={{
+                background: 'rgba(37, 211, 102, 0.12)',
+                border: '1px solid rgba(37, 211, 102, 0.4)',
+                color: '#25d366',
+                fontWeight: 700
+              }}
+            >
+              ✓ Case Real Homologado
+            </span>
+          )}
           {project.tags.map(t => (
             <span key={t} className="pp-tag" style={{ '--accent': project.accent }}>{t}</span>
           ))}
@@ -1666,9 +1731,16 @@ function ProjectPage({ project, allProjects, onClose, onNavigate }) {
         {/* Divider */}
         <div className="pp-divider" style={{ '--accent': project.accent }} />
 
-        {/* Metrics */}
+        {/* Metrics with CDC Art. 37 Legal Disclosure */}
         <section className="pp-section">
-          <span className="pp-section-label">Resultados</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: 8, marginBottom: 12 }}>
+            <span className="pp-section-label" style={{ marginBottom: 0 }}>Resultados</span>
+            <span style={{ fontSize: '11px', color: project.isConceptual ? '#888' : '#25d366', fontStyle: 'italic' }}>
+              {project.isConceptual
+                ? '* Indicadores projetados em ambiente de benchmark/estudo conceitual de mercado.'
+                : '* Métricas aferidas em produção clínica e homologadas pelo cliente.'}
+            </span>
+          </div>
           <div className="pp-metrics">
             {project.results.map((r, i) => (
               <motion.div
@@ -1730,23 +1802,53 @@ function ProjectPage({ project, allProjects, onClose, onNavigate }) {
           ) : <div />}
         </div>
 
-        {/* CTA final */}
+        {/* CTA final + WhatsApp Direct & Share */}
         <div className="pp-cta-section">
           <p className="pp-cta-text">Quer um projeto assim para a sua marca?</p>
-          <motion.a
-            whileHover={{ scale: 1.03, y: -2 }}
-            whileTap={{ scale: 0.97 }}
-            href="https://cliente.comunicacaosocialag.com.br"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="pp-cta-btn"
-            style={{ '--accent': project.accent }}
-          >
-            Fale com a gente
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </motion.a>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', marginTop: 14 }}>
+            <motion.a
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              href="https://cliente.comunicacaosocialag.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pp-cta-btn"
+              style={{ '--accent': project.accent }}
+            >
+              Fale com a gente
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`Veja esse case da Comunicação Social Ag: "${project.title}" - ${typeof window !== 'undefined' ? window.location.origin : ''}/?case=${project.id}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-case-share"
+              title="Compartilhar case no WhatsApp"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              Compartilhar no WhatsApp
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              href={`https://wa.me/5535999999999?text=${encodeURIComponent(`Olá! Vi o case "${project.title}" no portfólio da CS Ag e gostaria de uma solução similar.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-case-share"
+              style={{ background: 'rgba(247,212,6,0.12)', borderColor: 'rgba(247,212,6,0.35)', color: 'var(--gold)' }}
+              title="Solicitar proposta similar no WhatsApp"
+            >
+              Solicitar Proposta para este Formato →
+            </motion.a>
+          </div>
         </div>
 
         <footer className="pp-footer">
@@ -1875,23 +1977,452 @@ function ListSidebar({
   );
 }
 
+// ─── INSTITUTIONAL MODAL (SOBRE, SERVIÇOS & HUB SAÚDE CFM/CFO) ────────────────
+function InstitutionalModal({ isOpen, onClose, soundEnabled, onSelectCase }) {
+  const [tab, setTab] = useState('agencia');
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="institutional-backdrop" onClick={onClose}>
+      <div className="institutional-modal" onClick={e => e.stopPropagation()}>
+        <motion.div
+          className="institutional-panel"
+          initial={{ opacity: 0, scale: 0.96, y: 16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.96, y: 16 }}
+          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Header */}
+          <div className="institutional-header">
+            <div className="institutional-brand">
+              <img src="/assets/brand/logo-sem-fundo.png" alt="CS Ag" className="institutional-brand-logo" />
+              <div>
+                <h3 className="institutional-brand-title">Comunicação Social Ag</h3>
+                <span style={{ fontSize: '11px', color: '#8e8e9c', fontFamily: 'var(--fb)' }}>Estratégia · Criatividade · Tecnologia</span>
+              </div>
+            </div>
+
+            <div className="institutional-nav-tabs">
+              <button
+                className={`institutional-tab-btn ${tab === 'agencia' ? 'active' : ''}`}
+                onClick={() => {
+                  playClickSound(soundEnabled);
+                  setTab('agencia');
+                }}
+              >
+                A Agência
+              </button>
+              <button
+                className={`institutional-tab-btn ${tab === 'servicos' ? 'active' : ''}`}
+                onClick={() => {
+                  playClickSound(soundEnabled);
+                  setTab('servicos');
+                }}
+              >
+                Serviços
+              </button>
+              <button
+                className={`institutional-tab-btn ${tab === 'saude' ? 'active' : ''}`}
+                onClick={() => {
+                  playClickSound(soundEnabled);
+                  setTab('saude');
+                }}
+              >
+                Hub Saúde CFM/CFO
+              </button>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              className="btn-icon"
+              onClick={onClose}
+              title="Fechar"
+            >
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M2 2l11 11M13 2L2 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </motion.button>
+          </div>
+
+          {/* Body Content */}
+          <div className="institutional-body">
+            {tab === 'agencia' && (
+              <motion.div
+                key="agencia"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                style={{ display: 'flex', flexDirection: 'column', gap: 24 }}
+              >
+                <div>
+                  <span style={{ fontSize: '11px', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: 'var(--fh)' }}>
+                    Manifesto & Posicionamento
+                  </span>
+                  <h2 style={{ fontFamily: 'var(--fh)', fontSize: '26px', color: '#fff', marginTop: 6, marginBottom: 14 }}>
+                    A estratégia antes da estética.
+                  </h2>
+                  <p style={{ color: '#b0b0c0', fontSize: '14px', lineHeight: 1.7, maxWidth: '780px' }}>
+                    Nascemos em Poços de Caldas (MG) com vocação global. Não acreditamos em comunicação vazia ou peças publicitárias sem retorno mensurável. Construímos um ecossistema onde inteligência de negócios, design editorial de alto padrão e tecnologia de ponta convivem para acelerar marcas de valor real.
+                  </p>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginTop: 8 }}>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 18 }}>
+                    <span style={{ fontFamily: 'var(--fh)', fontSize: '24px', fontWeight: 800, color: 'var(--gold)' }}>80+</span>
+                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>Clientes e marcas transformadas</p>
+                  </div>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 18 }}>
+                    <span style={{ fontFamily: 'var(--fh)', fontSize: '24px', fontWeight: 800, color: 'var(--gold)' }}>5 Anos</span>
+                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>De mercado e inovação contínua</p>
+                  </div>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 18 }}>
+                    <span style={{ fontFamily: 'var(--fh)', fontSize: '24px', fontWeight: 800, color: 'var(--gold)' }}>+400%</span>
+                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>De crescimento consistente</p>
+                  </div>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 18 }}>
+                    <span style={{ fontFamily: 'var(--fh)', fontSize: '24px', fontWeight: 800, color: 'var(--gold)' }}>100%</span>
+                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>Sob medida — zero templates genéricos</p>
+                  </div>
+                </div>
+
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 20 }}>
+                  <h4 style={{ fontFamily: 'var(--fh)', fontSize: '14px', color: '#fff', marginBottom: 8 }}>
+                    Poços de Caldas para o Brasil
+                  </h4>
+                  <p style={{ color: '#8e8e9c', fontSize: '13px', lineHeight: 1.6 }}>
+                    Sediados em Poços de Caldas, Minas Gerais, atendemos empresas, clínicas e corporações em todo o território nacional e internacional, desenvolvendo desde identidades de marca memoráveis até plataformas corporativas complexas.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
+            {tab === 'servicos' && (
+              <motion.div
+                key="servicos"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                className="service-card-grid"
+              >
+                <div className="service-card">
+                  <span className="service-card-badge">Pilar 01</span>
+                  <h4 className="service-card-title">Branding & Identidade</h4>
+                  <p className="service-card-desc">
+                    Arquitetura e reposicionamento de marca, design tokens, tipografia proprietária, diretrizes editoriais e papelaria de alto padrão.
+                  </p>
+                </div>
+
+                <div className="service-card">
+                  <span className="service-card-badge">Pilar 02</span>
+                  <h4 className="service-card-title">Experiências Web & 3D</h4>
+                  <p className="service-card-desc">
+                    Interfaces cinematográficas com Three.js, shaders customizados, micro-interações táteis e narrativas imersivas via scrollytelling.
+                  </p>
+                </div>
+
+                <div className="service-card">
+                  <span className="service-card-badge">Pilar 03</span>
+                  <h4 className="service-card-title">Sistemas & SaaS</h4>
+                  <p className="service-card-desc">
+                    Desenvolvimento de software sob medida, plataformas all-in-one para agências, ERPs clínicos e integrações de dados em tempo real.
+                  </p>
+                </div>
+
+                <div className="service-card">
+                  <span className="service-card-badge">Pilar 04</span>
+                  <h4 className="service-card-title">Performance & Tráfego</h4>
+                  <p className="service-card-desc">
+                    Mídia programática, gestão de tráfego de alta conversão, inteligência de dados (BI), dashboards em tempo real e redução de CAC.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
+            {tab === 'saude' && (
+              <motion.div
+                key="saude"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.25 }}
+                style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
+              >
+                <div className="health-compliance-callout">
+                  <div className="health-callout-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div className="health-callout-text">
+                    <h4>Publicidade em Saúde em Conformidade Ética CFM & CFO</h4>
+                    <p>
+                      Atuamos em estrita consonância com a Resolução CFM nº 2.336/2023 e o Código de Ética Odontológica (Resolução CFO nº 196/2019). Desenvolvemos comunicação médica de autoridade com caráter educativo, humanizado e livre de sensacionalismo ou autopromoção antiética.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 14, padding: 24 }}>
+                  <span style={{ fontSize: '11px', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: 'var(--fh)' }}>
+                    Cases em Destaque no Hub Saúde
+                  </span>
+                  <h3 style={{ fontFamily: 'var(--fh)', fontSize: '20px', color: '#fff', margin: '8px 0 10px 0' }}>
+                    Dra. Lívia Esper — Experiência Web & ERP Clínico
+                  </h3>
+                  <p style={{ color: '#a0a0b0', fontSize: '13px', lineHeight: 1.6, marginBottom: 18 }}>
+                    Desenvolvemos uma experiência digital afetuosa com animação 3D e pré-cadastro inteligente que eliminou o medo infantil de dentista e reduziu faltas em 50%, aliada a um software clínico proprietário com prontuário interativo.
+                  </p>
+                  <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                    <button
+                      onClick={() => {
+                        onClose();
+                        onSelectCase('livia-esper-site');
+                      }}
+                      className="btn-gold"
+                      style={{ fontSize: '11px', padding: '8px 16px' }}
+                    >
+                      Ver Case: Experiência Web →
+                    </button>
+                    <button
+                      onClick={() => {
+                        onClose();
+                        onSelectCase('livia-esper-sistema');
+                      }}
+                      className="btn-ghost"
+                      style={{ fontSize: '11px', padding: '8px 16px' }}
+                    >
+                      Ver Case: Sistema Clínico →
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="institutional-footer">
+            <span style={{ fontSize: '12px', color: '#8e8e9c' }}>
+              Pronto para elevar o posicionamento da sua empresa?
+            </span>
+            <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+              <a
+                href="https://wa.me/5535999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20proposta%20comercial%20para%20a%20Comunica%C3%A7%C3%A3o%20Social%20Ag."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-case-share"
+                onClick={() => playClickSound(soundEnabled)}
+              >
+                Solicitar Proposta no WhatsApp
+              </a>
+              <a
+                href="https://cliente.comunicacaosocialag.com.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold"
+                style={{ fontSize: '11px', padding: '9px 18px' }}
+              >
+                Área do Cliente
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+// ─── FLOATING WHATSAPP BUTTON COMPONENT ───────────────────────────────────────
+function WhatsAppFloatButton({ soundEnabled }) {
+  const defaultMsg = encodeURIComponent("Olá! Conheci o site da Comunicação Social Ag e gostaria de conversar com um estrategista.");
+  return (
+    <a
+      href={`https://wa.me/5535999999999?text=${defaultMsg}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="whatsapp-float-btn"
+      title="Falar no WhatsApp com a Comunicação Social Ag"
+      onClick={() => playClickSound(soundEnabled)}
+    >
+      <div className="whatsapp-icon-wrap">
+        <div className="whatsapp-pulse-ring" />
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+      </div>
+      <div className="whatsapp-text-wrap">
+        <span className="whatsapp-status-label">Online Agora</span>
+        <span className="whatsapp-main-label">Falar com Estrategista</span>
+      </div>
+    </a>
+  );
+}
+
+// ─── ERROR BOUNDARY (WEBGL & RUNTIME RESILIENCE) ──────────────────────────────
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: '#070708',
+          color: '#fff',
+          padding: 32,
+          textAlign: 'center',
+          fontFamily: 'var(--fb)'
+        }}>
+          <img src="/assets/brand/logo-sem-fundo.png" alt="CS Ag" style={{ width: 48, marginBottom: 20 }} />
+          <h2 style={{ fontFamily: 'var(--fh)', color: 'var(--gold)', marginBottom: 12, fontSize: '22px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Experiência 3D Indisponível
+          </h2>
+          <p style={{ color: '#aaa', maxWidth: 480, marginBottom: 28, fontSize: '14px', lineHeight: 1.6 }}>
+            O seu navegador ou dispositivo encontrou uma limitação gráfica. Você pode recarregar a página ou navegar pelos nossos canais institucionais diretos.
+          </p>
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <button
+              onClick={() => window.location.reload()}
+              style={{
+                background: 'var(--gold)',
+                color: '#000',
+                border: 'none',
+                padding: '12px 24px',
+                borderRadius: 8,
+                fontWeight: 700,
+                fontFamily: 'var(--fh)',
+                cursor: 'pointer'
+              }}
+            >
+              Recarregar Experiência
+            </button>
+            <a
+              href="https://cliente.comunicacaosocialag.com.br"
+              style={{
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                color: '#fff',
+                padding: '12px 24px',
+                borderRadius: 8,
+                fontWeight: 600,
+                textDecoration: 'none',
+                fontFamily: 'var(--fh)'
+              }}
+            >
+              Área do Cliente
+            </a>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 // ─── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
-  const [stage,          setStage]          = useState('matchcut'); // 'matchcut' | 'intro' | 'gallery'
+  const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [stage,          setStage]          = useState(prefersReducedMotion ? 'gallery' : 'matchcut'); // 'matchcut' | 'intro' | 'gallery'
   const [genesisCount,   setGenesisCount]   = useState(0);
 
   useEffect(() => {
     window.__stage = stage;
     window.__setStage = setStage;
   }, [stage]);
-  const [activeProj,     setActiveProj]     = useState(null);
-  const [hovered,        setHovered]        = useState(null);
-  const [showList,       setShowList]       = useState(false);
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [soundEnabled,   setSoundEnabled]   = useState(true);
-  const [cursorState,    setCursorState]    = useState({ text: '', isHovered: false, isDragging: false });
+
+  const [activeProj,        setActiveProj]        = useState(null);
+  const [hovered,           setHovered]           = useState(null);
+  const [showList,          setShowList]          = useState(false);
+  const [showInstitutional, setShowInstitutional] = useState(false);
+  const [activeCategory,    setActiveCategory]    = useState('all');
+  const [soundEnabled,      setSoundEnabled]      = useState(true);
+  const [cursorState,       setCursorState]       = useState({ text: '', isHovered: false, isDragging: false });
   const overlayRef = useRef(null);
   const flashRef   = useRef(null);
+
+  // Sync URL query params with active project for deep linking
+  const updateUrlForProject = useCallback((proj) => {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location);
+    if (proj) {
+      url.searchParams.set('case', proj.id);
+    } else {
+      url.searchParams.delete('case');
+    }
+    window.history.pushState({}, '', url);
+  }, []);
+
+  // Check URL on initial mount and support browser popstate (back/forward)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const caseId = params.get('case');
+    if (caseId) {
+      const found = PROJECTS.find(p => p.id === caseId);
+      if (found) {
+        setActiveProj(found);
+        setStage('gallery');
+      }
+    }
+
+    const handlePopState = () => {
+      const p = new URLSearchParams(window.location.search);
+      const cId = p.get('case');
+      if (cId) {
+        const match = PROJECTS.find(item => item.id === cId);
+        if (match) setActiveProj(match);
+      } else {
+        setActiveProj(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Keyboard navigation & accessibility (Escape, ArrowLeft, ArrowRight)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        if (showInstitutional) {
+          playClickSound(soundEnabled);
+          setShowInstitutional(false);
+        } else if (showList) {
+          playClickSound(soundEnabled);
+          setShowList(false);
+        } else if (activeProj) {
+          playClickSound(soundEnabled);
+          updateUrlForProject(null);
+          setActiveProj(null);
+        }
+      } else if (activeProj && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+        const cIdx = PROJECTS.findIndex(p => p.id === activeProj.id);
+        if (e.key === 'ArrowLeft' && cIdx > 0) {
+          const prev = PROJECTS[cIdx - 1];
+          playClickSound(soundEnabled);
+          updateUrlForProject(prev);
+          setActiveProj(prev);
+        } else if (e.key === 'ArrowRight' && cIdx < PROJECTS.length - 1) {
+          const next = PROJECTS[cIdx + 1];
+          playClickSound(soundEnabled);
+          updateUrlForProject(next);
+          setActiveProj(next);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showInstitutional, showList, activeProj, soundEnabled, updateUrlForProject]);
 
   const handleCursorChange = useCallback((newState) => {
     setCursorState(prev => ({ ...prev, ...newState }));
@@ -1962,134 +2493,166 @@ export default function App() {
 
   const handleHover = useCallback(proj => setHovered(proj), []);
 
-  // Click on sphere card → flash black → open project page
+  // Click on sphere card → flash black → open project page + sync URL
   const handleClick = useCallback((proj) => {
     playClickSound(soundEnabled);
     const overlay = overlayRef.current;
     gsap.to(overlay, {
       opacity: 1, duration: 0.35, ease: 'power2.in',
       onComplete: () => {
+        updateUrlForProject(proj);
         setActiveProj(proj);
         gsap.to(overlay, { opacity: 0, duration: 0.4, ease: 'power2.out', delay: 0.1 });
       },
     });
-  }, [soundEnabled]);
+  }, [soundEnabled, updateUrlForProject]);
 
-  // Close project page → smooth Motion exit back to sphere
+  // Close project page → smooth Motion exit back to sphere + clear URL
   const handleClose = useCallback(() => {
     playClickSound(soundEnabled);
+    updateUrlForProject(null);
     setActiveProj(null);
-  }, [soundEnabled]);
+  }, [soundEnabled, updateUrlForProject]);
 
-  // Navigate between project pages
+  // Navigate between project pages + sync URL
   const handleNavigate = useCallback((proj) => {
     playClickSound(soundEnabled);
+    updateUrlForProject(proj);
     setActiveProj(proj);
-  }, [soundEnabled]);
+  }, [soundEnabled, updateUrlForProject]);
 
   const filteredCount = activeCategory === 'all'
     ? PROJECTS.length
     : PROJECTS.filter(p => projectMatchesCategory(p, activeCategory)).length;
 
   return (
-    <div className="root">
-      {/* Custom Liquid Magnetic Cursor */}
-      <MagneticCursor
-        text={cursorState.text}
-        isHovered={cursorState.isHovered}
-        isDragging={cursorState.isDragging}
-      />
-
-      {/* Big Bang Flash Overlay */}
-      <div ref={flashRef} className="bigbang-flash" />
-
-      {/* Black flash overlay for transitions */}
-      <div ref={overlayRef} className="transition-overlay" />
-
-      {/* Match-Cut Rhythmic Kinetic Intro (Phantom.land Level) */}
-      {stage === 'matchcut' && (
-        <MatchCutIntro
-          onComplete={handleMatchCutComplete}
-          soundEnabled={soundEnabled}
-          onToggleSound={handleToggleSound}
+    <ErrorBoundary>
+      <div className="root">
+        {/* Custom Liquid Magnetic Cursor */}
+        <MagneticCursor
+          text={cursorState.text}
+          isHovered={cursorState.isHovered}
+          isDragging={cursorState.isDragging}
         />
-      )}
 
-      {/* Kinetic Preloader Experience (Fallback) */}
-      {stage === 'preloader' && (
-        <KineticPreloader
-          onComplete={handlePreloaderComplete}
-          soundEnabled={soundEnabled}
-          playTransitionSound={playTransitionSound}
-        />
-      )}
+        {/* Big Bang Flash Overlay */}
+        <div ref={flashRef} className="bigbang-flash" />
 
-      {/* Intro Video Experience */}
-      {stage === 'intro' && (
-        <IntroVideo onComplete={handleIntroComplete} />
-      )}
+        {/* Black flash overlay for transitions */}
+        <div ref={overlayRef} className="transition-overlay" />
 
-      {/* Sphere + HUD (visible when gallery is active) */}
-      <div style={{
-        visibility: stage === 'gallery' && !activeProj ? 'visible' : 'hidden',
-        pointerEvents: stage === 'gallery' && !activeProj ? 'auto' : 'none'
-      }}>
-        {stage === 'gallery' && (
-          <SphereGallery
-            genesisTrigger={genesisCount}
-            activeCategory={activeCategory}
+        {/* Floating WhatsApp CTA Button */}
+        <WhatsAppFloatButton soundEnabled={soundEnabled} />
+
+        {/* Match-Cut Rhythmic Kinetic Intro (Phantom.land Level) */}
+        {stage === 'matchcut' && (
+          <MatchCutIntro
+            onComplete={handleMatchCutComplete}
             soundEnabled={soundEnabled}
-            onHover={handleHover}
-            onClick={handleClick}
-            onCursorChange={handleCursorChange}
+            onToggleSound={handleToggleSound}
           />
         )}
-        <HUD
-          hovered={hovered}
-          activeCategory={activeCategory}
-          onSelectCategory={setActiveCategory}
-          soundEnabled={soundEnabled}
-          onToggleSound={handleToggleSound}
-          filteredCount={filteredCount}
-          onList={() => {
-            playClickSound(soundEnabled);
-            setShowList(true);
-          }}
-          onReplayIntro={handleReplayIntro}
-        />
-      </div>
 
-      {/* Project page (Case Study) with AnimatePresence */}
-      <AnimatePresence mode="wait">
-        {activeProj && (
-          <ProjectPage
-            key={activeProj.id}
-            project={activeProj}
-            allProjects={PROJECTS}
-            onClose={handleClose}
-            onNavigate={handleNavigate}
+        {/* Kinetic Preloader Experience (Fallback) */}
+        {stage === 'preloader' && (
+          <KineticPreloader
+            onComplete={handlePreloaderComplete}
+            soundEnabled={soundEnabled}
+            playTransitionSound={playTransitionSound}
           />
         )}
-      </AnimatePresence>
 
-      {/* Sidebar Drawer with AnimatePresence */}
-      <AnimatePresence>
-        {showList && (
-          <ListSidebar
+        {/* Intro Video Experience */}
+        {stage === 'intro' && (
+          <IntroVideo onComplete={handleIntroComplete} />
+        )}
+
+        {/* Sphere + HUD (visible when gallery is active) */}
+        <div style={{
+          visibility: stage === 'gallery' && !activeProj ? 'visible' : 'hidden',
+          pointerEvents: stage === 'gallery' && !activeProj ? 'auto' : 'none'
+        }}>
+          {stage === 'gallery' && (
+            <SphereGallery
+              genesisTrigger={genesisCount}
+              activeCategory={activeCategory}
+              soundEnabled={soundEnabled}
+              onHover={handleHover}
+              onClick={handleClick}
+              onCursorChange={handleCursorChange}
+            />
+          )}
+          <HUD
+            hovered={hovered}
             activeCategory={activeCategory}
             onSelectCategory={setActiveCategory}
             soundEnabled={soundEnabled}
-            onClose={() => {
+            onToggleSound={handleToggleSound}
+            filteredCount={filteredCount}
+            onList={() => {
               playClickSound(soundEnabled);
-              setShowList(false);
+              setShowList(true);
             }}
-            onSelect={(p) => {
-              setShowList(false);
-              handleClick(p);
+            onInstitutional={() => {
+              playClickSound(soundEnabled);
+              setShowInstitutional(true);
             }}
+            onReplayIntro={handleReplayIntro}
           />
-        )}
-      </AnimatePresence>
-    </div>
+        </div>
+
+        {/* Project page (Case Study) with AnimatePresence */}
+        <AnimatePresence mode="wait">
+          {activeProj && (
+            <ProjectPage
+              key={activeProj.id}
+              project={activeProj}
+              allProjects={PROJECTS}
+              onClose={handleClose}
+              onNavigate={handleNavigate}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Sidebar Drawer with AnimatePresence */}
+        <AnimatePresence>
+          {showList && (
+            <ListSidebar
+              activeCategory={activeCategory}
+              onSelectCategory={setActiveCategory}
+              soundEnabled={soundEnabled}
+              onClose={() => {
+                playClickSound(soundEnabled);
+                setShowList(false);
+              }}
+              onSelect={(p) => {
+                setShowList(false);
+                handleClick(p);
+              }}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Institutional Drawer (Sobre, Serviços & Hub Saúde) with AnimatePresence */}
+        <AnimatePresence>
+          {showInstitutional && (
+            <InstitutionalModal
+              isOpen={showInstitutional}
+              onClose={() => {
+                playClickSound(soundEnabled);
+                setShowInstitutional(false);
+              }}
+              soundEnabled={soundEnabled}
+              onSelectCase={(caseId) => {
+                const found = PROJECTS.find(p => p.id === caseId);
+                if (found) {
+                  handleClick(found);
+                }
+              }}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </ErrorBoundary>
   );
 }

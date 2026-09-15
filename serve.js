@@ -27,89 +27,34 @@ const MIME_TYPES = {
   '.otf': 'font/otf',
 };
 
-function getHtml() {
-  return `<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/assets/brand/logo-sem-fundo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="comunicação social ag • somos a amplificação da sua voz. agência estratégica e criativa de publicidade em poços de caldas." />
-    <meta name="author" content="Comunicação Social Ag" />
-    <title>Comunicação Social Ag | Agência de Publicidade Estratégica</title>
-    
-    <style>
-      @font-face {
-        font-family: 'Myriad Variable Concept';
-        src: url('/fonts/MyriadPro-BoldIt.otf') format('opentype');
-        font-weight: 700;
-        font-style: italic;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Myriad Variable Concept';
-        src: url('/fonts/MyriadPro-Bold.otf') format('opentype');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/bundle.css?v=${Date.now()}" />
-  </head>
-  <body class="bg-black text-white selection:bg-yellow-500 selection:text-black font-sans overflow-x-hidden">
-    <div id="root"></div>
-    <script src="/bundle.js?v=${Date.now()}"></script>
-  </body>
-</html>`;
-}
-
 const server = http.createServer((req, res) => {
   let reqPath = decodeURIComponent(req.url.split('?')[0]);
-  
-  if (reqPath === '/' || reqPath === '/index.html') {
-    res.writeHead(200, { 
-      'Content-Type': 'text/html; charset=UTF-8',
-      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
-    });
-    return res.end(getHtml());
+
+  // First try dist folder
+  let filePath = path.join(__dirname, 'dist', reqPath === '/' ? 'index.html' : reqPath);
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    filePath = path.join(__dirname, 'public', reqPath);
+  }
+  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+    filePath = path.join(__dirname, 'dist', 'index.html');
   }
 
-  let filePath = path.join(__dirname, 'public', reqPath);
-  if (!fs.existsSync(filePath)) {
-    filePath = path.join(__dirname, reqPath);
-  }
-
-  fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      res.writeHead(200, { 
-        'Content-Type': 'text/html; charset=UTF-8',
-        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
-      });
-      return res.end(getHtml());
-    }
-
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-
-    fs.readFile(filePath, (err, data) => {
-      if (err) {
-        res.writeHead(500, { 'Content-Type': 'text/plain' });
-        res.end('500 Internal Server Error');
-      } else {
-        res.writeHead(200, { 
-          'Content-Type': contentType,
-          'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-          'Access-Control-Allow-Origin': '*'
-        });
-        res.end(data);
-      }
+    res.writeHead(200, {
+      'Content-Type': contentType,
+      'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+      'Access-Control-Allow-Origin': '*'
     });
-  });
+    fs.createReadStream(filePath).pipe(res);
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found');
+  }
 });
 
 server.listen(PORT, () => {
-  console.log(`\n  🚀 Dev Server Ativo do Site Oficial Comunicação Social Ag (Bundled com Esbuild + No Cache)!`);
+  console.log(`\n  🚀 Servidor Ativo do Site Oficial Comunicação Social Ag!`);
   console.log(`  ➜  Local: http://localhost:${PORT}/\n`);
 });
