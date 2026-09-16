@@ -32,7 +32,13 @@ const server = http.createServer((req, res) => {
 
   // First try dist folder
   let filePath = path.join(__dirname, 'dist', reqPath === '/' ? 'index.html' : reqPath);
-  if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    const indexPath = path.join(filePath, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      filePath = indexPath;
+    }
+  }
+  if (!fs.existsSync(filePath)) {
     filePath = path.join(__dirname, 'public', reqPath);
   }
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
