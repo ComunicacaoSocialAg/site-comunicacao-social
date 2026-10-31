@@ -446,20 +446,31 @@ export default function VerdaoShowcasePage({ onClose, onContact }) {
         .fromTo(
           '.vrd-social-piece',
           {
-            yPercent: (i) => (i % 2 === 0 ? 18 : -16),
-            scale: 0.88,
-            rotateZ: (i) => (i % 2 === 0 ? -3 : 3),
+            yPercent: (i) => (i % 2 === 0 ? 16 : -14),
+            scale: 0.9,
+            rotateZ: (i) => [-2, 2, -1.5, 1.5, -2, 2, 1, -1, 2, -2, 1.5, -1.5][i % 12],
           },
           {
-            yPercent: (i) => (i % 2 === 0 ? -4 : 4),
+            yPercent: (i) => (i % 2 === 0 ? -3 : 3),
             scale: 1,
             rotateZ: 0,
-            stagger: 0.03,
+            stagger: 0.02,
             duration: 1.15,
             ease: 'power2.out',
           },
           6.36
-        )
+        );
+
+      if (compact) {
+        edit.fromTo(
+          '.vrd-presence-space',
+          { xPercent: 2 },
+          { xPercent: -58, duration: 1.25, ease: 'none' },
+          6.36
+        );
+      }
+
+      edit
         .to('.vrd-word-presence', { xPercent: -15, duration: 1.2, ease: 'none' }, 6.32)
         .set(scenes[4], { autoAlpha: 0 }, 6.92);
     }, root);

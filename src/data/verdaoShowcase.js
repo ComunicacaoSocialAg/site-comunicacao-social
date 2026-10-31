@@ -112,7 +112,16 @@ export const VERDAO_SHOWCASE = {
     },
   ],
   social: [
-    { className: 'champlifestyle', src: social('le-champ-espaco.webp'), alt: 'Peça Le Champ Village: Espaço para estar junto, liberdade para ser seu.' },
+    {
+      className: 'tijolo',
+      src: social('dia-trabalhador.webp'),
+      alt: 'Peça conceitual da Imobiliária Verdão: Ao primeiro tijolo. A primeira peça, o primeiro movimento, o esforço inicial.',
+    },
+    {
+      className: 'meioambiente',
+      src: social('meio-ambiente.webp'),
+      alt: 'Peça institucional da Imobiliária Verdão: Somos verdes desde 1976. Símbolo V esculpido em musgo para o Dia Mundial do Meio Ambiente.',
+    },
     {
       className: 'decisao',
       src: social('decisao-endereco.webp'),
@@ -123,7 +132,16 @@ export const VERDAO_SHOWCASE = {
       src: social('predios-boutique.webp'),
       alt: 'Conteúdo editorial da Imobiliária Verdão sobre prédios boutique no mercado de alto padrão.',
     },
-    { className: 'champquintal', src: social('le-champ-pausa.webp'), alt: 'Peça Le Champ Village: A pausa faz parte do seu endereço.' },
+    {
+      className: 'natal',
+      src: social('natal-verdao.webp'),
+      alt: 'Peça institucional de fim de ano da Imobiliária Verdão: Abra as portas para o seu melhor momento com chaveiro esmaltado Verdão.',
+    },
+    {
+      className: 'pais',
+      src: social('dia-pais.webp'),
+      alt: 'Peça afetiva da Imobiliária Verdão: Entre tijolos de imaginação e paredes de afeto, os pais constroem os lares mais importantes.',
+    },
     {
       className: 'villagio',
       src: social('gran-villagio.webp'),
@@ -132,17 +150,27 @@ export const VERDAO_SHOWCASE = {
     {
       className: 'casaverde',
       src: social('casa-verde-lar.webp'),
-      alt: 'Abertura de carrossel da Imobiliária Verdão: Você escolheu essa casa para ser seu lar.',
+      alt: 'Abertura conceitual da Imobiliária Verdão: Você escolheu essa casa para ser seu lar. Quer investir em soluções verdes?',
     },
     {
       className: 'altopadrao',
       src: social('alto-padrao.webp'),
-      alt: 'Análise editorial da Imobiliária Verdão sobre o mercado imobiliário de alto padrão.',
+      alt: 'Análise editorial da Imobiliária Verdão sobre o mercado imobiliário de alto padrão no Brasil.',
     },
     {
       className: 'pascoa',
       src: social('pascoa-recomecar.webp'),
-      alt: 'Peça sazonal da Imobiliária Verdão: É sobre recomeçar, sobre novas histórias.',
+      alt: 'Peça sazonal e editorial da Imobiliária Verdão: É sobre recomeçar, sobre novas histórias.',
+    },
+    {
+      className: 'areasverdes',
+      src: social('areas-verdes.webp'),
+      alt: 'Peça de mercado da Imobiliária Verdão: Mais verde, mais valor. Valorização em áreas arborizadas.',
+    },
+    {
+      className: 'tecnologia',
+      src: social('site-tecnologia.webp'),
+      alt: 'Apresentação do ecossistema digital da Imobiliária Verdão: Casa conectada e novo portal imobiliário.',
     },
   ],
 };

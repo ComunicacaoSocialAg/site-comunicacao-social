@@ -1,8 +1,17 @@
 // ─── DATA: PROJETOS DA COMUNICAÇÃO SOCIAL AG ─────────────────────────────────
 
 import { DUBOLA_CASE, VERDAO_CASE } from './clientCases.js';
+import { ALBERTO_CASE } from './albertoShowcase.js';
 
 export const PROJECTS = [
+  {
+    id: 'alberto-brasil', title: 'Dr. Alberto Brasil', client: 'Dr. Alberto Brasil', year: '',
+    category: ALBERTO_CASE.category, categories: ['estrategia', 'campanhas', 'tech'],
+    tags: ['presença digital', 'conteúdo', 'web design'], role: 'Comunicação em saúde',
+    accent: ALBERTO_CASE.accent, isConceptual: false, image: ALBERTO_CASE.image,
+    description: ALBERTO_CASE.description, challenge: ALBERTO_CASE.challenge,
+    thought: ALBERTO_CASE.thinking, details: ALBERTO_CASE.closing, results: [], caseStudy: ALBERTO_CASE,
+  },
   {
     id: 'dubola', title: 'Dubola', client: 'Dubola', year: '',
     category: DUBOLA_CASE.category, categories: ['branding', 'estrategia', 'campanhas', 'tech'],
