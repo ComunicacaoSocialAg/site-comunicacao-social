@@ -174,43 +174,43 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
 
       // Scene 1: Apron
       edit.set(scenes[1], { autoAlpha: 1 }, 1.12)
-        .fromTo(scenes[1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 1.12)
-        .fromTo('.dbx-apron img', { scale: 1.15, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none' }, 1.12)
+        .fromTo(scenes[1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 1.12)
+        .fromTo('.dbx-apron img', { scale: 1.15, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none', immediateRender: false }, 1.12)
         .set(scenes[0], { autoAlpha: 0 }, 1.7);
 
       // Scene 2: Bag
       edit.set(scenes[2], { autoAlpha: 1 }, 2.26)
-        .fromTo(scenes[2], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut' }, 2.26)
+        .fromTo(scenes[2], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 2.26)
         .to(scenes[1], { xPercent: -24, duration: 0.6, ease: 'power3.inOut' }, 2.26)
-        .fromTo('.dbx-bag img', { scale: 1.14, xPercent: 2 }, { scale: 1.04, xPercent: -1, duration: 1.1, ease: 'none' }, 2.26)
+        .fromTo('.dbx-bag img', { scale: 1.14, xPercent: 2 }, { scale: 1.04, xPercent: -1, duration: 1.1, ease: 'none', immediateRender: false }, 2.26)
         .set(scenes[1], { autoAlpha: 0 }, 2.87);
 
       // Scene 3: Towel
       edit.set(scenes[3], { autoAlpha: 1 }, 3.32)
-        .fromTo(scenes[3], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: 'power2.inOut' }, 3.32)
-        .fromTo('.dbx-towel img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none' }, 3.32)
+        .fromTo(scenes[3], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 3.32)
+        .fromTo('.dbx-towel img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 3.32)
         .set(scenes[2], { autoAlpha: 0 }, 3.85);
 
       // Scene 4: Flags
       edit.set(scenes[4], { autoAlpha: 1 }, 4.38)
-        .fromTo(scenes[4], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power3.inOut' }, 4.38)
-        .fromTo('.dbx-flags img', { yPercent: 10, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out' }, 4.38)
+        .fromTo(scenes[4], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 4.38)
+        .fromTo('.dbx-flags img', { yPercent: 10, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out', immediateRender: false }, 4.38)
         .set(scenes[3], { autoAlpha: 0 }, 5.02);
 
       // Scene 5: Digital
       edit.set(scenes[5], { autoAlpha: 1 }, 5.42)
-        .fromTo(scenes[5], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 5.42);
+        .fromTo(scenes[5], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 5.42);
 
       if (compact) {
         edit.fromTo('.dbx-landing-image',
           { scale: 0.9, rotation: -2, yPercent: 4 },
-          { scale: 1, rotation: 0, yPercent: 0, duration: 1.2, ease: 'power2.out' },
+          { scale: 1, rotation: 0, yPercent: 0, duration: 1.2, ease: 'power2.out', immediateRender: false },
           5.42
         );
       } else {
         edit.fromTo('.dbx-landing-image',
           { scale: 0.72, rotation: -9, rotationY: -16, xPercent: 13, yPercent: 10 },
-          { scale: 1.08, rotation: 0, rotationY: 0, xPercent: 0, yPercent: 0, duration: 1.4, ease: 'power2.inOut' },
+          { scale: 1.08, rotation: 0, rotationY: 0, xPercent: 0, yPercent: 0, duration: 1.4, ease: 'power2.inOut', immediateRender: false },
           5.42
         );
       }
@@ -220,7 +220,7 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
 
       // Scene 6: Campaign Film
       edit.set(scenes[6], { autoAlpha: 1 }, 6.64)
-        .fromTo(scenes[6], { clipPath: 'inset(0% 0% 0% 100%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 6.64)
+        .fromTo(scenes[6], { clipPath: 'inset(0% 0% 0% 100%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 6.64)
         .set(scenes[5], { autoAlpha: 0 }, 7.2)
         .to('.dbx-campaign video', { scale: 1.04, duration: 0.8, ease: 'none' }, 7.2);
     }, root);

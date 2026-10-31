@@ -724,35 +724,35 @@
     filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
   }
 
+  .dbx-case .dbx-product-mustard {
+    left: 19%;
+    top: 51%;
+    height: 32svh;
+    max-width: 105px;
+    z-index: 2;
+  }
+
   .dbx-case .dbx-product-ketchup {
-    left: 37%;
+    left: 39%;
     top: 48%;
-    height: 38svh;
-    max-width: 135px;
+    height: 37svh;
+    max-width: 130px;
     z-index: 4;
   }
 
   .dbx-case .dbx-product-guava {
-    left: 63%;
-    top: 49%;
-    height: 38svh;
-    max-width: 135px;
+    left: 61%;
+    top: 48%;
+    height: 37svh;
+    max-width: 130px;
     z-index: 3;
   }
 
-  .dbx-case .dbx-product-mustard {
-    left: 14%;
-    top: 52%;
-    height: 33svh;
-    max-width: 110px;
-    z-index: 2;
-  }
-
   .dbx-case .dbx-product-mayo {
-    left: 85%;
-    top: 54%;
+    left: 81%;
+    top: 53%;
     height: 23svh;
-    max-width: 115px;
+    max-width: 110px;
     z-index: 2;
   }
 
