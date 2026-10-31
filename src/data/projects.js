@@ -3,8 +3,17 @@
 import { DUBOLA_CASE, VERDAO_CASE } from './clientCases.js';
 import { ALBERTO_CASE } from './albertoShowcase.js';
 import { PONTO_COR_CASE } from './pontoCorShowcase.js';
+import { LIVIA_ESPER_CASE } from './liviaEsperShowcase.js';
 
 export const PROJECTS = [
+  {
+    id: 'livia-esper', title: 'Dra. Lívia Esper', client: 'Dra. Lívia Esper', year: '',
+    category: LIVIA_ESPER_CASE.category, categories: ['branding', 'estrategia', 'campanhas', 'tech'],
+    tags: ['odontopediatria', 'presença digital', 'animação 3d', 'sistema clínico', 'saas'], role: 'Ecossistema digital em saúde infantil',
+    accent: LIVIA_ESPER_CASE.accent, isConceptual: false, image: LIVIA_ESPER_CASE.image,
+    description: LIVIA_ESPER_CASE.description, challenge: LIVIA_ESPER_CASE.challenge,
+    thought: LIVIA_ESPER_CASE.thinking, details: LIVIA_ESPER_CASE.closing, results: [], caseStudy: LIVIA_ESPER_CASE,
+  },
   {
     id: 'ponto-cor', title: 'Ponto Cor', client: 'Ponto Cor', year: '',
     category: PONTO_COR_CASE.category, categories: ['estrategia', 'campanhas'],
@@ -412,7 +421,8 @@ export const PROJECTS = [
     role: 'Branding Digital, UI/UX & Desenvolvimento',
     accent: '#f472b6',
     isConceptual: false,
-    image: '/assets/projects/livia-site.jpg',
+    image: '/assets/cases/livia-esper/site-desktop.webp',
+    caseStudy: LIVIA_ESPER_CASE,
     description: 'Experiência digital imersiva com animação 3D, scrollytelling lúdico e pré-cadastro inteligente que elimina o medo infantil de dentista.',
     challenge: 'A consulta odontopediátrica gera ansiedade nas crianças e nos pais. Sites convencionais de saúde são frios e burocráticos. O desafio era criar uma experiência acolhedora que transformasse a clínica no "Reino da Boca" e aumentasse a taxa de agendamentos.',
     thought: 'O medo do dentista começa antes da consulta: na sala de espera ou na tela do celular onde os pais pesquisam. Se a experiência digital for mágica e acolhedora, a criança chega à clínica querendo brincar, não chorar.',
@@ -438,7 +448,8 @@ export const PROJECTS = [
     role: 'Product Design & Full-Stack Development',
     accent: '#38bdf8',
     isConceptual: false,
-    image: '/assets/projects/livia-sistema.jpg',
+    image: '/assets/cases/livia-esper/sistema-desktop.webp',
+    caseStudy: LIVIA_ESPER_CASE,
     description: 'ERP clínico sob medida para odontopediatria: prontuário com odontograma decíduo interativo, IA comportamental e régua de WhatsApp.',
     challenge: 'Softwares médicos tradicionais são genéricos e pensados apenas para adultos. A clínica sofria com fichas de papel, alto índice de faltas e perda de tempo no preenchimento de evoluções e controle de dentes de leite.',
     thought: 'Odontopediatria possui particularidades clínicas que nenhum software de adulto atende: cronologia de erupção dos dentes decíduos, manejo de comportamento infantil e comunicação constante com os pais.',
