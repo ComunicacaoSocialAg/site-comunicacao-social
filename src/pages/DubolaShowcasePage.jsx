@@ -9,6 +9,26 @@ import CaseBrandSignature from '../components/CaseBrandSignature';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const SCENE_NAMES = [
+  'Linha de Embalagens',
+  'Identidade em Ação',
+  'Embalagens de Transporte',
+  'Linha de Cozinha & Brindes',
+  'Comunicação de PDV',
+  'Portal Digital & Catálogo',
+  'Cinema Gastronômico',
+];
+
+const SCENE_DETAILS = [
+  'Arquitetura de rótulos e embalagens para mesa e cozinhas profissionais',
+  'Aplicação em uniformes operacionais e presença de equipe',
+  'Sacolas kraft com ilustração proprietária de ingredientes e ponto de contato',
+  'Pano de prato com arte botânica de tomates frescos e lettering da marca',
+  'Windbanners de alta visibilidade para eventos e distribuidores',
+  'Landing page oficial dubola.com.br com apresentação de linhas e captação B2B',
+  'Direção de arte e filme da linha Barbecue focado em apetite appeal',
+];
+
 function HeroVideo({ motion, compact }) {
   const videoRef = useRef(null);
   const manualPause = useRef(false);
@@ -74,12 +94,12 @@ function CampaignVideo({ active, motion }) {
 export default function DubolaShowcasePage({ onClose, onContact }) {
   const rootRef = useRef(null);
   const [motion, setMotion] = useState(() => typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches);
+  const [compact, setCompact] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches);
   const [scene, setScene] = useState(0);
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const mobile = window.matchMedia('(max-width: 700px)');
+    const mobile = window.matchMedia('(max-width: 768px)');
     const onMotion = () => setMotion(!reduced.matches);
     const onSize = () => setCompact(mobile.matches);
     reduced.addEventListener('change', onMotion); mobile.addEventListener('change', onSize);
@@ -95,18 +115,12 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
     root.classList.add('is-cinematic');
 
     const context = gsap.context(() => {
-      // Film titles arrive as one kinetic composition. The work stays visible by default.
-      gsap.fromTo('.dbx-title-letter', { yPercent: 110, rotateX: -65 }, {
-        yPercent: 0, rotateX: 0, duration: 1.45, stagger: 0.055, ease: 'expo.out', delay: 0.12,
+      gsap.fromTo('.dbx-title-letter', { yPercent: 104, rotateX: -65 }, {
+        yPercent: 0, rotateX: 0, stagger: 0.05, duration: 1.05, ease: 'power4.out',
       });
-      gsap.to('.dbx-hero-title', { yPercent: -24, opacity: 0, ease: 'none', scrollTrigger: {
-        trigger: '.dbx-hero', scroller: root, start: 'top top', end: 'bottom 15%', scrub: 0.65,
-      } });
-      gsap.to('.dbx-hero-video', { scale: 1.08, ease: 'none', scrollTrigger: {
-        trigger: '.dbx-hero', scroller: root, start: 'top top', end: 'bottom top', scrub: 0.7,
-      } });
-      gsap.fromTo('.dbx-statement-line', { xPercent: (i) => i ? 8 : -8 }, {
-        xPercent: 0, ease: 'none', stagger: 0.07, scrollTrigger: {
+
+      gsap.fromTo('.dbx-statement-line', { xPercent: (i) => (i === 0 ? -18 : 18) }, {
+        xPercent: 0, ease: 'none', scrollTrigger: {
           trigger: '.dbx-statement', scroller: root, start: 'top bottom', end: 'center center', scrub: 0.7,
         },
       });
@@ -127,44 +141,88 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
         onLeaveBack: () => setScene(-1),
       } });
 
-      // A single authored editing timeline: objects in depth, image planes, then moving image.
-      edit.fromTo('.dbx-product-mustard', { xPercent: -62, yPercent: -42, rotation: -20, rotationY: 18, z: -120, scale: 0.88 }, { xPercent: -50, yPercent: -50, rotation: -9, rotationY: 0, z: 0, scale: 1, duration: 0.72, ease: 'expo.out' }, 0)
-        .fromTo('.dbx-product-ketchup', { xPercent: -50, yPercent: -40, rotation: 8, z: 120, scale: 1.02 }, { xPercent: -50, yPercent: -50, rotation: -3, z: 0, scale: 1, duration: 0.72, ease: 'expo.out' }, 0)
-        .fromTo('.dbx-product-guava', { xPercent: -35, yPercent: -60, rotation: -12, z: -80 }, { xPercent: -50, yPercent: -50, rotation: 8, z: 0, duration: 0.72, ease: 'expo.out' }, 0)
-        .fromTo('.dbx-product-mayo', { xPercent: -28, yPercent: -50, rotation: 8, z: -120 }, { xPercent: -50, yPercent: -50, rotation: 0, z: 0, duration: 0.72, ease: 'expo.out' }, 0)
-        .to('.dbx-products-word', { xPercent: -8, duration: 1.4, ease: 'none' }, 0);
+      // Scene 0: Products in depth
+      if (compact) {
+        edit.fromTo('.dbx-product-mustard',
+          { xPercent: -56, yPercent: -42, rotation: -14, scale: 0.85 },
+          { xPercent: -50, yPercent: -50, rotation: -8, scale: 1, duration: 0.72, ease: 'expo.out' },
+          0
+        )
+        .fromTo('.dbx-product-ketchup',
+          { xPercent: -50, yPercent: -42, rotation: 5, scale: 0.95 },
+          { xPercent: -50, yPercent: -50, rotation: -2.5, scale: 1, duration: 0.72, ease: 'expo.out' },
+          0
+        )
+        .fromTo('.dbx-product-guava',
+          { xPercent: -46, yPercent: -54, rotation: -5, scale: 0.92 },
+          { xPercent: -50, yPercent: -50, rotation: 3.5, scale: 1, duration: 0.72, ease: 'expo.out' },
+          0
+        )
+        .fromTo('.dbx-product-mayo',
+          { xPercent: -44, yPercent: -44, rotation: 6, scale: 0.85 },
+          { xPercent: -50, yPercent: -50, rotation: 1.5, scale: 1, duration: 0.72, ease: 'expo.out' },
+          0
+        );
+      } else {
+        edit.fromTo('.dbx-product-mustard', { xPercent: -62, yPercent: -42, rotation: -20, rotationY: 18, z: -120, scale: 0.88 }, { xPercent: -50, yPercent: -50, rotation: -9, rotationY: 0, z: 0, scale: 1, duration: 0.72, ease: 'expo.out' }, 0)
+          .fromTo('.dbx-product-ketchup', { xPercent: -50, yPercent: -40, rotation: 8, z: 120, scale: 1.02 }, { xPercent: -50, yPercent: -50, rotation: -3, z: 0, scale: 1, duration: 0.72, ease: 'expo.out' }, 0)
+          .fromTo('.dbx-product-guava', { xPercent: -35, yPercent: -60, rotation: -12, z: -80 }, { xPercent: -50, yPercent: -50, rotation: 8, z: 0, duration: 0.72, ease: 'expo.out' }, 0)
+          .fromTo('.dbx-product-mayo', { xPercent: -28, yPercent: -50, rotation: 8, z: -120 }, { xPercent: -50, yPercent: -50, rotation: 0, z: 0, duration: 0.72, ease: 'expo.out' }, 0);
+      }
 
+      edit.to('.dbx-products-word', { xPercent: compact ? -5 : -8, duration: 1.4, ease: 'none' }, 0);
+
+      // Scene 1: Apron
       edit.set(scenes[1], { autoAlpha: 1 }, 1.12)
         .fromTo(scenes[1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 1.12)
-        .fromTo('.dbx-apron img', { scale: 1.18, yPercent: 4 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none' }, 1.12)
+        .fromTo('.dbx-apron img', { scale: 1.15, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none' }, 1.12)
         .set(scenes[0], { autoAlpha: 0 }, 1.7);
 
+      // Scene 2: Bag
       edit.set(scenes[2], { autoAlpha: 1 }, 2.26)
         .fromTo(scenes[2], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut' }, 2.26)
         .to(scenes[1], { xPercent: -24, duration: 0.6, ease: 'power3.inOut' }, 2.26)
-        .fromTo('.dbx-bag img', { scale: 1.16, xPercent: 3 }, { scale: 1.05, xPercent: -2, duration: 1.1, ease: 'none' }, 2.26)
+        .fromTo('.dbx-bag img', { scale: 1.14, xPercent: 2 }, { scale: 1.04, xPercent: -1, duration: 1.1, ease: 'none' }, 2.26)
         .set(scenes[1], { autoAlpha: 0 }, 2.87);
 
+      // Scene 3: Towel
       edit.set(scenes[3], { autoAlpha: 1 }, 3.32)
         .fromTo(scenes[3], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: 'power2.inOut' }, 3.32)
-        .fromTo('.dbx-towel img', { scale: 1.17 }, { scale: 1, duration: 1.1, ease: 'none' }, 3.32)
+        .fromTo('.dbx-towel img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none' }, 3.32)
         .set(scenes[2], { autoAlpha: 0 }, 3.85);
 
+      // Scene 4: Flags
       edit.set(scenes[4], { autoAlpha: 1 }, 4.38)
         .fromTo(scenes[4], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power3.inOut' }, 4.38)
-        .fromTo('.dbx-flags img', { yPercent: 12, scale: 0.85 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out' }, 4.38)
+        .fromTo('.dbx-flags img', { yPercent: 10, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out' }, 4.38)
         .set(scenes[3], { autoAlpha: 0 }, 5.02);
 
+      // Scene 5: Digital
       edit.set(scenes[5], { autoAlpha: 1 }, 5.42)
-        .fromTo(scenes[5], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 5.42)
-        .fromTo('.dbx-landing-image', { scale: 0.72, rotation: -9, rotationY: -16, xPercent: 13, yPercent: 10 }, { scale: 1.14, rotation: 0, rotationY: 0, xPercent: 0, yPercent: 0, duration: 1.4, ease: 'power2.inOut' }, 5.42)
-        .to('.dbx-digital-word', { xPercent: -20, duration: 1.3, ease: 'none' }, 5.42)
+        .fromTo(scenes[5], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 5.42);
+
+      if (compact) {
+        edit.fromTo('.dbx-landing-image',
+          { scale: 0.9, rotation: -2, yPercent: 4 },
+          { scale: 1, rotation: 0, yPercent: 0, duration: 1.2, ease: 'power2.out' },
+          5.42
+        );
+      } else {
+        edit.fromTo('.dbx-landing-image',
+          { scale: 0.72, rotation: -9, rotationY: -16, xPercent: 13, yPercent: 10 },
+          { scale: 1.08, rotation: 0, rotationY: 0, xPercent: 0, yPercent: 0, duration: 1.4, ease: 'power2.inOut' },
+          5.42
+        );
+      }
+
+      edit.to('.dbx-digital-word', { xPercent: compact ? -10 : -20, duration: 1.3, ease: 'none' }, 5.42)
         .set(scenes[4], { autoAlpha: 0 }, 6.01);
 
+      // Scene 6: Campaign Film
       edit.set(scenes[6], { autoAlpha: 1 }, 6.64)
         .fromTo(scenes[6], { clipPath: 'inset(0% 0% 0% 100%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut' }, 6.64)
         .set(scenes[5], { autoAlpha: 0 }, 7.2)
-        .to('.dbx-campaign video', { scale: 1.06, duration: 0.8, ease: 'none' }, 7.2);
+        .to('.dbx-campaign video', { scale: 1.04, duration: 0.8, ease: 'none' }, 7.2);
     }, root);
 
     const frame = requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -218,6 +276,21 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
           <section className="dbx-scene dbx-flags" aria-label="Sinalização de marca"><img src={media.flags.src} alt={media.flags.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-digital" aria-label="Design e desenvolvimento da landing page"><span className="dbx-digital-word" aria-hidden="true">DIGITAL</span><img className="dbx-landing-image" src={media.landing.src} alt={media.landing.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-campaign" aria-label="Direção de arte e animação de produto"><CampaignVideo active={scene === 6 && motion} motion={motion} /></section>
+          
+          {scene >= 0 && scene < SCENE_NAMES.length && (
+            <div className="dbx-scene-bar">
+              <div>
+                <strong>{SCENE_NAMES[scene]}</strong>
+                <span>{SCENE_DETAILS[scene]}</span>
+              </div>
+            </div>
+          )}
+          {scene >= 0 && scene < SCENE_NAMES.length && (
+            <div className="dbx-scene-indicator" aria-hidden="true">
+              <span>{SCENE_NAMES[scene]}</span>
+            </div>
+          )}
+
           <div className="dbx-edit-progress" aria-hidden="true"><span /></div>
         </div>
       </section>
