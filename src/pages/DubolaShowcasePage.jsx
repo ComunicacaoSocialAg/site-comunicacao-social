@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AGENCY_CONFIG } from '../data/agency';
 import { DUBOLA_SHOWCASE as media } from '../data/dubolaShowcase';
 import './dubola-showcase.css';
+import CaseBrandSignature from '../components/CaseBrandSignature';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -174,7 +175,7 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
   }, [motion, compact]);
 
   function home(event) {
-    if (onClose && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && event.button === 0) { event.preventDefault(); onClose(); }
+    if (onClose && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && (event.button === undefined || event.button === 0)) { event.preventDefault(); onClose(); }
   }
   const contact = AGENCY_CONFIG.getWhatsAppUrl('Olá! Vi o trabalho para a Dubola e quero conversar sobre a minha marca.');
 
@@ -193,6 +194,7 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
       <section className="dbx-hero" aria-labelledby="dbx-title">
         <HeroVideo motion={motion} compact={compact} />
         <div className="dbx-hero-shade" aria-hidden="true" />
+        <div className="dbx-hero-signature"><CaseBrandSignature client="Dubola" clientLogo="/assets/cases/dubola/logo-dubola.svg" /></div>
         <h1 id="dbx-title" className="dbx-hero-title" aria-label="Dubola">
           {'DUBOLA'.split('').map((letter, i) => <span className="dbx-title-mask" key={i}><span className="dbx-title-letter" aria-hidden="true">{letter}</span></span>)}
         </h1>

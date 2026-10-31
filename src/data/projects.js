@@ -2,8 +2,17 @@
 
 import { DUBOLA_CASE, VERDAO_CASE } from './clientCases.js';
 import { ALBERTO_CASE } from './albertoShowcase.js';
+import { PONTO_COR_CASE } from './pontoCorShowcase.js';
 
 export const PROJECTS = [
+  {
+    id: 'ponto-cor', title: 'Ponto Cor', client: 'Ponto Cor', year: '',
+    category: PONTO_COR_CASE.category, categories: ['estrategia', 'campanhas'],
+    tags: ['presença digital', 'carnaval', 'lançamentos'], role: 'Gestão da presença digital',
+    accent: PONTO_COR_CASE.accent, isConceptual: false, image: PONTO_COR_CASE.image,
+    description: PONTO_COR_CASE.description, challenge: PONTO_COR_CASE.challenge,
+    thought: PONTO_COR_CASE.thinking, details: PONTO_COR_CASE.closing, results: [], caseStudy: PONTO_COR_CASE,
+  },
   {
     id: 'alberto-brasil', title: 'Dr. Alberto Brasil', client: 'Dr. Alberto Brasil', year: '',
     category: ALBERTO_CASE.category, categories: ['estrategia', 'campanhas', 'tech'],

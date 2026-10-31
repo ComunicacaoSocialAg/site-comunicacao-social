@@ -1,4 +1,4 @@
-export const SELECTED_WORKS = [
+const WORKS = [
   {
     id: 'dubola', client: 'Dubola', title: 'Da embalagem à brasa.',
     category: 'Branding & Comunicação Integrada', image: '/assets/cases/dubola/hero-mesa.webp',
@@ -22,8 +22,16 @@ export const SELECTED_WORKS = [
     color: '#aca897',
     background: '#444440',
     fit: 'cover',
+    href: '/trabalhos/alberto-brasil',
     summary: 'Identidade e aplicações para a Clínica Vascular Alberto Brasil.',
     description: 'O monograma, a paleta e as aplicações de papelaria compõem o sistema visual apresentado neste trabalho. Uma seleção do acervo da Comunicação Social Ag.',
+  },
+  {
+    id: 'ponto-cor', client: 'Ponto Cor', title: 'A vontade de criar.',
+    category: 'Gestão da presença digital', image: '/assets/cases/ponto-cor/hero.webp',
+    color: '#d65e18', background: '#101010', fit: 'cover', href: '/trabalhos/ponto-cor',
+    summary: 'Carnaval, lançamentos e conteúdo para a presença digital da Ponto Cor.',
+    description: 'Cor, produto e o prazer de criar em campanhas para os canais da marca.',
   },
   {
     id: 'livia-identidade',
@@ -63,3 +71,5 @@ export const SELECTED_WORKS = [
     description: 'Seleção do acervo profissional anterior à Comunicação Social Ag. A peça integra a apresentação da trajetória de Bruno Garcia e está identificada separadamente dos trabalhos da agência.',
   },
 ];
+
+export const SELECTED_WORKS = WORKS;

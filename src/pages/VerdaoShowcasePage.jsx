@@ -491,7 +491,7 @@ export default function VerdaoShowcasePage({ onClose, onContact }) {
       !event.ctrlKey &&
       !event.shiftKey &&
       !event.altKey &&
-      event.button === 0
+      (event.button === undefined || event.button === 0)
     ) {
       event.preventDefault();
       onClose();

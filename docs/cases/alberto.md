@@ -2,7 +2,7 @@
 
 Rota: /trabalhos/alberto-brasil. Fonte principal: src/pages/AlbertoShowcasePage.jsx. Estilos isolados: src/pages/alberto-showcase.css. Curadoria e metadados: src/data/albertoShowcase.js. Entrada no portfólio: src/data/projects.js; indexação: src/data/seo.js.
 
-A página usa retrato profissional, a versão de logo enviada em `logoABbrasil.svg`, seis posts completos e capturas reais do site novo. O vídeo é o material original da abertura desse site. Os originais não foram modificados. A lista de origem de cada derivado está em public/assets/cases/alberto/provenance.json. Para substituir uma peça, atualize o arquivo, o alt e a proveniência.
+A página usa retrato profissional, logo original, seis posts completos e capturas reais do site novo. O vídeo é o material original da abertura desse site. Os originais não foram modificados. A lista de origem de cada derivado está em public/assets/cases/alberto/provenance.json. Para substituir uma peça, atualize o arquivo, o alt e a proveniência.
 
 Validação inicial: build passou; lint dos cinco módulos alterados passou; sete testes existentes passaram. O lint global encontra erros preexistentes em scripts de ferramentas, bibliotecas de terceiros e componentes anteriores. Não foram corrigidos nesta entrega para preservar o escopo. O aviso de bundles grandes pertence à arquitetura 3D existente.
 

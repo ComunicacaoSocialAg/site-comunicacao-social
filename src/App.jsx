@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { PROJECTS, projectMatchesCategory } from './data/projects';
 import {
   playClickSound,
@@ -60,6 +60,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeProj, setActiveProj] = useState(initialProject);
+  const [caseOrigin, setCaseOrigin] = useState(null);
   const [showList, setShowList] = useState(initialNav.route === '/trabalhos');
   const [showInstitutional, setShowInstitutional] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
@@ -71,6 +72,11 @@ export default function App() {
     const path = currentRoute === '/trabalhos/:slug' && activeProj ? `/trabalhos/${activeProj.id}` : currentRoute;
     updatePageSeo(path);
   }, [currentRoute, activeProj]);
+
+  // Pré-carrega o chunk do ProjectPage para transições instantâneas ao clicar
+  useEffect(() => {
+    import('./components/ProjectPage');
+  }, []);
 
   // Resume Web Audio Context on first user touch / pointerdown (iOS/Safari compliance)
   useEffect(() => {
@@ -260,10 +266,56 @@ export default function App() {
     navigateTo('/trabalhos/:slug', proj);
   }, [soundEnabled, navigateTo]);
 
+  const openHomeCase = useCallback((href, trigger, event, directWork = null) => {
+    let project = href ? PROJECTS.find(item => `/trabalhos/${item.id}` === href) : null;
+    if (!project && directWork) {
+      project = PROJECTS.find(item => item.id === directWork.id) || directWork;
+    }
+    if (!project) return;
+
+    const rect = trigger?.getBoundingClientRect();
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (rect) {
+      const clickX = event?.clientX ?? (rect.left + rect.width / 2);
+      const clickY = event?.clientY ?? (rect.top + rect.height / 2);
+      const originX = `${((clickX / window.innerWidth) * 100).toFixed(2)}%`;
+      const originY = `${((clickY / window.innerHeight) * 100).toFixed(2)}%`;
+
+      const clipClosed = `inset(${Math.max(0, Math.round(rect.top))}px ${Math.max(0, Math.round(window.innerWidth - rect.right))}px ${Math.max(0, Math.round(window.innerHeight - rect.bottom))}px ${Math.max(0, Math.round(rect.left))}px round 16px)`;
+      const clipOpen = 'inset(0px 0px 0px 0px round 0px)';
+
+      setCaseOrigin({
+        trigger,
+        reduced,
+        origin: `${originX} ${originY}`,
+        clipClosed,
+        clipOpen,
+      });
+    } else {
+      setCaseOrigin(null);
+    }
+
+    navigateTo('/trabalhos/:slug', project);
+  }, [navigateTo]);
+
   // Close project page → back to home
   const handleCloseProject = useCallback(() => {
     navigateTo('/');
   }, [navigateTo]);
+
+  // Tecla Escape para fechar o case aberto
+  useEffect(() => {
+    if (!activeProj) return;
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        handleCloseProject();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [activeProj, handleCloseProject]);
 
   const filteredCount = activeCategory === 'all'
     ? PROJECTS.length
@@ -309,17 +361,21 @@ export default function App() {
             />}
 
             {/* Main Vertical Scroll Container with Home3D */}
-            {currentRoute === '/' && !activeProj && (
+            {(currentRoute === '/' || caseOrigin) && (
               <div
                 ref={scrollContainerRef}
                 className="scroll-container"
                 onScroll={handleScroll}
+                inert={Boolean(activeProj)}
+                aria-hidden={activeProj ? true : undefined}
+                style={activeProj ? { overflow: 'hidden' } : undefined}
               >
                 <CinematicHome
                   introActive={stage === 'intro'}
                   onReplayIntro={handleReplayIntro}
                   soundEnabled={soundEnabled}
                   onToggleSound={handleToggleSound}
+                  onOpenCase={openHomeCase}
                 />
               </div>
             )}
@@ -361,16 +417,63 @@ export default function App() {
             </AnimatePresence>
 
             {/* Case Study Detailed View with AnimatePresence */}
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" onExitComplete={() => {
+              if (currentRoute === '/') caseOrigin?.trigger?.focus({ preventScroll: true });
+              setCaseOrigin(null);
+            }}>
               {activeProj && (
-                <ProjectPage
+                <motion.div
                   key={activeProj.id}
-                  project={activeProj}
-                  allProjects={PROJECTS}
-                  onClose={handleCloseProject}
-                  onNavigate={(p) => navigateTo('/trabalhos/:slug', p)}
-                  onContact={() => navigateTo('/contato')}
-                />
+                  data-case-viewport
+                  tabIndex={-1}
+                  role="region"
+                  aria-label={`Case ${activeProj.client || activeProj.title}`}
+                  style={{
+                    position: 'fixed',
+                    inset: 0,
+                    zIndex: 600,
+                    background: '#070709',
+                    overflowY: 'auto',
+                    overflowX: 'hidden',
+                    transformOrigin: caseOrigin?.origin || '50% 50%',
+                    willChange: 'clip-path, transform, opacity',
+                  }}
+                  initial={caseOrigin && !caseOrigin.reduced ? {
+                    clipPath: caseOrigin.clipClosed,
+                    scale: 0.94,
+                    opacity: 0.95,
+                  } : {
+                    opacity: 0,
+                  }}
+                  animate={{
+                    clipPath: caseOrigin?.clipOpen || 'inset(0px 0px 0px 0px round 0px)',
+                    scale: 1,
+                    opacity: 1,
+                  }}
+                  exit={caseOrigin && !caseOrigin.reduced ? {
+                    clipPath: caseOrigin.clipClosed,
+                    scale: 0.94,
+                    opacity: 0,
+                  } : {
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: caseOrigin?.reduced ? 0 : 0.52,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  onAnimationComplete={() => {
+                    if (activeProj) document.querySelector('[data-case-viewport]')?.focus({ preventScroll: true });
+                  }}
+                >
+                  <ProjectPage
+                    key={activeProj.id}
+                    project={activeProj}
+                    allProjects={PROJECTS}
+                    onClose={handleCloseProject}
+                    onNavigate={(p) => navigateTo('/trabalhos/:slug', p)}
+                    onContact={() => navigateTo('/contato')}
+                  />
+                </motion.div>
               )}
             </AnimatePresence>
 

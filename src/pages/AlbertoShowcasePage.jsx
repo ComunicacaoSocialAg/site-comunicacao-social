@@ -101,7 +101,7 @@ export default function AlbertoShowcasePage({ onClose, onContact }) {
   }, [motion]);
 
   function home(event) {
-    if (onClose && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) { event.preventDefault(); onClose(); }
+    if (onClose && (event.button === undefined || event.button === 0) && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) { event.preventDefault(); onClose(); }
   }
   function jump(event, id) {
     const target = rootRef.current.querySelector(`#${id}`);

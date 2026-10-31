@@ -7,13 +7,15 @@ import { SPEAKER_IMAGE } from '../../data/brandIntro';
 import { playClickSound } from '../../utils/audio';
 import { playBassDrop } from '../../utils/speakerAudio';
 import { SELECTED_WORKS } from './works';
+import { createWorkTiming } from './workTiming';
 const CinematicScene = lazy(() => import('./CinematicScene'));
 import WorkPresentation from './WorkPresentation';
 import './cinematic.css';
 
 gsap.registerPlugin(ScrollTrigger);
+const WORK_TIMING = createWorkTiming(SELECTED_WORKS.length);
 
-export default function CinematicHome({ introActive, onReplayIntro, soundEnabled, onToggleSound }) {
+export default function CinematicHome({ introActive, onReplayIntro, soundEnabled, onToggleSound, onOpenCase }) {
   const rootRef = useRef(null);
   const reelRef = useRef(null);
   const reelTriggerRef = useRef(null);
@@ -77,19 +79,67 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
       });
 
       const shots = [...root.querySelectorAll('.film-work-shot')];
-      gsap.set(shots.slice(1), { xPercent: 118, rotationY: -28, z: -350, autoAlpha: 0 });
+      gsap.set(shots.slice(1), { xPercent: 108, rotationY: -16, z: -80, scale: 0.94, autoAlpha: 0 });
+      gsap.set(shots[0], { xPercent: 0, rotationY: 0, z: 0, scale: 1, autoAlpha: 1 });
+
       const reel = gsap.timeline({
         scrollTrigger: {
-          trigger: reelRef.current, scroller, start: 'top top', end: 'bottom bottom', scrub: 0.8,
-          snap: { snapTo: 1 / (SELECTED_WORKS.length - 1), duration: 0.35, delay: 0.2, inertia: false },
-          onUpdate: (self) => setActiveWork(Math.round(self.progress * (SELECTED_WORKS.length - 1))),
+          trigger: reelRef.current,
+          scroller,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.8,
+          snap: {
+            snapTo: WORK_TIMING.scenes.map(scene => scene.rest / WORK_TIMING.duration),
+            duration: 0.35,
+            delay: 0.15,
+            ease: 'power2.out',
+            inertia: false,
+          },
+          onUpdate: (self) => {
+            const time = self.progress * WORK_TIMING.duration;
+            const index = WORK_TIMING.scenes.findIndex((scene, i) => i < SELECTED_WORKS.length - 1 && time < scene.transition + 0.5);
+            setActiveWork(index < 0 ? SELECTED_WORKS.length - 1 : index);
+          },
         },
       });
+
       shots.forEach((shot, index) => {
         if (index === shots.length - 1) return;
-        reel.to(shot, { xPercent: -118, rotationY: 28, z: 200, autoAlpha: 0, duration: 1, ease: 'power1.inOut' }, index);
-        reel.to(shots[index + 1], { xPercent: 0, rotationY: 0, z: 0, autoAlpha: 1, duration: 1, ease: 'power1.inOut' }, index);
+        const at = WORK_TIMING.scenes[index].transition;
+        const nextShot = shots[index + 1];
+
+        // O case atual sai com rotação controlada e só esmaece na segunda metade do percurso
+        reel.to(shot, {
+          xPercent: -108,
+          rotationY: 16,
+          z: -80,
+          scale: 0.94,
+          duration: 1,
+          ease: 'power2.inOut',
+        }, at);
+
+        reel.to(shot, {
+          autoAlpha: 0,
+          duration: 0.45,
+          ease: 'power1.in',
+        }, at + 0.55);
+
+        // O próximo case entra com opacidade rápida e acomoda no centro com profundidade
+        reel.fromTo(nextShot,
+          { xPercent: 108, rotationY: -16, z: -80, scale: 0.94, autoAlpha: 0 },
+          { xPercent: 0, rotationY: 0, z: 0, scale: 1, duration: 1, ease: 'power2.inOut' },
+          at
+        );
+
+        reel.to(nextShot, {
+          autoAlpha: 1,
+          duration: 0.45,
+          ease: 'power1.out',
+        }, at);
       });
+
+      reel.to({}, { duration: 1.0 }, WORK_TIMING.scenes.at(-1).start);
       reelTriggerRef.current = reel.scrollTrigger;
     }, root);
     const refresh = requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -125,7 +175,7 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
     const trigger = reelTriggerRef.current;
     if (!trigger) return;
     const scroller = rootRef.current.closest('.scroll-container');
-    scroller.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * index / (SELECTED_WORKS.length - 1), behavior: 'smooth' });
+    scroller.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * WORK_TIMING.scenes[index].rest / WORK_TIMING.duration, behavior: 'smooth' });
   };
 
   return (
@@ -193,23 +243,37 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
         <span>Uma seleção de marcas, imagens e ideias.</span>
       </section>
 
-      <section id="trabalhos" ref={reelRef} className="film-reel-runway" aria-label="Trabalhos selecionados">
+      <section id="trabalhos" ref={reelRef} className="film-reel-runway" style={{ '--work-runway': `${100 + WORK_TIMING.duration * 40}svh` }} aria-label="Trabalhos selecionados">
         <div className="film-reel-stage">
           <div className="film-reel-label"><span>Trabalhos selecionados</span><span>Explore com a rolagem</span></div>
           <div className="film-work-space">
             {SELECTED_WORKS.map((work, index) => {
               const Media = work.href ? 'a' : 'button';
-              const action = work.href ? { href: work.href } : { onClick: () => setOpenedWork(index) };
+              const action = work.href ? {
+                href: work.href,
+                onClick: (event) => {
+                  const isModified = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+                  if (isModified || (event.button !== undefined && event.button !== 0)) return;
+                  event.preventDefault();
+                  if (onOpenCase) {
+                    onOpenCase(work.href, event.currentTarget, event);
+                  }
+                },
+              } : {
+                onClick: (event) => {
+                  if (onOpenCase) {
+                    onOpenCase(null, event.currentTarget, event, work);
+                  } else {
+                    setOpenedWork(index);
+                  }
+                },
+              };
               return (
               <article key={work.id} className="film-work-shot" aria-hidden={!reducedMotion && activeWork !== index} style={{ '--work-bg': work.background }}>
                 <Media className="film-work-media" {...action} tabIndex={reducedMotion || activeWork === index ? 0 : -1} aria-label={`Abrir projeto: ${work.client}`}>
                   <img src={work.image} alt={work.summary} loading="lazy" decoding="async" width="1200" height="900" style={{ objectFit: work.fit }} />
                   <span className="film-work-open" aria-hidden="true"><ArrowUpRight size={25} /></span>
                 </Media>
-                <div className="film-work-caption">
-                  <div><h3>{work.client}</h3><p>{work.category}{work.source && ' / Acervo profissional'}</p></div>
-                  <Media className="film-work-caption-link" {...action} tabIndex={reducedMotion || activeWork === index ? 0 : -1}>{work.href ? 'Ver case completo' : 'Ver projeto'} <ArrowUpRight size={17} /></Media>
-                </div>
               </article>
             );})}
           </div>

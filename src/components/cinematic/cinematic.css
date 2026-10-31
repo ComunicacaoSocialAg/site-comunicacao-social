@@ -72,13 +72,13 @@
 .film-work-intro > span { color: var(--film-muted); font-size: 0.85rem; margin-top: 3rem; }
 
 /* Uma montagem em perspectiva, sincronizada à rolagem. */
-.film-reel-runway { height: 440svh; position: relative; z-index: 4; }
+.film-reel-runway { height: var(--work-runway, 800svh); position: relative; z-index: 4; }
 .film-reel-stage { position: sticky; top: 0; height: 100svh; overflow: clip; background: var(--film-bg); }
 .film-reel-label { position: absolute; top: 7rem; inset-inline: var(--film-gutter); display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--film-muted); }
 .film-work-space { position: absolute; inset: 0; perspective: 1400px; perspective-origin: center; }
 .film-work-shot { position: absolute; top: 22%; left: 13%; width: 74%; height: 64%; transform-origin: center; transform-style: preserve-3d; }
 .film-work-shot[aria-hidden="true"] { pointer-events: none; }
-.film-work-media { position: relative; width: 100%; height: calc(100% - 4.5rem); display: block; overflow: clip; background: var(--work-bg); }
+.film-work-media { position: relative; width: 100%; height: 100%; display: block; overflow: clip; background: var(--work-bg); }
 .film-work-media img { width: 100%; height: 100%; object-position: center; transition: transform 850ms var(--film-ease); }
 .film-work-media:hover img { transform: scale(1.035); }
 .film-work-open { position: absolute; right: 1.1rem; bottom: 1.1rem; width: 48px; height: 48px; background: var(--film-yellow); color: var(--film-bg); border-radius: 50%; display: grid; place-items: center; }

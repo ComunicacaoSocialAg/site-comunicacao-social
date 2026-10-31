@@ -33,6 +33,7 @@
 .dbx-case .dbx-hero { position: relative; height: 100svh; min-height: 560px; overflow: clip; background: var(--dbx-black); }
 .dbx-case .dbx-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .dbx-case .dbx-hero-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,#07070912 0%,transparent 25%,#0707090a 44%,#070709a6 78%,#070709e8 100%); }
+.dbx-case .dbx-hero-signature { position: absolute; z-index: 5; top: clamp(105px, 13vh, 150px); left: var(--dbx-gutter); }
 .dbx-case .dbx-hero-title { position: absolute; z-index: 2; left: var(--dbx-gutter); bottom: 15%; display: flex; align-items: baseline; font-size: 13.1vw; line-height: .9; perspective: 1000px; }
 .dbx-case .dbx-title-mask { display: block; overflow: clip; padding-bottom: .06em; margin-bottom: -.06em; margin-right: -.025em; }
 .dbx-case .dbx-title-letter { display: block; transform-origin: center bottom; }

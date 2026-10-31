@@ -1,0 +1,50 @@
+COMUNICAÇÃO SOCIAL AG | SITE COMPLETO
+Versão de 28/10/2026, com páginas irmãs Agência e Abordagem e reel amplo
+na Agência. A prévia muda mostra os primeiros dez segundos. Um clique
+reinicia o filme com som no próprio lugar; outro clique silencia.
+As faixas de campanhas usam quadros iguais, apenas com imagens,
+sem legendas. As imagens finais serão colocadas posteriormente.
+
+COMO ABRIR A PRÉVIA NO MAC
+1. Dê dois cliques em Abrir-Previa-CSAg.command.
+2. O navegador abrirá o endereço local exibido na janela.
+3. Mantenha a janela do Terminal aberta enquanto estiver vendo o site.
+4. Para encerrar, pressione Control + C nessa janela.
+
+A prévia já está compilada na pasta dist. Não precisa executar npm install
+ou npm run build para visualizar esta cópia. O atalho usa o Node.js já
+instalado nesta máquina. Se a porta 4173 estiver ocupada, ele escolhe outra
+porta local e mostra o endereço correto.
+
+Não abra dist/index.html diretamente: o modelo 3D e os vídeos precisam do
+servidor local que o atalho inicia.
+
+CONTEÚDO
+src: código completo para edição.
+public: imagens, variações do logo, vídeos e modelos 3D, inclusive originais.
+dist: versão pronta do site e todas as páginas compiladas.
+preview-local.mjs: servidor local com suporte aos vídeos e aos modelos 3D.
+package.json e package-lock.json: configuração e versões das dependências.
+DESIGN.md e PRODUCT.md: direção visual e contexto do projeto.
+
+PARA EDITAR E RECOMPILAR
+Na pasta desta cópia, execute npm ci, faça as alterações em src e execute
+npm run build. Depois abra o atalho novamente. As dependências de edição
+não foram duplicadas; os arquivos necessários à prévia estão em dist.
+
+O site usa fontes do Google Fonts e links externos de contato. Esses
+recursos externos dependem de internet. Imagens, vídeos e modelos 3D
+usados no site estão incluídos nesta pasta.
+
+Esta é uma cópia para revisão local. Nenhuma publicação foi realizada.
+
+SEO, AEO E GEO
+A copy visível foi preservada e o HTML inicial passou a usar os próprios
+componentes React. Metadados por rota, sitemap, robots, dados estruturados,
+redirecionamentos e 404 estão preparados. O domínio canônico é
+https://comunicacaosocialag.com.br. Nenhuma publicação foi executada.
+
+Leia docs/seo/SEO-AEO-GEO-CSAg.md para o mapa de buscas e o diagnóstico.
+Leia docs/seo/PUBLICACAO.md antes do deploy e do envio do sitemap.
+Comandos de verificação: npm run check:seo e npm test.
+Depois da publicação: npm run check:live.
