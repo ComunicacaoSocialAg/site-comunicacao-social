@@ -350,30 +350,34 @@
 }
 
 .dbx-case .dbx-product-mustard {
-  left: 15%;
-  width: 47vw;
-  height: 102svh;
+  left: 16%;
+  width: auto;
+  height: 68svh;
+  max-width: 32vw;
   z-index: 2;
 }
 
 .dbx-case .dbx-product-ketchup {
-  left: 40%;
-  width: 28vw;
-  height: 78svh;
+  left: 39%;
+  width: auto;
+  height: 74svh;
+  max-width: 28vw;
   z-index: 4;
 }
 
 .dbx-case .dbx-product-guava {
-  left: 65%;
-  width: 45vw;
-  height: 102svh;
+  left: 63%;
+  width: auto;
+  height: 74svh;
+  max-width: 28vw;
   z-index: 3;
 }
 
 .dbx-case .dbx-product-mayo {
-  left: 87%;
-  width: 78vw;
-  height: 115svh;
+  left: 85%;
+  width: auto;
+  height: 48svh;
+  max-width: 26vw;
   z-index: 1;
 }
 
@@ -716,40 +720,39 @@
     position: absolute;
     display: block;
     object-fit: contain;
-    max-height: 42svh;
     width: auto;
-    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
   }
 
   .dbx-case .dbx-product-ketchup {
-    left: 36%;
+    left: 37%;
     top: 48%;
-    width: 37vw;
-    max-width: 155px;
+    height: 38svh;
+    max-width: 135px;
     z-index: 4;
   }
 
   .dbx-case .dbx-product-guava {
-    left: 64%;
+    left: 63%;
     top: 49%;
-    width: 37vw;
-    max-width: 155px;
+    height: 38svh;
+    max-width: 135px;
     z-index: 3;
   }
 
   .dbx-case .dbx-product-mustard {
     left: 14%;
     top: 52%;
-    width: 29vw;
-    max-width: 120px;
+    height: 33svh;
+    max-width: 110px;
     z-index: 2;
   }
 
   .dbx-case .dbx-product-mayo {
     left: 85%;
     top: 54%;
-    width: 31vw;
-    max-width: 130px;
+    height: 23svh;
+    max-width: 115px;
     z-index: 2;
   }
 
