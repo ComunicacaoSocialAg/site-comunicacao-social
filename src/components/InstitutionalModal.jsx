@@ -209,12 +209,12 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
                     <button
                       onClick={() => {
                         onClose();
-                        onSelectCase('livia-esper-site');
+                        onSelectCase('livia-esper');
                       }}
                       className="btn-gold"
                       style={{ fontSize: '11px', padding: '8px 16px' }}
                     >
-                      Ver Case: Experiência Web
+                      Ver Case Completo
                     </button>
                     <button
                       onClick={() => {

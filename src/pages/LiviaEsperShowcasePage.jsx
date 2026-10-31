@@ -1,5 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react';
-import { ArrowDown, ArrowLeft, ArrowUpRight, Pause, Play, Volume2, VolumeX, Sparkles, Check, Heart, Shield, Stethoscope, ChevronRight, X } from 'lucide-react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { ArrowDown, ArrowLeft, ArrowUpRight, Pause, Play, Volume2, VolumeX, Sparkles, Check, Heart, Shield, Stethoscope, X } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import CaseBrandSignature from '../components/CaseBrandSignature';
@@ -781,8 +781,8 @@ export default function LiviaEsperShowcasePage({ onClose, onContact }) {
               <a href="/trabalhos/verdao">Imobiliária Verdão</a>
             </div>
             <div className="le-footer-compliance">
-              <span>Dra. Lívia Esper • Odontopediatra Especialista USP • CRO-MG 30269</span>
-              <span>Rua Goiás, 64, Centro, Poços de Caldas, MG • Tel: (35) 3721-7858</span>
+              <span>{info.client} • {info.subtitle} • {info.cro}</span>
+              <span>{info.address} • Tel: {info.phone} • Instagram: {info.instagram}</span>
             </div>
             <div className="le-footer-agency">
               <a href="/contato" onClick={(e) => {
