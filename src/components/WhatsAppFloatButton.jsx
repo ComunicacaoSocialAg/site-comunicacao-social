@@ -1,9 +1,10 @@
 import React from 'react';
 import { playClickSound } from '../utils/audio';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { AGENCY_CONFIG } from '../data/agency';
 
-export default function WhatsAppFloatButton({ soundEnabled, phoneNumber = '5535999999999' }) {
-  const defaultMsg = encodeURIComponent("Olá! Conheci o site da Comunicação Social Ag e gostaria de conversar com um estrategista.");
+export default function WhatsAppFloatButton({ soundEnabled, phoneNumber = AGENCY_CONFIG.whatsappNumber }) {
+  const defaultMsg = encodeURIComponent(AGENCY_CONFIG.defaultWhatsAppMsg);
   
   const handleClick = () => {
     playClickSound(soundEnabled);

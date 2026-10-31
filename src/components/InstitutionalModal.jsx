@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { playClickSound } from '../utils/audio';
 import { trackWhatsAppClick } from '../utils/analytics';
+import { AGENCY_CONFIG } from '../data/agency';
 
 export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSelectCase }) {
   const [tab, setTab] = useState('agencia');
@@ -115,7 +116,7 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
                   </div>
                   <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, padding: 18 }}>
                     <span style={{ fontFamily: 'var(--fh)', fontSize: '24px', fontWeight: 800, color: 'var(--gold)' }}>100%</span>
-                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>Sob medida — zero templates genéricos</p>
+                    <p style={{ fontSize: '12px', color: '#8e8e9c', marginTop: 4 }}>Sob medida: zero templates genéricos</p>
                   </div>
                 </div>
 
@@ -199,7 +200,7 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
                     Cases em Destaque no Hub Saúde
                   </span>
                   <h3 style={{ fontFamily: 'var(--fh)', fontSize: '20px', color: '#fff', margin: '8px 0 10px 0' }}>
-                    Dra. Lívia Esper — Experiência Web & ERP Clínico
+                    Dra. Lívia Esper: Experiência Web & ERP Clínico
                   </h3>
                   <p style={{ color: '#a0a0b0', fontSize: '13px', lineHeight: 1.6, marginBottom: 18 }}>
                     Desenvolvemos uma experiência digital afetuosa com animação 3D e pré-cadastro inteligente que eliminou o medo infantil de dentista e reduziu faltas em 50%, aliada a um software clínico proprietário com prontuário interativo.
@@ -213,7 +214,7 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
                       className="btn-gold"
                       style={{ fontSize: '11px', padding: '8px 16px' }}
                     >
-                      Ver Case: Experiência Web →
+                      Ver Case: Experiência Web
                     </button>
                     <button
                       onClick={() => {
@@ -223,7 +224,7 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
                       className="btn-ghost"
                       style={{ fontSize: '11px', padding: '8px 16px' }}
                     >
-                      Ver Case: Sistema Clínico →
+                      Ver Case: Sistema Clínico
                     </button>
                   </div>
                 </div>
@@ -234,11 +235,11 @@ export default function InstitutionalModal({ isOpen, onClose, soundEnabled, onSe
           {/* Footer */}
           <div className="institutional-footer">
             <span style={{ fontSize: '12px', color: '#8e8e9c' }}>
-              Pronto para elevar o posicionamento da sua empresa?
+              Pronto para conversar sobre o posicionamento da sua empresa?
             </span>
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
               <a
-                href="https://wa.me/5535999999999?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20proposta%20comercial%20para%20a%20Comunica%C3%A7%C3%A3o%20Social%20Ag."
+                href={AGENCY_CONFIG.getWhatsAppUrl('Olá! Gostaria de solicitar uma proposta comercial para a Comunicação Social Ag.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-case-share"

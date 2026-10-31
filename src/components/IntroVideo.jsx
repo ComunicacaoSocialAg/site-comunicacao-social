@@ -1,15 +1,19 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 
 export default function IntroVideo({ onComplete }) {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [isExiting, setIsExiting] = useState(false);
   const completedRef = useRef(false);
 
   const triggerFinish = useCallback(() => {
     if (completedRef.current) return;
     completedRef.current = true;
-    onComplete();
+    setIsExiting(true);
+    setTimeout(() => {
+      onComplete();
+    }, 350);
   }, [onComplete]);
 
   const toggleAudio = (e) => {
@@ -26,14 +30,35 @@ export default function IntroVideo({ onComplete }) {
     const dur = videoRef.current.duration || 7.2;
     setProgress((curr / dur) * 100);
 
-    // Big Bang climax at 6.7s
-    if (curr >= 6.7 && !completedRef.current) {
+    // Natural completion near end of video
+    if (curr >= 7.15 && !completedRef.current) {
       triggerFinish();
     }
   };
 
+  // Keyboard shortcut: Escape or Space to skip intro
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' || e.key === ' ') {
+        e.preventDefault();
+        triggerFinish();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [triggerFinish]);
+
+  // Attempt autoplay immediately
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {
+        // Autoplay policy prevented playback, will play on user interaction
+      });
+    }
+  }, []);
+
   return (
-    <div className="intro-container">
+    <div className={`intro-container ${isExiting ? 'is-exiting' : ''}`}>
       <video
         ref={videoRef}
         className="intro-video-element"
@@ -93,7 +118,7 @@ export default function IntroVideo({ onComplete }) {
             )}
           </button>
 
-          <button className="btn-skip-intro" onClick={triggerFinish}>
+          <button className="btn-skip-intro" onClick={triggerFinish} title="Pular introdução (ESC)">
             <span>Pular Intro</span>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="5 4 15 12 5 20 5 4"></polygon>

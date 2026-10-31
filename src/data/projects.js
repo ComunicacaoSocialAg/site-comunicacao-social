@@ -1,6 +1,24 @@
 // ─── DATA: PROJETOS DA COMUNICAÇÃO SOCIAL AG ─────────────────────────────────
 
+import { DUBOLA_CASE, VERDAO_CASE } from './clientCases.js';
+
 export const PROJECTS = [
+  {
+    id: 'dubola', title: 'Dubola', client: 'Dubola', year: '',
+    category: DUBOLA_CASE.category, categories: ['branding', 'estrategia', 'campanhas', 'tech'],
+    tags: ['branding', 'embalagens', 'digital', 'eventos'], role: 'Comunicação integrada',
+    accent: DUBOLA_CASE.accent, isConceptual: false, image: DUBOLA_CASE.images.ketchup,
+    description: DUBOLA_CASE.description, challenge: DUBOLA_CASE.challenge,
+    thought: DUBOLA_CASE.thinking, details: DUBOLA_CASE.closing, results: [], caseStudy: DUBOLA_CASE,
+  },
+  {
+    id: 'verdao', title: 'Imobiliária Verdão', client: 'Imobiliária Verdão', year: '',
+    category: VERDAO_CASE.category, categories: ['estrategia', 'campanhas', 'tech', 'branding'],
+    tags: ['presença digital', 'landing pages', 'saas', 'filmes'], role: 'Ecossistema 100% digital',
+    accent: VERDAO_CASE.accent, isConceptual: false, image: VERDAO_CASE.image,
+    description: VERDAO_CASE.description, challenge: VERDAO_CASE.challenge,
+    thought: VERDAO_CASE.thinking, details: VERDAO_CASE.closing, results: [], caseStudy: VERDAO_CASE,
+  },
   {
     id: 'iluminismo',
     num: '01',
@@ -14,9 +32,9 @@ export const PROJECTS = [
     isConceptual: true,
     image: '/assets/projects/iluminismo.jpg',
     description: 'Campanha conceitual focada em clareza de dados, racionalismo analítico e design minimalista.',
-    challenge: 'O cliente operava com dados dispersos em 6 plataformas diferentes, tomando decisões por intuição. A comunicação da marca não refletia a sofisticação analítica dos seus serviços — havia uma dissonância entre o que entregavam e como se apresentavam.',
+    challenge: 'O cliente operava com dados dispersos em 6 plataformas diferentes, tomando decisões por intuição. A comunicação da marca não refletia a sofisticação analítica dos seus serviços: havia uma dissonância entre o que entregavam e como se apresentavam.',
     thought: 'Comunicação orientada a dados não precisa ser árida ou burocrática. A clareza analítica é, por si só, a maior declaração estética de sofisticação e controle de mercado.',
-    strategy: 'Desenvolvemos um sistema de identidade editorial inspirado no Iluminismo europeu — onde a razão supera a obscuridade. A campanha posicionou o BI como a "luz" que ilumina decisões. Painéis integrados com dashboards em tempo real foram apresentados como a principal peça criativa, tornando os dados o protagonista visual.',
+    strategy: 'Desenvolvemos um sistema de identidade editorial inspirado no Iluminismo europeu, onde a razão supera a obscuridade. A campanha posicionou o BI como a "luz" que ilumina decisões. Painéis integrados com dashboards em tempo real foram apresentados como a principal peça criativa, tornando os dados o protagonista visual.',
     execution: 'Direção de arte tipográfica racionalista, dashboards interativos em tempo real, peças editoriais impressas para C-Level e campanhas em canais de negócios B2B.',
     impact: 'Reconhecimento como benchmark de comunicação analítica, unificando a percepção de valor entre tecnologia e design editorial de alto padrão.',
     results: [
@@ -42,7 +60,7 @@ export const PROJECTS = [
     description: 'Resgate histórico da comunicação humana traduzido em marca contemporânea.',
     challenge: 'Uma marca sem personalidade clara, disputando mercado em um segmento saturado de identidades genéricas. O cliente queria se diferenciar radicalmente, mas sem perder a seriedade. A pergunta era: como ser memorável sendo autêntico?',
     thought: 'A primeira necessidade humana de registrar ideias em paredes de caverna carrega a essência da comunicação: o impulso visceral de deixar um legado e ser compreendido.',
-    strategy: 'Resgatamos a primeira forma de comunicação humana — a arte rupestre — como metáfora de autenticidade e origem. Criamos tipografias proprietárias que simulam traços em pedra e texturas vetoriais de pigmentos naturais. O contraste entre o primitivo e o tecnológico virou o posicionamento central.',
+    strategy: 'Resgatamos a primeira forma de comunicação humana, a arte rupestre, como metáfora de autenticidade e origem. Criamos tipografias proprietárias que simulam traços em pedra e texturas vetoriais de pigmentos naturais. O contraste entre o primitivo e o tecnológico virou o posicionamento central.',
     execution: 'Sistema de identidade visual completo, manual de marca, tipografia customizada com curvas orgânicas e aplicações em packaging sustentável.',
     impact: 'Posicionamento singular na categoria, eliminando a concorrência direta por preço e conquistando reconhecimento em festivais de design.',
     results: [
@@ -68,7 +86,7 @@ export const PROJECTS = [
     description: 'Campanha noturna que captura o pulso da metrópole moderna com estética cyberpunk e iluminação neon.',
     challenge: 'Uma marca de lifestyle urbano que precisava se conectar com o público jovem das capitais, mas cujo orçamento não comportava mídia tradicional em grande escala. O desafio era gerar impacto máximo com presença estratégica em poucos pontos.',
     thought: 'Impacto urbano não depende de volume cego de mídia, mas de criar pontos focais magnéticos que gerem compartilhamento espontâneo orgânico.',
-    strategy: 'Mapeamos os 12 pontos de maior fluxo noturno nas capitais e combinamos OOH digital programático com social media ativado por geolocalização. Quando alguém passava perto de um painel, recebia o conteúdo no Instagram — criando um loop entre o físico e o digital.',
+    strategy: 'Mapeamos os 12 pontos de maior fluxo noturno nas capitais e combinamos OOH digital programático com social media ativado por geolocalização. Quando alguém passava perto de um painel, recebia o conteúdo no Instagram, criando um loop entre o físico e o digital.',
     execution: '12 ativações OOH interativas com sensores de presença, filtros em realidade aumentada geolocalizados e régua de conteúdo digital sincronizada com a vida noturna.',
     impact: 'Aumento recorde de visitas em lojas físicas e viralização espontânea nas redes sem necessidade de investimento astronômico de TV aberta.',
     results: [
@@ -119,7 +137,7 @@ export const PROJECTS = [
     image: '/assets/projects/era-do-radio-tv.jpg',
     description: 'Reposicionamento de marca inspirado na época de ouro da radiodifusão brasileira.',
     challenge: 'Uma rede de comunicação tradicional que perdia relevância para o streaming, mas ainda detinha uma base leal de ouvintes e telespectadores. A questão central: como transformar "antigo" em "atemporal" sem parecer retrô ou forçado?',
-    thought: 'A credibilidade construída em décadas de transmissão ao vivo não é um peso do passado — é o ativo mais valioso em uma era de fake news e desinformação efêmera.',
+    thought: 'A credibilidade construída em décadas de transmissão ao vivo não é um peso do passado: é o ativo mais valioso em uma era de fake news e desinformação efêmera.',
     strategy: 'Abraçamos o passado como superpoder. Spots de áudio com textura analógica, vídeos com grain de película e paleta vintage, integrados a campanhas digitais com linguagem contemporânea. O conceito "Algumas coisas melhoram com o tempo" conectou gerações diferentes em uma única narrativa.',
     execution: 'Spots sonoros nostálgicos para rádio, VTs em película 35mm para televisão regional, minidocumentários para o YouTube e podcasts temáticos no Spotify.',
     impact: 'Salto no recall de marca de 18% para 79% e rejuvenescimento do público ouvinte entre 30 e 45 anos.',
@@ -143,10 +161,10 @@ export const PROJECTS = [
     accent: '#ff9500',
     isConceptual: true,
     image: '/assets/projects/festival.jpg',
-    description: 'Identidade e ativação completa para festival de música de verão — 3 dias, 4 palcos, 8 mil pessoas.',
+    description: 'Identidade e ativação completa para festival de música de verão: 3 dias, 4 palcos, 8 mil pessoas.',
     challenge: 'Um festival estreante que precisava se posicionar em um mercado dominado por eventos consolidados com décadas de história. Sem histórico, sem artistas mega-headliners no orçamento. O desafio: criar antecipação e desejo antes mesmo do evento existir na memória coletiva.',
     thought: 'Festivais não vendem apenas lineup musical; vendem um escape temporário da realidade e um senso de pertencimento a uma comunidade estética.',
-    strategy: 'Construímos o festival como uma promessa sensorial antes de ser um produto. A campanha lançou o "universo Sunscape" meses antes — conteúdo teasers cinematográficos, experiência de AR nas redes, playlist exclusiva. Quando os ingressos foram à venda, o público já estava dentro do universo da marca.',
+    strategy: 'Construímos o festival como uma promessa sensorial antes de ser um produto. A campanha lançou o "universo Sunscape" meses antes: conteúdo teasers cinematográficos, experiência de AR nas redes, playlist exclusiva. Quando os ingressos foram à venda, o público já estava dentro do universo da marca.',
     execution: 'Identidade visual solar completa, cenografia dos 4 palcos, pulseiras RFID, sinalização do espaço, ambientação sensorial e cobertura em tempo real com time in-loco.',
     impact: '100% dos ingressos esgotados em menos de 48 horas no primeiro lote, transformando o evento em parada obrigatória no calendário de verão.',
     results: [
@@ -172,7 +190,7 @@ export const PROJECTS = [
     description: 'Sistema de comunicação premium para conferência tecnológica com 2.400 executivos de 38 países.',
     challenge: 'Uma conferência com conteúdo de altíssimo nível mas apresentação visual genérica que não refletia a sofisticação do evento. O desafio: criar um sistema visual que comunicasse excelência técnica e autoridade global sem parecer frio ou inacessível.',
     thought: 'Grandes conferências corporativas precisam tratar a informação com a reverência de uma instituição financeira e a elegância de uma publicação de luxo.',
-    strategy: 'Desenvolvemos um sistema visual baseado em circuitos dourados sobre fundo navy profundo — a metáfora de conexões que formam inteligência. O sistema foi construído para ser modular: funciona de cartão de visita a cenografia de 400m². Cada touchpoint reforçava a mesma narrativa de "conexão que transforma".',
+    strategy: 'Desenvolvemos um sistema visual baseado em circuitos dourados sobre fundo navy profundo, a metáfora de conexões que formam inteligência. O sistema foi construído para ser modular: funciona de cartão de visita a cenografia de 400m². Cada touchpoint reforçava a mesma narrativa de "conexão que transforma".',
     execution: 'Sinalização cenográfica de 400m², aplicação web para networking de executivos, keynotes animados para palco principal e crachás inteligentes.',
     impact: 'NPS de 96% entre os líderes empresariais e renovação antecipada de patrocínios para a edição seguinte com cota 100% preenchida.',
     results: [
@@ -198,7 +216,7 @@ export const PROJECTS = [
     description: 'Campanha visual celebrando a gastronomia brasileira com ingredientes locais e a cultura da mesa compartilhada.',
     challenge: 'Um restaurante de cozinha brasileira contemporânea que disputava espaço com franquias e redes. Os pratos eram excepcionais, mas a comunicação visual não fazia jus. As fotos existentes foram tiradas com celular sob iluminação artificial. O desafio: fazer a comida parecer tão boa quanto é.',
     thought: 'A gastronomia se consome primeiro pelos olhos. O apetite é despertado pela textura, pelo vapor, pelo brilho do azeite e pela narrativa afetiva de quem prepara.',
-    strategy: 'Três dias de produção fotográfica editorial com direção de arte completa. Utilizamos luz natural dourada do fim de tarde, plating artesanal e cenografia de mesa com elementos regionais autênticos. O contexto — a varanda com vista para a montanha — entrou como protagonista, não como fundo.',
+    strategy: 'Três dias de produção fotográfica editorial com direção de arte completa. Utilizamos luz natural dourada do fim de tarde, plating artesanal e cenografia de mesa com elementos regionais autênticos. O contexto, a varanda com vista para a montanha, entrou como protagonista, não como fundo.',
     execution: 'Produção fotográfica e audiovisual in-loco, reformulação dos menus físicos e digitais com QR Code e plano de conteúdo gastronômico para Instagram e TikTok.',
     impact: 'Fila de espera de até 2 semanas nos fins de semana e aumento sustentado de 67% no ticket médio por meio de pratos autorais em destaque.',
     results: [
@@ -224,7 +242,7 @@ export const PROJECTS = [
     description: 'Estratégia de amplificação de canais sociais com crescimento orgânico e pago sincronizados.',
     challenge: 'Uma empresa de consultoria com expertise real mas presença digital quase zero. Conteúdo irregular, sem estratégia, publicado sem critério de horário, tema ou audiência. O custo de aquisição de cliente era 3x acima da média do mercado por depender exclusivamente de indicação.',
     thought: 'Autoridade corporativa não se constrói postando dicas rápidas diárias, mas sim dissecando teses de mercado com profundidade e rigor intelectual.',
-    strategy: 'Mapeamos as micro-comunidades onde os decisores de compra passavam tempo. Construímos uma estratégia de conteúdo de autoridade — menos posts, mais profundidade. IA para análise de sentimento e timing de publicação. Mídia paga ativada apenas após validação orgânica do conteúdo.',
+    strategy: 'Mapeamos as micro-comunidades onde os decisores de compra passavam tempo. Construímos uma estratégia de conteúdo de autoridade: menos posts, mais profundidade. IA para análise de sentimento e timing de publicação. Mídia paga ativada apenas após validação orgânica do conteúdo.',
     execution: 'Calendário editorial de alto impacto para LinkedIn e YouTube, relatórios de inteligência de mercado distribuídos em newsletters e tráfego pago focado em decisores C-Level.',
     impact: 'Redução de 30% no CAC e expansão do pipeline comercial com contratos de consultoria de alto valor originados de busca orgânica e social.',
     results: [
@@ -250,7 +268,7 @@ export const PROJECTS = [
     description: 'Identidade e comunicação para ONG de reflorestamento presente em 12 países.',
     challenge: 'Uma ONG com trabalho real e impactante que não conseguia traduzir sua missão em engajamento financeiro. A identidade visual era amadora, o tom de comunicação era culpabilizador (comum no setor ambiental) e a arrecadação estava estagnada há 3 anos.',
     thought: 'O discurso da culpa gera paralisia e afastamento; o discurso da regeneração e do progresso compartilhado gera doação e orgulho.',
-    strategy: 'Mudamos o tom de "salve o planeta" para "faça parte da regeneração". A identidade foi redesenhada com formas orgânicas e fotografia aérea deslumbrante que mostra o impacto real. Cada comunicação mostra progresso, não problema. Doadores passaram a receber atualizações de "sua árvore" — criando conexão emocional duradoura.',
+    strategy: 'Mudamos o tom de "salve o planeta" para "faça parte da regeneração". A identidade foi redesenhada com formas orgânicas e fotografia aérea deslumbrante que mostra o impacto real. Cada comunicação mostra progresso, não problema. Doadores passaram a receber atualizações de "sua árvore", criando conexão emocional duradoura.',
     execution: 'Nova identidade de marca em 3 idiomas, plataforma de doação em 1 clique com recibo fiscal automático e campanhas de micro-histórias de comunidades locais.',
     impact: 'Arrecadação quadruplicada em menos de 1 ano, permitindo a expansão de viveiros de mudas nativas em mais 4 biomas críticos.',
     results: [
@@ -273,8 +291,8 @@ export const PROJECTS = [
     accent: '#f0c060',
     isConceptual: true,
     image: '/assets/projects/imoveis.jpg',
-    description: 'Campanha de lançamento de empreendimento residencial de alto padrão — 100% vendido em 72h.',
-    challenge: 'Um empreendimento de alto padrão em um mercado com 14 outros lançamentos simultâneos. O produto era excepcional, mas o desafio era criar urgência e desejo em um público que compra com a razão e a emoção ao mesmo tempo — e que está acostumado com promessas vazias do setor.',
+    description: 'Campanha de lançamento de empreendimento residencial de alto padrão: 100% vendido em 72h.',
+    challenge: 'Um empreendimento de alto padrão em um mercado com 14 outros lançamentos simultâneos. O produto era excepcional, mas o desafio era criar urgência e desejo em um público que compra com a razão e a emoção ao mesmo tempo, e que está acostumado com promessas vazias do setor.',
     thought: 'No mercado imobiliário premium, você não vende metros quadrados ou acabamento de mármore; vende a sensação de refúgio, tempo com a família e status discreto.',
     strategy: 'Desenvolvemos uma campanha de lançamento em 3 fases: teaser de mistério gerando especulação nas redes do segmento; evento exclusivo para corretores com experiência imersiva do empreendimento; e lançamento público com escassez real comunicada. A narrativa centrou não no apartamento, mas no estilo de vida que ele representa.',
     execution: 'Campanha de lançamento em 3 etapas com livro de capa dura para investidores, tour virtual 3D, evento fechado com alta gastronomia e tráfego pago ultra-segmentado.',
@@ -300,9 +318,9 @@ export const PROJECTS = [
     isConceptual: true,
     image: '/assets/projects/esportes.jpg',
     description: 'Campanha de ativação de marca esportiva com conceito de velocidade sem limites.',
-    challenge: 'Uma marca esportiva querendo se posicionar no segmento premium de performance, mas com comunicação que não se diferenciava das marcas mainstream. O público-alvo — atletas amadores sérios — sentia que a marca não os entendia de verdade.',
+    challenge: 'Uma marca esportiva querendo se posicionar no segmento premium de performance, mas com comunicação que não se diferenciava das marcas mainstream. O público-alvo, atletas amadores sérios, sentia que a marca não os entendia de verdade.',
     thought: 'Atletas dedicados não buscam glamour fácil; respeitam marcas que compreendem a dor, a madrugada fria e a disciplina solitária do treino diário.',
-    strategy: 'Produzimos conteúdo com atletas reais, não modelos. Filmagem em condições extremas reais — pista de corrida às 5h da manhã, câmeras de alta velocidade capturando milissegundos decisivos. O conceito "Velocity Unbound" evoca que o único limite é o que você aceita como limite. Ativação em 6 grandes competições nacionais.',
+    strategy: 'Produzimos conteúdo com atletas reais, não modelos. Filmagem em condições extremas reais: pista de corrida às 5h da manhã, câmeras de alta velocidade capturando milissegundos decisivos. O conceito "Velocity Unbound" evoca que o único limite é o que você aceita como limite. Ativação em 6 grandes competições nacionais.',
     execution: 'Campanha cinematográfica com filme manifesto de 90 segundos, pontos de hidratação e ativação em 6 maratonas oficiais e parcerias com assessorias esportivas.',
     impact: 'Brand lift de 89% e estabelecimento da marca como nova referência técnica entre corredores de alta performance.',
     results: [
@@ -326,7 +344,7 @@ export const PROJECTS = [
     isConceptual: false,
     image: '/assets/projects/sobre.jpg',
     description: 'Nossa essência: estrategistas que pensam, criativos que realizam. Nascemos em Poços de Caldas, atuamos sem fronteiras.',
-    challenge: 'Criar uma agência que realmente entregasse o que promete — não apenas campanhas bonitas, mas resultados mensuráveis. O mercado publicitário local estava acostumado com o medíocre. Queríamos mudar o padrão de referência.',
+    challenge: 'Criar uma agência que realmente entregasse o que promete: não apenas campanhas bonitas, mas resultados mensuráveis. O mercado publicitário local estava acostumado com o medíocre. Queríamos mudar o padrão de referência.',
     thought: 'Uma agência não deve se posicionar como fornecedora de tarefas operacionais, mas como o braço estratégico que viabiliza a ambição de crescimento dos seus clientes.',
     strategy: 'Construímos cada projeto como se fosse o único. Sem templates, sem atalhos. Investimos em tecnologia quando o mercado ainda usava planilhas, em vídeo quando texto era o padrão, em IA quando ainda era novidade. A evolução constante virou nossa identidade.',
     execution: 'Metodologia proprietária em 3 movimentos (Escutar · Traduzir · Amplificar), stack tecnológico de ponta com WebGL e IA, e atendimento direto pelos fundadores.',
@@ -351,10 +369,10 @@ export const PROJECTS = [
     accent: '#818cf8',
     isConceptual: true,
     image: '/assets/projects/home-old.jpg',
-    description: 'Sistema operacional integrado para gestão de agências criativas — CRM, Kanban e BI em uma interface premium.',
+    description: 'Sistema operacional integrado para gestão de agências criativas: CRM, Kanban e BI em uma interface premium.',
     challenge: 'Agências criativas gerenciando projetos em 5+ ferramentas diferentes: WhatsApp para briefing, planilha para financeiro, Trello para tarefas, Drive para arquivos, e-mail para aprovações. O caos operacional consumia horas que deveriam ir para criação.',
     thought: 'Ferramentas de produtividade não precisam parecer softwares cinzas corporativos dos anos 2000. Uma interface bela e responsiva incentiva a própria equipe a manter os dados limpos.',
-    strategy: 'Desenvolvemos o EliteOS — uma plataforma all-in-one desenhada especificamente para o fluxo de trabalho criativo. Interface premium que inspira, não apenas funciona. IA integrada para briefing automático, estimativa de horas e dashboards de rentabilidade por cliente e projeto.',
+    strategy: 'Desenvolvemos o EliteOS, uma plataforma all-in-one desenhada especificamente para o fluxo de trabalho criativo. Interface premium que inspira, não apenas funciona. IA integrada para briefing automático, estimativa de horas e dashboards de rentabilidade por cliente e projeto.',
     execution: 'Arquitetura SPA reativa em React e TailwindCSS, banco de dados Supabase em tempo real, automações com modelos de linguagem e painéis financeiros de alta densidade de dados.',
     impact: 'Redução de 65% no tempo gasto em tarefas burocráticas de gestão e adoção espontânea de 100% pelos colaboradores.',
     results: [
@@ -403,7 +421,7 @@ export const PROJECTS = [
     accent: '#38bdf8',
     isConceptual: false,
     image: '/assets/projects/livia-sistema.jpg',
-    description: 'ERP clínico sob medida para odontopediatria — prontuário com odontograma decíduo interativo, IA comportamental e régua de WhatsApp.',
+    description: 'ERP clínico sob medida para odontopediatria: prontuário com odontograma decíduo interativo, IA comportamental e régua de WhatsApp.',
     challenge: 'Softwares médicos tradicionais são genéricos e pensados apenas para adultos. A clínica sofria com fichas de papel, alto índice de faltas e perda de tempo no preenchimento de evoluções e controle de dentes de leite.',
     thought: 'Odontopediatria possui particularidades clínicas que nenhum software de adulto atende: cronologia de erupção dos dentes decíduos, manejo de comportamento infantil e comunicação constante com os pais.',
     strategy: 'Criamos um software proprietário completo: Dashboard com visão de cadeira clínica e alertas de IA; prontuário com odontograma interativo para dentes decíduos e permanentes; régua automática de WhatsApp em 1 clique para pós-consulta; e gamificação com Medalhas de Coragem para as crianças.',
@@ -417,7 +435,7 @@ export const PROJECTS = [
     ],
     details: 'Full-stack em React 19 e Firebase Firestore em tempo real. Assistente clínico com IA para transcrição de consultas, suporte a radiografias DICOM, controle financeiro por convênio e portal do responsável.',
   },
-];
+].map((project, index) => ({ ...project, num: String(index + 1).padStart(2, '0') }));
 
 // ─── CATEGORIES DEFINITION ───────────────────────────────────────────────────
 export const CATEGORIES = [
@@ -430,6 +448,7 @@ export const CATEGORIES = [
 
 export function projectMatchesCategory(proj, catId) {
   if (catId === 'all') return true;
+  if (proj.categories) return proj.categories.includes(catId);
   const cat = CATEGORIES.find(c => c.id === catId);
   if (!cat) return true;
   return cat.match.includes(proj.category);

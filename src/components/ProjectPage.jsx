@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { trackCaseView, trackProposalRequest, trackWhatsAppClick } from '../utils/analytics';
+import { AGENCY_CONFIG } from '../data/agency';
+import ClientCasePage from '../pages/ClientCasePage';
 
 export default function ProjectPage({ project, allProjects, onClose, onNavigate, onContact }) {
   const currentIdx = allProjects.findIndex(p => p.id === project.id);
@@ -19,6 +21,8 @@ export default function ProjectPage({ project, allProjects, onClose, onNavigate,
   const handleProposalClick = () => {
     trackProposalRequest(project.id, project.category);
   };
+
+  if (project.caseStudy) return <ClientCasePage caseStudy={project.caseStudy} onClose={onClose} onContact={onContact} />;
 
   return (
     <motion.article
@@ -86,9 +90,9 @@ export default function ProjectPage({ project, allProjects, onClose, onNavigate,
             transition={{ duration: 0.5, delay: 0.24 }}
           >
             <span>{project.client}</span>
-            <span className="pp-hero-sep">—</span>
+            <span className="pp-hero-sep">/</span>
             <span>{project.year}</span>
-            <span className="pp-hero-sep">—</span>
+            <span className="pp-hero-sep">/</span>
             <span>{project.role}</span>
           </motion.div>
         </div>
@@ -238,7 +242,7 @@ export default function ProjectPage({ project, allProjects, onClose, onNavigate,
             <motion.a
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              href={`https://wa.me/5535999999999?text=${encodeURIComponent(`Olá! Gostaria de conversar com a Comunicação Social Ag sobre um projeto semelhante ao case "${project.title}".`)}`}
+              href={AGENCY_CONFIG.getWhatsAppUrl(`Olá! Gostaria de conversar com a Comunicação Social Ag sobre um projeto semelhante ao case "${project.title}".`)}
               target="_blank"
               rel="noopener noreferrer"
               className="pp-cta-btn"
@@ -270,7 +274,7 @@ export default function ProjectPage({ project, allProjects, onClose, onNavigate,
             <motion.a
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              href={`https://wa.me/5535999999999?text=${encodeURIComponent(`Olá! Vi o case "${project.title}" (${project.category}) no portfólio da CS Ag e gostaria de solicitar uma proposta comercial para um formato semelhante.`)}`}
+              href={AGENCY_CONFIG.getWhatsAppUrl(`Olá! Vi o case "${project.title}" (${project.category}) no portfólio da CS Ag e gostaria de solicitar uma proposta comercial para um formato semelhante.`)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-case-share"
@@ -278,14 +282,14 @@ export default function ProjectPage({ project, allProjects, onClose, onNavigate,
               title="Solicitar proposta similar no WhatsApp"
               onClick={handleProposalClick}
             >
-              Solicitar Proposta para este Formato →
+              Solicitar Proposta para este Formato
             </motion.a>
           </div>
         </div>
 
         <footer className="pp-footer">
-          <span>© {new Date().getFullYear()} Comunicação Social Ag — Todos os direitos reservados</span>
-          <span>Poços de Caldas, MG</span>
+          <span>© {new Date().getFullYear()} Comunicação Social Ag. Todos os direitos reservados</span>
+          <span>{AGENCY_CONFIG.city}</span>
         </footer>
       </motion.div>
     </motion.article>

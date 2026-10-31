@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { PROJECTS, CATEGORIES, projectMatchesCategory } from '../data/projects';
 import { playClickSound } from '../utils/audio';
@@ -31,7 +30,7 @@ export default function ListSidebar({
       >
         <header className="sidebar-head">
           <div>
-            <p className="sidebar-title">Todos os projetos</p>
+            <h1 className="sidebar-title">Todos os projetos</h1>
             <p className="sidebar-count">{filteredProjects.length} de {PROJECTS.length} cases</p>
           </div>
           <motion.button
@@ -93,17 +92,17 @@ export default function ListSidebar({
               className="sidebar-item"
               whileHover={{ x: 6, backgroundColor: 'rgba(255,255,255,0.04)' }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => {
-                playClickSound(soundEnabled);
-                onSelect(p);
-              }}
             >
+              <a href={`/trabalhos/${p.id}`} className="sidebar-item-link" onClick={(event) => {
+                if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                event.preventDefault(); playClickSound(soundEnabled); onSelect(p);
+              }}>
               <span className="si-num">{p.num}</span>
               <div className="si-left">
                 <span className="si-title">{p.title}</span>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
                   <span className="si-cat">{p.category}</span>
-                  <span className="pill-mono">{p.year}</span>
+                  {p.year && <span className="pill-mono">{p.year}</span>}
                   {p.tags && p.tags.slice(0, 2).map(t => (
                     <span key={t} className="pill-mono">#{t}</span>
                   ))}
@@ -112,6 +111,7 @@ export default function ListSidebar({
               <div className="si-right">
                 <span className="si-client">{p.client}</span>
               </div>
+              </a>
             </motion.li>
           ))}
         </motion.ul>

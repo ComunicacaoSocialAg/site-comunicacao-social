@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://site-novo-chi-six.vercel.app/sitemap.xml
+
+Sitemap: https://comunicacaosocialag.com.br/sitemap.xml

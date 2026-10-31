@@ -1,0 +1,52 @@
+{
+  "project": "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28",
+  "artifact": [
+    "src/pages/DubolaShowcasePage.jsx",
+    "src/pages/dubola-showcase.css",
+    "src/data/dubolaShowcase.js"
+  ],
+  "contract": ".impeccable/surfaces/dubola-showcase.md",
+  "screenshots": [
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-apron.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-bag.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-campaign.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-contact.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-digital.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-flags.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-hero.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-products-end.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-products-start.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-products.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/desktop-1440-towel.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-360-contact.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-contact.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-digital.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-flags.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-hero.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-products-end.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-products-start.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-products.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/mobile-390-static-playback.png",
+    "/Users/bruno/Documents/Comunicacao-social/CSAg-Site-Completo-2026-10-28/.impeccable/review/dubola-showcase/user-1042-hero.png"
+  ],
+  "required_viewports": [
+    "1440x900",
+    "390x844",
+    "360x800",
+    "1042x972"
+  ],
+  "build": "PASS; 22 prerendered routes",
+  "lint": "PASS scoped JSX and data; pre-existing global lint failures outside scope",
+  "tests": "7 existing playback tests PASS (home controller, not new component coverage)",
+  "seo": "PASS 22 pages, 277 asset refs",
+  "detector": "[] no findings",
+  "browser": "CUA, hero autoplay/time advancing, pause/resume, sound toggle, scroll transitions, offscreen hero pause, active campaign playback observed. Global pause exposes 7 static visible scenes and pauses both videos. No console errors. No physical phone/performance lab.",
+  "fix_round_1": {
+    "anchoring": "Enhanced product CSS transform:none; GSAP explicit x0/y0, single percent origin; mobile composition and .72s settle before1.12s apron cut. Start/mid/end screenshots captured for both required sizes.",
+    "contrast": "Header scrim alpha .96 at top, .8 through75%, fades after navigation content.",
+    "manual_campaign": "Native video controls when motion=false. CUA clicked play, observed paused=false ready4 time .2109; clicked pause paused=true; replay then scroll offscreen paused=true. IntersectionObserver and document visibility keep offscreen/background paused.",
+    "credit": "Removed heading eyebrow; credit lives in footer.",
+    "accessible_back": "aria-label Voltar ao início permanent, confirmed in mobile AX tree.",
+    "checks": "Build, scope lint and SEO pass after fixes. Provenance scan22rasters0missing. No second detector."
+  }
+}

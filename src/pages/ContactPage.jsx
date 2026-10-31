@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { playClickSound } from '../utils/audio';
 import { trackContactStep, trackWhatsAppClick } from '../utils/analytics';
+import { AGENCY_CONFIG } from '../data/agency';
 
 const NEED_OPTIONS = [
   'Preciso de uma marca do zero',
@@ -70,7 +71,7 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
       `*WhatsApp:* ${formData.whatsapp || 'Não informado'}`
     ].filter(Boolean).join('\n\n');
 
-    const waUrl = `https://wa.me/5535999999999?text=${encodeURIComponent(msg)}`;
+    const waUrl = AGENCY_CONFIG.getWhatsAppUrl(msg);
     window.open(waUrl, '_blank');
     setStep(7);
   };
@@ -113,7 +114,7 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
               Bora conversar?
             </h1>
             <p style={{ color: '#9090a0', fontSize: '15px' }}>
-              Conta pra gente o que você precisa amplificar. A resposta chega direto de quem vai tocar o seu projeto — sem fila, sem call center.
+              Conta pra gente o que você precisa amplificar. A resposta chega direto de quem vai tocar o seu projeto, sem fila e sem call center.
             </p>
           </header>
 
@@ -134,22 +135,26 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
                     Oi! Que bom te ver por aqui. Vamos começar com o básico: qual é o seu nome e de qual marca ou projeto você fala?
                   </h2>
                   <div className="input-group">
-                    <label className="input-label">Seu Nome</label>
+                    <label className="input-label" htmlFor="contact-nome">Seu Nome</label>
                     <input
                       type="text"
                       className="contact-input"
                       placeholder="Ex: Ana Silva"
+                      id="contact-nome"
+                      autoComplete="name"
                       value={formData.nome}
                       onChange={e => setFormData({ ...formData, nome: e.target.value })}
                       autoFocus
                     />
                   </div>
                   <div className="input-group">
-                    <label className="input-label">Marca ou Empresa</label>
+                    <label className="input-label" htmlFor="contact-empresa">Marca ou Empresa</label>
                     <input
                       type="text"
                       className="contact-input"
                       placeholder="Ex: Lumina Saúde"
+                      id="contact-empresa"
+                      autoComplete="organization"
                       value={formData.empresa}
                       onChange={e => setFormData({ ...formData, empresa: e.target.value })}
                     />
@@ -263,12 +268,12 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
                     autoFocus
                   />
                   <span className="input-helper">
-                    Pode deixar em branco se ainda não tiver isso definido — não é eliminatório.
+                    Pode deixar em branco se ainda não tiver isso definido: não é eliminatório.
                   </span>
                   <div className="step-actions">
-                    <button className="btn-ghost" onClick={prevStep}>← Voltar</button>
+                    <button className="btn-ghost" onClick={prevStep}>Voltar</button>
                     <button className="btn-gold" onClick={nextStep}>
-                      Continuar →
+                      Continuar
                     </button>
                   </div>
                 </motion.div>
@@ -284,39 +289,43 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
                   transition={{ duration: 0.25 }}
                   className="step-content"
                 >
-                  <span className="step-badge">Etapa 05</span>
+                  <span className="step-badge">Etapa 5</span>
                   <h2 className="step-prompt">
                     Onde a gente te encontra?
                   </h2>
                   <div className="input-group">
-                    <label className="input-label">E-mail Profissional</label>
+                    <label className="input-label" htmlFor="contact-email">E-mail Profissional</label>
                     <input
                       type="email"
                       className="contact-input"
                       placeholder="seuemail@empresa.com"
+                      id="contact-email"
+                      autoComplete="email"
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                       autoFocus
                     />
                   </div>
                   <div className="input-group">
-                    <label className="input-label">WhatsApp com DDD</label>
+                    <label className="input-label" htmlFor="contact-whatsapp">WhatsApp com DDD</label>
                     <input
                       type="tel"
                       className="contact-input"
-                      placeholder="(35) 99999-9999"
+                      placeholder="(35) 98476-9017"
+                      id="contact-whatsapp"
+                      autoComplete="tel"
                       value={formData.whatsapp}
                       onChange={e => setFormData({ ...formData, whatsapp: e.target.value })}
                     />
                   </div>
                   <div className="step-actions">
-                    <button className="btn-ghost" onClick={prevStep}>← Voltar</button>
+                    <button className="btn-ghost" onClick={prevStep}>Voltar</button>
                     <button
                       className="btn-gold"
                       onClick={nextStep}
                       disabled={!formData.email && !formData.whatsapp}
                     >
-                      Revisar e Enviar →
+                      Revisar e Enviar
                     </button>
                   </div>
                 </motion.div>
@@ -332,12 +341,12 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
                   transition={{ duration: 0.25 }}
                   className="step-content"
                 >
-                  <span className="step-badge">Etapa 06</span>
+                  <span className="step-badge">Etapa 6</span>
                   <h2 className="step-prompt">
                     Show, {userName}!
                   </h2>
                   <p style={{ color: '#b0b0c0', lineHeight: 1.7, marginBottom: 20 }}>
-                    Sua mensagem já está a caminho da nossa equipe. Normalmente respondemos em até 1 dia útil — geralmente bem antes disso.
+                    Sua mensagem já está a caminho da nossa equipe. Normalmente respondemos em até 1 dia útil, geralmente bem antes disso.
                   </p>
                   <div className="summary-card">
                     <div><strong>Nome:</strong> {formData.nome} {formData.empresa ? `(${formData.empresa})` : ''}</div>
@@ -346,9 +355,9 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
                     <div><strong>Contato:</strong> {formData.whatsapp || formData.email}</div>
                   </div>
                   <div className="step-actions">
-                    <button className="btn-ghost" onClick={prevStep}>← Ajustar</button>
+                    <button className="btn-ghost" onClick={prevStep}>Ajustar</button>
                     <button className="btn-gold" onClick={handleSend}>
-                      Confirmar e Enviar via WhatsApp →
+                      Confirmar e Enviar via WhatsApp
                     </button>
                   </div>
                 </motion.div>
@@ -396,31 +405,31 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
             <div className="direct-item">
               <span className="direct-label">WhatsApp</span>
               <a
-                href="https://wa.me/5535999999999?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20diretamente%20com%20um%20estrategista%20da%20CS%20Ag."
+                href={AGENCY_CONFIG.getWhatsAppUrl('Olá! Gostaria de conversar diretamente com um estrategista da CS Ag.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="direct-link"
                 onClick={() => trackWhatsAppClick('contact_sidebar_whatsapp', 'WhatsApp Direto')}
               >
-                +55 (35) 99999-9999 ↗
+                {AGENCY_CONFIG.phoneDisplay} ↗
               </a>
             </div>
 
             <div className="direct-item">
               <span className="direct-label">E-mail</span>
-              <a href="mailto:contato@comunicacaosocialag.com.br" className="direct-link">
-                contato@comunicacaosocialag.com.br ↗
+              <a href={`mailto:${AGENCY_CONFIG.email}`} className="direct-link">
+                {AGENCY_CONFIG.email} ↗
               </a>
             </div>
 
             <div className="direct-item">
               <span className="direct-label">Onde estamos</span>
-              <span className="direct-val">Poços de Caldas, MG — Brasil</span>
+              <span className="direct-val">{AGENCY_CONFIG.location}</span>
             </div>
 
             <div className="direct-item" style={{ borderBottom: 'none' }}>
               <span className="direct-label">Área do Cliente</span>
-              <a href="https://cliente.comunicacaosocialag.com.br" target="_blank" rel="noopener noreferrer" className="direct-link-dim">
+              <a href={AGENCY_CONFIG.clientPortalUrl} target="_blank" rel="noopener noreferrer" className="direct-link-dim">
                 Portal de Clientes Ativos ↗
               </a>
             </div>
@@ -429,8 +438,8 @@ export default function ContactPage({ onBack, onNavigateWork, soundEnabled }) {
       </div>
 
       <footer className="pp-footer">
-        <span>© {new Date().getFullYear()} Comunicação Social Ag — Todos os direitos reservados</span>
-        <span>Poços de Caldas, MG</span>
+        <span>© {new Date().getFullYear()} Comunicação Social Ag. Todos os direitos reservados</span>
+        <span>{AGENCY_CONFIG.city}</span>
       </footer>
     </motion.main>
   );

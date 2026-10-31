@@ -1,0 +1,41 @@
+{
+  "name": "awwwards-skill",
+  "id": "awwwards-skill",
+  "owner": {
+    "name": "Sam Luker",
+    "url": "https://github.com/Ga14ctic"
+  },
+  "metadata": {
+    "description": "Elite frontend orchestrator skill for Claude Code — slams the full design stack together for Awwwards-tier, blow-my-mind UI work.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "awwwards",
+      "source": "./awwwards",
+      "description": "Composes frontend-design, impeccable, ui-ux-pro-max, design-motion-principles, color-expert, color-palette-extractor, agent-browser, and remotion-best-practices into a single 9-phase pipeline for elite landing pages, brand sites, hero pieces, and creative coding artifacts. Stack: Framer Motion + anime.js + Three.js + 21st.dev (via Magic MCP).",
+      "version": "1.0.0",
+      "author": {
+        "name": "Sam Luker",
+        "url": "https://github.com/Ga14ctic"
+      },
+      "homepage": "https://github.com/Ga14ctic/awwwards-skill",
+      "keywords": [
+        "frontend",
+        "design",
+        "awwwards",
+        "elite",
+        "landing-page",
+        "hero",
+        "framer-motion",
+        "three.js",
+        "anime.js",
+        "creative-coding",
+        "motion",
+        "orchestrator"
+      ],
+      "category": "design",
+      "strict": false
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+> Preparação de SEO atualizada em 28/10/2026. Consulte [o diagnóstico e o mapa de palavras-chave](docs/seo/SEO-AEO-GEO-CSAg.md) e [o roteiro de publicação](docs/seo/PUBLICACAO.md). O domínio canônico preparado é https://comunicacaosocialag.com.br. A URL Vercel mencionada abaixo é histórica e não confirma publicação desta versão.
+
 # Comunicação Social Ag ® | Agência de Publicidade Estratégica
 
 > **"Somos a amplificação da sua voz."**  
