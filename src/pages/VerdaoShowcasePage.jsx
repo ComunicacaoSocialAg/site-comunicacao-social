@@ -464,9 +464,9 @@ export default function VerdaoShowcasePage({ onClose, onContact }) {
       if (compact) {
         edit.fromTo(
           '.vrd-presence-space',
-          { xPercent: 2 },
-          { xPercent: -58, duration: 1.25, ease: 'none' },
-          6.36
+          { xPercent: 0 },
+          { xPercent: -56, duration: 0.56, ease: 'none' },
+          6.34
         );
       }
 
