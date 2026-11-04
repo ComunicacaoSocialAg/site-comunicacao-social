@@ -274,10 +274,7 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
                 <Media className="film-work-media" {...action} tabIndex={reducedMotion || activeWork === index ? 0 : -1} aria-label={`Abrir projeto: ${work.client}`}>
                   <img src={work.image} alt={work.summary} loading="lazy" decoding="async" width="1200" height="900" style={{ objectFit: work.fit }} />
                   <div className="film-work-card-footer">
-                    <div className="film-work-card-info">
-                      <h3 className="film-work-card-client">{work.client}</h3>
-                      <p className="film-work-card-category">{work.category}</p>
-                    </div>
+                    <h3 className="film-work-card-client">{work.client}</h3>
                     <span className="film-work-open" aria-hidden="true"><ArrowUpRight size={25} /></span>
                   </div>
                 </Media>

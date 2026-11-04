@@ -87,7 +87,7 @@
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  padding: clamp(2.5rem, 5vw, 4.2rem) clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem);
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem);
   background: linear-gradient(to top, rgba(7, 7, 9, 0.92) 0%, rgba(7, 7, 9, 0.45) 55%, transparent 100%);
   display: flex;
   justify-content: space-between;
@@ -95,13 +95,6 @@
   gap: 1.5rem;
   z-index: 2;
   pointer-events: none;
-}
-.film-work-card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  min-width: 0;
-  text-align: left;
 }
 .film-work-card-client {
   font-family: var(--film-brand);
@@ -111,14 +104,6 @@
   letter-spacing: -0.025em;
   color: var(--film-white);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
-}
-.film-work-card-category {
-  font-family: var(--film-brand);
-  font-size: clamp(0.78rem, 0.98vw, 0.92rem);
-  font-weight: 400;
-  letter-spacing: 0.015em;
-  color: rgba(245, 245, 247, 0.8);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
 }
 .film-work-open {
   position: relative;
@@ -208,14 +193,13 @@
   .film-work-shot { top: 22%; left: 5%; width: 90%; height: 64%; }
   .film-work-media { height: 100%; }
   .film-work-card-footer { padding: 2.2rem 1rem 1rem; gap: 0.75rem; }
-  .film-work-card-client { font-size: 1.15rem; }
-  .film-work-card-category { font-size: 0.7rem; max-width: 22ch; }
+  .film-work-card-client { font-size: 1.2rem; }
   .film-work-open { width: 40px; height: 40px; }
   .film-work-open svg { width: 18px; height: 18px; }
   .film-reel-controls { bottom: 2rem; }
-  .film-reel-status { gap: 0.75rem; }
-  .film-reel-count { font-size: 1.2rem; }
-  .film-reel-active-client { font-size: 0.75rem; }
+  .film-reel-status { gap: 0.75rem; flex-shrink: 0; }
+  .film-reel-count { font-size: 1.15rem; white-space: nowrap; flex-shrink: 0; }
+  .film-reel-active-client { display: none; }
   .film-reel-index { gap: 0.25rem; }
   .film-agency { min-height: 125svh; align-items: flex-end; padding-bottom: 8svh; }
   .film-agency-copy { width: 100%; }
