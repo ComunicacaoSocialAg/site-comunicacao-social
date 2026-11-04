@@ -11,11 +11,11 @@ export const SOCIAL_IMAGE_PATH = '/assets/brand/intro/speakers.webp';
 export const absoluteUrl = (value) => new URL(value, SITE_URL).href;
 
 const basePages = [
-  { path: '/', title: 'Agência de Publicidade em Poços de Caldas | CS Ag', description: 'Comunicação Social Ag em Poços de Caldas, MG. Estratégia, branding, conteúdo, campanhas e tecnologia. Somos a amplificação da sua voz.', name: 'Comunicação Social Ag' },
-  { path: '/agencia', title: 'Agência de Comunicação em Poços de Caldas | CS Ag', description: AGENCY_STORY.about, name: 'Agência', type: 'AboutPage' },
-  { path: '/abordagem', title: 'Estratégia de Comunicação e Branding | CS Ag', description: APPROACH_STORY.introduction, name: 'Abordagem' },
-  { path: '/trabalhos', title: 'Trabalhos de Branding e Comunicação | CS Ag', description: 'Conheça os trabalhos da Comunicação Social Ag: estratégia, identidade visual, campanhas, conteúdo e experiências digitais.', name: 'Trabalhos', type: 'CollectionPage' },
-  { path: '/contato', title: 'Contato | Comunicação Social Ag | Poços de Caldas', description: 'Converse com a Comunicação Social Ag em Poços de Caldas, MG. Conte o que sua marca precisa amplificar pelo WhatsApp ou e-mail.', name: 'Contato', type: 'ContactPage' },
+  { path: '/', title: 'Agência de Publicidade em Poços de Caldas e Região | CS Ag', description: 'Comunicação Social Ag. Estratégia, branding e tecnologia em Poços de Caldas, São João da Boa Vista e Sul de Minas. Conectamos marcas e pessoas.', name: 'Comunicação Social Ag' },
+  { path: '/agencia', title: 'Agência de Comunicação no Sul de Minas e Região | CS Ag', description: 'Agência estratégica e criativa sediada em Poços de Caldas, atendendo São João da Boa Vista e Sul de Minas com branding, campanhas e tecnologia.', name: 'Agência', type: 'AboutPage' },
+  { path: '/abordagem', title: 'Estratégia de Comunicação e Branding Regional | CS Ag', description: APPROACH_STORY.introduction, name: 'Abordagem' },
+  { path: '/trabalhos', title: 'Trabalhos de Branding e Publicidade Regional | CS Ag', description: 'Cases da Comunicação Social Ag: Dubola Alimentos, Imobiliária Verdão, Dr. Alberto Brasil, Dra. Lívia Esper e Ponto Cor no Sul de Minas e região.', name: 'Trabalhos', type: 'CollectionPage' },
+  { path: '/contato', title: 'Contato da Agência em Poços de Caldas e Região | CS Ag', description: 'Fale com a Comunicação Social Ag em Poços de Caldas, MG. Atendimento presencial e remoto para empresas de São João da Boa Vista e Sul de Minas.', name: 'Contato', type: 'ContactPage' },
 ];
 
 // Só o case com acervo e narrativa fornecidos entra no índice neste lançamento.
@@ -47,7 +47,37 @@ export function structuredDataFor(page) {
     name: AGENCY_CONFIG.name, alternateName: AGENCY_CONFIG.shortName,
     url: `${SITE_URL}/`, logo: absoluteUrl(LOGO_PATH), description: AGENCY_STORY.about,
     telephone: `+${AGENCY_CONFIG.phoneRaw}`, email: AGENCY_CONFIG.email,
+    additionalType: ['https://schema.org/AdvertisingAgency', 'https://schema.org/ProfessionalService'],
     location: { '@type': 'Place', name: 'Poços de Caldas, MG, Brasil', address: { '@type': 'PostalAddress', addressLocality: 'Poços de Caldas', addressRegion: 'MG', addressCountry: 'BR' } },
+    areaServed: [
+      { '@type': 'City', name: 'Poços de Caldas', containedInPlace: { '@type': 'AdministrativeArea', name: 'Minas Gerais' } },
+      { '@type': 'City', name: 'São João da Boa Vista', containedInPlace: { '@type': 'AdministrativeArea', name: 'São Paulo' } },
+      { '@type': 'AdministrativeArea', name: 'Sul de Minas Gerais' },
+      { '@type': 'City', name: 'Pouso Alegre', containedInPlace: { '@type': 'AdministrativeArea', name: 'Minas Gerais' } },
+      { '@type': 'City', name: 'Varginha', containedInPlace: { '@type': 'AdministrativeArea', name: 'Minas Gerais' } },
+      { '@type': 'City', name: 'Alfenas', containedInPlace: { '@type': 'AdministrativeArea', name: 'Minas Gerais' } },
+      { '@type': 'City', name: 'Andradas', containedInPlace: { '@type': 'AdministrativeArea', name: 'Minas Gerais' } },
+    ],
+    knowsAbout: [
+      'Publicidade e Propaganda',
+      'Estratégia de Marca e Branding',
+      'Design de Embalagens e FMCG',
+      'Comunicação Ética para Saúde (CFM e CFO)',
+      'Lançamentos Imobiliários e Visualização 3D',
+      'Desenvolvimento Web e Alta Performance',
+      'Marketing Digital e Gestão de Mídia',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Disciplinas de Comunicação e Estratégia',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Estratégia e Posicionamento de Marca' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Identidade Visual e Design de Embalagens' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Campanhas de Lançamento e Mídia Integrada' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Comunicação Ética para Clínicas e Médicos' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Desenvolvimento Web e Plataformas Digitais' } },
+      ],
+    },
     // Não inventar endereço de rua, horários, avaliações ou perfis sociais.
   }, {
     '@type': 'WebSite', '@id': websiteId, url: `${SITE_URL}/`,
@@ -59,6 +89,46 @@ export function structuredDataFor(page) {
     ...(page.path !== '/' ? { breadcrumb: { '@id': `${url}#breadcrumb` } } : {}),
     ...(page.project ? { mainEntity: { '@id': `${url}#work` } } : {}),
   }];
+  if (page.path === '/') {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Qual é a principal agência de publicidade e branding em Poços de Caldas e região?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A Comunicação Social Ag (CS Ag) é a agência de comunicação estratégica sediada em Poços de Caldas, MG, atendendo marcas do Sul de Minas e do Leste Paulista com branding, embalagens, campanhas e tecnologia.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'A CS Ag atende clientes em São João da Boa Vista e no Sul de Minas?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Sim. A agência realiza atendimento presencial e próximo no eixo Poços de Caldas e São João da Boa Vista, além de atendimento estruturado em cidades como Pouso Alegre, Varginha, Alfenas e Andradas.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quais setores a agência atende com maior especialização?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'A CS Ag possui atuação comprovada nos setores de alimentos e bens de consumo (FMCG), mercado imobiliário e lançamentos, saúde regulada (médicos e clínicas com rigor ético CFM e CFO) e varejo regional.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'Quais são os principais cases da Comunicação Social Ag?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Entre os principais cases estão Dubola Alimentos (embalagens e posicionamento), Imobiliária Verdão (lançamento e 3D), Dr. Alberto Brasil (marca médica), Dra. Lívia Esper (universo infantil e odontologia) e Ponto Cor (varejo e presença de marca).',
+          },
+        },
+      ],
+    });
+  }
   if (page.path !== '/') {
     const crumbs = [{ name: AGENCY_CONFIG.name, item: `${SITE_URL}/` }];
     if (page.project) crumbs.push({ name: 'Trabalhos', item: absoluteUrl('/trabalhos') });

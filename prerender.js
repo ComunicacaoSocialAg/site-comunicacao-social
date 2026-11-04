@@ -55,7 +55,36 @@ for (const page of [...SEO_PAGES, NOT_FOUND_SEO]) {
 }
 const indexable = SEO_PAGES.filter((page) => !page.noindex);
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable.map((page) => `  <url><loc>${absoluteUrl(page.path)}</loc></url>`).join('\n')}\n</urlset>\n`);
-fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+const robotsText = [
+  'User-agent: *',
+  'Allow: /',
+  '',
+  '# Rastreadores de Inteligencia Artificial (GEO e AEO)',
+  'User-agent: GPTBot',
+  'Allow: /',
+  '',
+  'User-agent: Google-Extended',
+  'Allow: /',
+  '',
+  'User-agent: PerplexityBot',
+  'Allow: /',
+  '',
+  'User-agent: ClaudeBot',
+  'Allow: /',
+  '',
+  'User-agent: OAI-SearchBot',
+  'Allow: /',
+  '',
+  `Sitemap: ${SITE_URL}/sitemap.xml`,
+  `# llms.txt: ${SITE_URL}/llms.txt`,
+  '',
+].join('\n');
+fs.writeFileSync(path.join(dist, 'robots.txt'), robotsText);
 for (const file of ['sitemap.xml', 'robots.txt']) fs.copyFileSync(path.join(dist, file), path.join(root, 'public', file));
+for (const file of ['llms.txt', 'llms-full.txt']) {
+  if (fs.existsSync(path.join(root, 'public', file))) {
+    fs.copyFileSync(path.join(root, 'public', file), path.join(dist, file));
+  }
+}
 console.log(`HTML gerado para ${SEO_PAGES.length} páginas; ${indexable.length} URLs no sitemap; 404 separada.`);
 if (process.env.VERCEL_ENV === 'preview') console.log('Prévia: manter X-Robots-Tag: noindex na Vercel. O domínio canônico continua oficial.');
