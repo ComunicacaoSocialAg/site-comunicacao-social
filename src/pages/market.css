@@ -1,0 +1,821 @@
+/* ── Mercado: Estilos editoriais da publicação de inteligência regional ────── */
+/* Conformidade estrita com o DESIGN.md da CS Ag e critérios Impeccable (sem slop de IA) */
+
+.market-page,
+.market-article-page,
+.market-editor-page {
+  --market-bg: #070709;
+  --market-surface: #111215;
+  --market-surface-hover: #16181d;
+  --market-white: #f5f5f7;
+  --market-yellow: #f7d406;
+  --market-ink: #17191b;
+  --market-muted: #a6a6a9;
+  --market-line: #27282c;
+  --market-gutter: clamp(1.25rem, 5vw, 6rem);
+  --market-space: clamp(4rem, 8vw, 8rem);
+  --market-header-height: 96px;
+
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: clip;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  background: var(--market-bg);
+  color: var(--market-white);
+  font-family: var(--font-body, 'Plus Jakarta Sans', system-ui, sans-serif);
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--market-header-height) + 1rem);
+  scrollbar-color: var(--market-line) var(--market-bg);
+  scrollbar-width: thin;
+}
+
+.market-page ::selection,
+.market-article-page ::selection,
+.market-editor-page ::selection {
+  background: var(--market-yellow);
+  color: var(--market-bg);
+}
+
+.market-page :is(button, a):focus-visible,
+.market-article-page :is(button, a):focus-visible,
+.market-editor-page :is(button, a, input, textarea, select):focus-visible {
+  outline: 2px solid var(--market-yellow);
+  outline-offset: 4px;
+}
+
+/* ── Header Compartilhado ── */
+.market-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: var(--market-header-height);
+  padding-inline: var(--market-gutter);
+  background: rgba(7, 7, 9, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--market-line);
+}
+
+.market-brand img {
+  width: 64px;
+  height: auto;
+  display: block;
+}
+
+.market-header-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+.market-header-nav a,
+.market-header-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--market-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.market-header-nav a:hover,
+.market-header-nav button:hover {
+  color: var(--market-white);
+}
+
+.market-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  min-height: 44px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--market-bg) !important;
+  background: var(--market-yellow);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.market-header-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+/* ── Hero Editorial da Seção Mercado (sem kickers ou badges artificiais) ── */
+.market-hero {
+  padding: clamp(3.5rem, 7vw, 7rem) var(--market-gutter) 3rem;
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+.market-hero h1 {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(2.6rem, 5.8vw, 5.2rem);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--market-white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.market-hero h1 em {
+  font-style: normal;
+  color: var(--market-yellow);
+}
+
+.market-hero-lead {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.7;
+  color: var(--market-muted);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+/* ── Controles Editoriais: Filtros e Busca ── */
+.market-controls {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--market-gutter);
+  padding-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.market-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.market-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  min-height: 44px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--market-muted);
+  background: transparent;
+  border: 1px solid var(--market-line);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.market-filter-btn:hover {
+  color: var(--market-white);
+  border-color: #55565d;
+}
+
+.market-filter-btn.active {
+  color: var(--market-bg);
+  background: var(--market-white);
+  border-color: var(--market-white);
+  font-weight: 600;
+}
+
+.market-search {
+  position: relative;
+  min-width: 260px;
+  max-width: 340px;
+  flex: 1;
+}
+
+.market-search input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 1rem 0.5rem 2.4rem;
+  font-size: 0.85rem;
+  color: var(--market-white);
+  background: transparent;
+  border: 1px solid var(--market-line);
+  border-radius: 9999px;
+  transition: border-color 0.2s ease;
+}
+
+.market-search input:focus {
+  border-color: var(--market-yellow);
+}
+
+.market-search svg {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--market-muted);
+  pointer-events: none;
+}
+
+/* ── Feed Editorial em Broadsheet (sem caixas arredondadas genéricas) ── */
+.market-feed {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--market-gutter);
+  padding-bottom: var(--market-space);
+  display: flex;
+  flex-direction: column;
+}
+
+.market-entry {
+  display: block;
+  text-decoration: none;
+  padding-block: clamp(2.2rem, 3.8vw, 3.5rem);
+  border-top: 1px solid var(--market-line);
+  transition: background-color 0.2s ease;
+}
+
+.market-entry:last-child {
+  border-bottom: 1px solid var(--market-line);
+}
+
+.market-entry-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--market-muted);
+}
+
+.market-entry-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--market-yellow);
+}
+
+.market-entry-date,
+.market-entry-reading {
+  color: var(--market-muted);
+}
+
+.market-entry-title {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--market-white);
+  margin-bottom: 1rem;
+  text-wrap: balance;
+  transition: color 0.2s ease;
+}
+
+.market-entry:hover .market-entry-title {
+  color: var(--market-yellow);
+}
+
+.market-entry-excerpt {
+  font-size: clamp(0.98rem, 1.15vw, 1.1rem);
+  line-height: 1.7;
+  color: #b5b5be;
+  margin-bottom: 1.5rem;
+  max-width: 82ch;
+  text-wrap: pretty;
+}
+
+.market-entry-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--market-white);
+}
+
+.market-entry-cta svg {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.market-entry:hover .market-entry-cta svg {
+  transform: translate(3px, -3px);
+  color: var(--market-yellow);
+}
+
+/* ── Leitura de Artigo Individual ── */
+.market-article-container {
+  max-width: 820px;
+  margin-inline: auto;
+  padding: clamp(3.5rem, 6vw, 6rem) var(--market-gutter) var(--market-space);
+}
+
+.market-article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 0.85rem;
+  color: var(--market-muted);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s ease;
+}
+
+.market-article-back:hover {
+  color: var(--market-yellow);
+}
+
+.market-article-header {
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--market-line);
+}
+
+.market-article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.8rem;
+  font-size: 0.82rem;
+  color: var(--market-muted);
+}
+
+.market-category-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--market-yellow);
+}
+
+.market-article-title {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--market-white);
+  margin-bottom: 1.5rem;
+  text-wrap: balance;
+}
+
+.market-article-subtitle {
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.65;
+  color: #c4c4cc;
+  text-wrap: pretty;
+}
+
+.market-article-author-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.85rem;
+  color: var(--market-muted);
+}
+
+.market-article-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--market-white);
+  background: transparent;
+  border: 1px solid var(--market-line);
+  border-radius: 9999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.market-article-share-btn:hover {
+  border-color: var(--market-yellow);
+  color: var(--market-yellow);
+}
+
+/* ── Prosa e Tipografia do Artigo ── */
+.market-article-body {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  line-height: 1.85;
+  color: #dedee3;
+}
+
+.market-article-body p {
+  margin-bottom: 1.8rem;
+  text-wrap: pretty;
+}
+
+.market-article-body h3 {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--market-white);
+  margin-top: 3.5rem;
+  margin-bottom: 1.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--market-line);
+}
+
+.market-article-body ul,
+.market-article-body ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.market-article-body li {
+  margin-bottom: 0.9rem;
+  padding-left: 0.4rem;
+}
+
+.market-article-body strong {
+  color: var(--market-white);
+  font-weight: 600;
+}
+
+.market-article-body em {
+  color: #b5b5be;
+}
+
+/* Citação editorial elegante sem side-tabs coloridas */
+.market-article-body blockquote {
+  margin: 3rem 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 1px solid var(--market-line);
+  background: transparent;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  font-style: normal;
+  color: var(--market-white);
+  line-height: 1.7;
+}
+
+/* ── Conclusão Institucional Editorial (sem stripes e sem efeitos de IA) ── */
+.market-article-box {
+  margin-top: 4.5rem;
+  padding: clamp(2.2rem, 4.5vw, 3.5rem);
+  background: var(--market-surface);
+  border: 1px solid var(--market-line);
+  border-radius: 0.75rem;
+}
+
+.market-article-box h4 {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--market-white);
+  margin-bottom: 0.8rem;
+}
+
+.market-article-box p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--market-muted);
+  margin-bottom: 2rem;
+  max-width: 65ch;
+}
+
+.market-article-box a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--market-bg);
+  background: var(--market-yellow);
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.market-article-box a:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* ── Painel do Editor (/editor) ── */
+.market-editor-container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--market-gutter) var(--market-space);
+}
+
+.market-login-card {
+  max-width: 440px;
+  margin: 5rem auto;
+  padding: 2.8rem;
+  background: var(--market-surface);
+  border: 1px solid var(--market-line);
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.market-login-card h2 {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--market-white);
+  margin-bottom: 0.6rem;
+}
+
+.market-login-card p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--market-muted);
+  margin-bottom: 2rem;
+}
+
+.market-login-input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: var(--market-white);
+  background: var(--market-bg);
+  border: 1px solid var(--market-line);
+  border-radius: 0.5rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.market-login-btn {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--market-bg);
+  background: var(--market-yellow);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.market-login-btn:hover {
+  filter: brightness(1.08);
+}
+
+.market-editor-dashboard-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid var(--market-line);
+}
+
+.market-editor-dashboard-header h1 {
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--market-white);
+}
+
+.market-editor-dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.market-editor-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--market-white);
+  background: transparent;
+  border: 1px solid var(--market-line);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.market-editor-btn-secondary:hover {
+  border-color: #666;
+}
+
+.market-editor-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--market-bg);
+  background: var(--market-yellow);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.market-editor-btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+/* ── Formulário do Editor ── */
+.market-editor-form {
+  display: grid;
+  gap: 1.5rem;
+  background: var(--market-surface);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--market-line);
+  border-radius: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.market-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.market-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.market-form-group label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--market-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.market-form-group input,
+.market-form-group select,
+.market-form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--market-white);
+  background: var(--market-bg);
+  border: 1px solid var(--market-line);
+  border-radius: 0.5rem;
+  font-family: inherit;
+}
+
+.market-form-group textarea {
+  min-height: 280px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.market-editor-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--market-line);
+}
+
+/* ── Tabela de Artigos no Editor ── */
+.market-editor-list {
+  background: var(--market-surface);
+  border: 1px solid var(--market-line);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.market-editor-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 120px;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--market-line);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--market-muted);
+}
+
+.market-editor-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 120px;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.85rem;
+}
+
+.market-editor-item:last-child {
+  border-bottom: none;
+}
+
+.market-editor-item-title {
+  font-weight: 600;
+  color: var(--market-white);
+}
+
+.market-editor-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.market-editor-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: var(--market-muted);
+  background: transparent;
+  border: 1px solid var(--market-line);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.market-editor-icon-btn:hover {
+  color: var(--market-white);
+  border-color: #666;
+}
+
+.market-editor-icon-btn.danger:hover {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+/* ── Rodapé Editorial Dedicado (fluxo natural no fim da página) ── */
+.market-footer {
+  margin-top: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 3rem var(--market-gutter);
+  border-top: 1px solid var(--market-line);
+  font-size: 0.78rem;
+  color: var(--market-muted);
+  background: var(--market-bg);
+  width: 100%;
+}
+
+.market-footer a {
+  color: var(--market-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.market-footer a:hover {
+  color: var(--market-yellow);
+}
+
+@media (max-width: 768px) {
+  .market-editor-table-header {
+    display: none;
+  }
+  .market-editor-item {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .market-entry,
+  .market-entry-title,
+  .market-entry-cta svg,
+  .market-header-cta,
+  .market-article-share-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -41,5 +41,14 @@ A CS Ag conecta pensamento de marca, conteúdo, mídia e tecnologia em uma mesma
 - Sobre a Agência: https://comunicacaosocialag.com.br/agencia
 - Abordagem Estratégica: https://comunicacaosocialag.com.br/abordagem
 - Cases e Trabalhos: https://comunicacaosocialag.com.br/trabalhos
+- Mercado (Ensaios e Inteligência Regional): https://comunicacaosocialag.com.br/mercado
 - Contato: https://comunicacaosocialag.com.br/contato
 - llms-full.txt: https://comunicacaosocialag.com.br/llms-full.txt
+
+## Publicações e Ensaios de Mercado (Mercado CS Ag)
+- O mercado regional pós-terras raras: https://comunicacaosocialag.com.br/mercado/pos-terras-raras-pocos-de-caldas
+- A armadilha da média (desafios do empreendedor regional): https://comunicacaosocialag.com.br/mercado/desafios-do-empreendedor-regional
+- O jaleco em liquidação (mercantilização médica e autoridade ética): https://comunicacaosocialag.com.br/mercado/mercantilizacao-medica-autoridade-etica
+- A corrida pelo valor nos cafés do Sul de Minas: https://comunicacaosocialag.com.br/mercado/corrida-pelo-valor-cafes-sul-de-minas
+- Varejo local sob cerco (território vs marketplaces): https://comunicacaosocialag.com.br/mercado/varejo-local-resposta-ao-marketplace
+- A morte silenciosa do produto para todo mundo: https://comunicacaosocialag.com.br/mercado/morte-silenciosa-produto-para-todo-mundo

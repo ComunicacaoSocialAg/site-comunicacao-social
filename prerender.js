@@ -30,7 +30,12 @@ for (const page of [...SEO_PAGES, NOT_FOUND_SEO]) {
   const image = absoluteUrl(page.image || SOCIAL_IMAGE_PATH);
   const graph = structuredDataFor(page);
   const stylePrefixes = page.path === '/agencia' || page.path === '/abordagem'
-    ? ['AgencyPage-', 'CampaignRibbon-'] : page.project ? ['ProjectPage-'] : [];
+    ? ['AgencyPage-', 'CampaignRibbon-']
+    : page.project
+    ? ['ProjectPage-']
+    : page.path === '/mercado' || page.marketPost
+    ? ['market-']
+    : [];
   const routeStyles = fs.readdirSync(path.join(dist, 'assets')).filter((file) => file.endsWith('.css') && stylePrefixes.some((prefix) => file.startsWith(prefix)));
 
   const head = [

@@ -3,7 +3,7 @@ const base = '/assets/cases/livia-esper/';
 export const LIVIA_ESPER_CASE = {
   id: 'livia-esper',
   client: 'Dra. Lívia Esper',
-  title: 'O Reino da Boca',
+  title: 'Um universo inteiro',
   subtitle: 'Odontopediatria Especializada USP',
   category: 'Ecossistema Digital em Saúde Infantil',
   accent: '#f472b6',
@@ -15,9 +15,9 @@ export const LIVIA_ESPER_CASE = {
   address: 'Rua Goiás, 64, Centro, Poços de Caldas, MG',
   instagram: '@dra.livia_esper',
   phone: '(35) 3721-7858',
-  description: 'Branding afetuoso, reels animados, experiência web cinematográfica do Reino da Boca e ERP clínico sob medida para odontopediatria.',
-  challenge: 'A consulta odontopediátrica costuma gerar ansiedade nas crianças e insegurança nos pais. Sistemas e páginas convencionais de saúde são frios, burocráticos e distantes da realidade da infância.',
-  thinking: 'O cuidado começa antes da cadeira clínica: quando a comunicação acolhe a criança com ternura e transmite rigor técnico aos pais, o medo dá lugar à confiança.',
+  description: 'Branding, logotipo, materiais de marca, gestão de presença digital, site do Dentinho e SaaS personalizado para a Dra. Lívia Esper.',
+  challenge: 'Conectar identidade visual, comunicação, experiência web e tecnologia em uma mesma direção de marca.',
+  thinking: 'O universo visual da marca conduz a experiência em todos os pontos de contato.',
   closing: 'Identidade visual, presença digital, animação 3D e tecnologia proprietária integrados em uma mesma direção.',
 };
 
@@ -26,7 +26,7 @@ export const LIVIA_ESPER_MEDIA = {
   hero: {
     portrait: `${base}portrait-consultorio.webp`,
     portraitAbout: `${base}portrait-sobre.webp`,
-    logo: `${base}logo.png`,
+    logo: `${base}logo-original.png`,
     video3D: `${base}abertura-3d.mp4`,
     video3DPoster: `${base}abertura-3d-poster.webp`,
   },
@@ -50,71 +50,9 @@ export const LIVIA_ESPER_MEDIA = {
       aspect: 'vertical',
     },
   ],
-  webStory: {
-    desktop: `${base}site-desktop.webp`,
-    mobile: `${base}site-mobile.webp`,
-    character: 'O Dentinho',
-    acts: [
-      {
-        num: '01',
-        title: 'O Sono dos Justos',
-        subtitle: 'O Dentinho Adormecido',
-        summary: 'Apresentação do personagem no Reino da Boca, acordando entre nuvens e estrelas douradas para iniciar a jornada mágica com as crianças.',
-      },
-      {
-        num: '02',
-        title: 'Experimentar o Mundo',
-        subtitle: 'Cores, Sabores e Descobertas',
-        summary: 'A fase das novas comidas e sabores: incentivo à curiosidade saudável e à alimentação balanceada na infância.',
-      },
-      {
-        num: '03',
-        title: 'A Grande Celebração',
-        subtitle: 'Rotina e Quartel-General',
-        summary: 'Brincar, correr e cuidar dos dentes. A visita à Tia Lívia é como uma parada estratégica no quartel-general da saúde.',
-      },
-      {
-        num: '04',
-        title: 'Alerta no Reino!',
-        subtitle: 'A Batalha contra a Cárie',
-        summary: 'Identificação amigável dos monstrinhos da cárie e ensino lúdico das técnicas corretas de escovação e uso do fio dental.',
-      },
-      {
-        num: '05',
-        title: 'Especialização e Afeto',
-        subtitle: 'O Escudo Mágico da USP',
-        summary: 'Técnicas modernas de condicionamento infantil e odontologia minimamente invasiva, guiadas por formação de excelência.',
-      },
-      {
-        num: '06',
-        title: 'O Final Feliz',
-        subtitle: 'Prevenção Continuada',
-        summary: 'O sorriso brilhando forte: convite para consultas periódicas sem medo e agendamento descomplicado para os pais.',
-      },
-    ],
-  },
   system: {
     desktop: `${base}sistema-desktop.webp`,
-    title: 'Sistema Clínico Proprietário',
-    summary: 'ERP desenvolvido sob medida em React e Firebase Firestore para atender às rotinas exclusivas da odontopediatria.',
-    pillars: [
-      {
-        title: 'Visão da Cadeira Clínica',
-        description: 'Painel com fila pediátrica em tempo real, status de presença e transição imediata para o prontuário digital com odontograma decíduo.',
-      },
-      {
-        title: 'Alertas Comportamentais com IA',
-        description: 'Módulo inteligente que antecipa o perfil emocional de cada criança para calibrar o tempo de acolhimento e o manejo clínico.',
-      },
-      {
-        title: 'Pré-Cadastro com Token Mágico',
-        description: 'Link enviado aos responsáveis para preenchimento prévio da anamnese infantil em casa, reduzindo a espera na recepção.',
-      },
-      {
-        title: 'Régua de WhatsApp em 1 Clique',
-        description: 'Mensagens pós-consulta automatizadas com orientações de escovação, receitas digitais e felicitações de coragem.',
-      },
-    ],
+    title: 'Sistema de gestão clínica personalizado',
   },
   posts: [
     {
@@ -205,7 +143,7 @@ export const LIVIA_ESPER_MEDIA = {
   identity: {
     papelaria: `${base}papelaria.webp`,
     heroMockup: `${base}hero-identidade.webp`,
-    logo: `${base}logo.png`,
+    logo: `${base}logo-original.png`,
     palette: [
       { name: 'Rosa Algodão', hex: '#f472b6', role: 'Afeto e acolhimento' },
       { name: 'Azul Céu', hex: '#38bdf8', role: 'Clareza e tranquilidade' },

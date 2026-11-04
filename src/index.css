@@ -1,5 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap');
 
+@font-face {
+  font-family: 'Kohinoor Telugu';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: local('Kohinoor Telugu Light'), local('KohinoorTelugu-Light'),
+       url('/assets/fonts/KohinoorTelugu-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Kohinoor Telugu';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('Kohinoor Telugu'), local('KohinoorTelugu-Regular'),
+       url('/assets/fonts/KohinoorTelugu-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Kohinoor Telugu';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: local('Kohinoor Telugu Medium'), local('KohinoorTelugu-Medium'),
+       url('/assets/fonts/KohinoorTelugu-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Kohinoor Telugu';
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: local('Kohinoor Telugu Semibold'), local('KohinoorTelugu-Semibold'),
+       url('/assets/fonts/KohinoorTelugu-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Kohinoor Telugu';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local('Kohinoor Telugu Bold'), local('KohinoorTelugu-Bold'),
+       url('/assets/fonts/KohinoorTelugu-Bold.woff2') format('woff2');
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -17,11 +62,12 @@
   --font-display: 'Syne', sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', 'Space Grotesk', monospace;
+  --font-brand: 'Kohinoor Telugu', -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif;
 
   --fh: var(--font-display);
   --fb: var(--font-body);
-  --font-brand-comunicacao: var(--font-display);
-  --font-brand-social: var(--font-body);
+  --font-brand-comunicacao: var(--font-brand);
+  --font-brand-social: var(--font-brand);
   --font-brand-slogan: var(--font-mono);
 
   -webkit-font-smoothing: antialiased;

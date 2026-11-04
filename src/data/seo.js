@@ -1,6 +1,7 @@
 import { AGENCY_CONFIG } from './agency.js';
 import { AGENCY_STORY, APPROACH_STORY } from './agencyStory.js';
 import { PROJECTS } from './projects.js';
+import { BUILTIN_MARKET_POSTS } from './marketPosts.js';
 
 // A prévia nunca se torna canônica. O domínio oficial já existe.
 export const SITE_URL = 'https://comunicacaosocialag.com.br';
@@ -15,12 +16,14 @@ const basePages = [
   { path: '/agencia', title: 'Agência de Comunicação no Sul de Minas e Região | CS Ag', description: 'Agência estratégica e criativa sediada em Poços de Caldas, atendendo São João da Boa Vista e Sul de Minas com branding, campanhas e tecnologia.', name: 'Agência', type: 'AboutPage' },
   { path: '/abordagem', title: 'Estratégia de Comunicação e Branding Regional | CS Ag', description: APPROACH_STORY.introduction, name: 'Abordagem' },
   { path: '/trabalhos', title: 'Trabalhos de Branding e Publicidade Regional | CS Ag', description: 'Cases da Comunicação Social Ag: Dubola Alimentos, Imobiliária Verdão, Dr. Alberto Brasil, Dra. Lívia Esper e Ponto Cor no Sul de Minas e região.', name: 'Trabalhos', type: 'CollectionPage' },
+  { path: '/mercado', title: 'Mercado: Ensaios e Inteligência Estratégica Regional | CS Ag', description: 'Análises aprofundadas sobre Poços de Caldas, terras raras, Sul de Minas, gestão de marcas, café especial, saúde e varejo no interior.', name: 'Mercado', type: 'CollectionPage' },
+  { path: '/editor', title: 'Painel Editorial | CS Ag', description: 'Área reservada de publicação editorial.', name: 'Editor', noindex: true },
   { path: '/contato', title: 'Contato da Agência em Poços de Caldas e Região | CS Ag', description: 'Fale com a Comunicação Social Ag em Poços de Caldas, MG. Atendimento presencial e remoto para empresas de São João da Boa Vista e Sul de Minas.', name: 'Contato', type: 'ContactPage' },
 ];
 
 // Só o case com acervo e narrativa fornecidos entra no índice neste lançamento.
 // Os demais projetos continuam disponíveis; liberar exige verificar suas provas.
-export const VERIFIED_CASE_IDS = new Set(['dubola', 'verdao', 'alberto-brasil', 'ponto-cor', 'livia-esper']);
+export const VERIFIED_CASE_IDS = new Set(['dubola', 'verdao', 'alberto-brasil', 'ponto-cor', 'livia-esper', 'ana-lima', 'ana-lima-site', 'ana-lima-sistema']);
 export const SEO_PAGES = [
   ...basePages,
   ...PROJECTS.map((project) => ({
@@ -28,6 +31,14 @@ export const SEO_PAGES = [
     title: project.caseStudy ? `${project.client}: ${project.caseStudy.title} | CS Ag` : `${project.title} | Comunicação Social Ag`,
     description: project.description, name: project.client || project.title,
     image: project.image, project, noindex: !VERIFIED_CASE_IDS.has(project.id),
+  })),
+  ...BUILTIN_MARKET_POSTS.map((post) => ({
+    path: `/mercado/${post.slug}`,
+    title: `${post.title} | Mercado CS Ag`,
+    description: post.seoDescription,
+    name: post.title,
+    type: 'Article',
+    marketPost: post,
   })),
 ];
 export const NOT_FOUND_SEO = { path: '/404', title: 'Página não encontrada | Comunicação Social Ag', description: '', name: 'Página não encontrada', noindex: true };
@@ -132,6 +143,7 @@ export function structuredDataFor(page) {
   if (page.path !== '/') {
     const crumbs = [{ name: AGENCY_CONFIG.name, item: `${SITE_URL}/` }];
     if (page.project) crumbs.push({ name: 'Trabalhos', item: absoluteUrl('/trabalhos') });
+    if (page.marketPost) crumbs.push({ name: 'Mercado', item: absoluteUrl('/mercado') });
     crumbs.push({ name: page.name, item: url });
     graph.push({ '@type': 'BreadcrumbList', '@id': `${url}#breadcrumb`, itemListElement: crumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, ...crumb })) });
   }
@@ -142,6 +154,20 @@ export function structuredDataFor(page) {
     image: absoluteUrl(page.image), inLanguage: 'pt-BR',
     creator: { '@id': agencyId }, mainEntityOfPage: { '@id': pageId },
     // O ano do projeto não comprova a data de publicação da página.
+  });
+  if (page.marketPost) graph.push({
+    '@type': 'Article', '@id': `${url}#article`, url,
+    headline: page.marketPost.title,
+    description: page.marketPost.seoDescription || page.marketPost.subtitle,
+    inLanguage: 'pt-BR',
+    author: {
+      '@type': 'Person',
+      name: 'Bruno',
+      jobTitle: 'Diretor Estratégico e Criativo',
+      worksFor: { '@id': agencyId },
+    },
+    publisher: { '@id': agencyId },
+    mainEntityOfPage: { '@id': pageId },
   });
   return { '@context': 'https://schema.org', '@graph': graph };
 }

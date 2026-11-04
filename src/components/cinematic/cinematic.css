@@ -8,6 +8,7 @@
   --film-gutter: clamp(1.25rem, 4.2vw, 5rem);
   --film-display: var(--font-display);
   --film-body: var(--font-body);
+  --film-brand: var(--font-brand, 'Kohinoor Telugu', var(--film-body));
   --film-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --journey-progress: 0;
   position: relative;
@@ -44,14 +45,13 @@
 
 /* Plano de abertura: objeto em cima, voz na base. */
 .film-hero { height: 100svh; padding-top: 9rem; }
-.film-hero-note { position: absolute; top: 25%; left: var(--film-gutter); max-width: 25ch; color: var(--film-muted); font-size: clamp(0.85rem, 1.1vw, 1rem); line-height: 1.65; }
+.film-hero-note { position: absolute; top: 24%; left: var(--film-gutter); max-width: 28ch; font-family: var(--film-brand); font-size: clamp(1.05rem, 1.4vw, 1.3rem); font-weight: 500; line-height: 1.48; letter-spacing: -0.015em; color: var(--film-white); opacity: 0.94; text-wrap: pretty; }
 .film-hero-title { position: absolute; bottom: 10.5%; left: var(--film-gutter); max-width: calc(100% - 2 * var(--film-gutter)); font-family: var(--film-display); font-size: clamp(4.5rem, 10vw, 10rem); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; }
 .film-line { display: block; overflow: clip; padding-bottom: 0.07em; }
 .film-line > span { display: block; transform-origin: left center; }
 .film-hero-title-small { font-family: var(--film-body); font-size: clamp(1.3rem, 3vw, 2.8rem); font-weight: 400; line-height: 1.5; letter-spacing: -0.025em; }
 .film-hero-title:focus-visible { outline: none; }
-.film-hero-bottom { position: absolute; bottom: 5%; inset-inline: var(--film-gutter); display: flex; justify-content: space-between; align-items: flex-end; }
-.film-hero-bottom > span { font-size: 0.7rem; line-height: 1.8; color: var(--film-muted); }
+.film-hero-bottom { position: absolute; bottom: 5%; inset-inline: var(--film-gutter); display: flex; justify-content: flex-end; align-items: flex-end; }
 .film-explore { display: flex; align-items: center; gap: 2.5rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--film-line); font-size: 0.8rem; }
 .film-explore svg { color: var(--film-yellow); }
 .film-speaker-target { position: absolute; width: 48vw; right: 5vw; top: 22%; pointer-events: none; }
@@ -69,26 +69,79 @@
 .film-amplify-copy > p { margin-top: 1.7rem; color: var(--film-muted); line-height: 1.65; font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
 .film-work-intro { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
 .film-work-intro h2 { font-size: clamp(4rem, 10vw, 10rem); }
-.film-work-intro > span { color: var(--film-muted); font-size: 0.85rem; margin-top: 3rem; }
+.film-work-lead { font-family: var(--film-brand); font-size: clamp(1.2rem, 2.1vw, 1.85rem); font-weight: 400; line-height: 1.45; letter-spacing: -0.018em; color: rgba(245, 245, 247, 0.88); margin-top: clamp(2rem, 3.5vw, 3.5rem); max-width: 32ch; text-wrap: pretty; }
 
 /* Uma montagem em perspectiva, sincronizada à rolagem. */
 .film-reel-runway { height: var(--work-runway, 800svh); position: relative; z-index: 4; }
 .film-reel-stage { position: sticky; top: 0; height: 100svh; overflow: clip; background: var(--film-bg); }
-.film-reel-label { position: absolute; top: 7rem; inset-inline: var(--film-gutter); display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--film-muted); }
+.film-reel-label { position: absolute; top: clamp(5.5rem, 8vh, 7rem); inset-inline: var(--film-gutter); display: flex; justify-content: flex-end; align-items: center; pointer-events: none; z-index: 10; }
+.film-reel-cue { display: inline-flex; align-items: center; gap: 0.65rem; font-family: var(--film-brand); font-size: clamp(0.78rem, 0.92vw, 0.88rem); font-weight: 500; letter-spacing: 0.02em; color: rgba(245, 245, 247, 0.92); padding: 0.45rem 1rem; background: rgba(18, 18, 22, 0.72); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35); }
+.film-reel-cue::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--film-yellow); box-shadow: 0 0 8px var(--film-yellow); }
 .film-work-space { position: absolute; inset: 0; perspective: 1400px; perspective-origin: center; }
 .film-work-shot { position: absolute; top: 22%; left: 13%; width: 74%; height: 64%; transform-origin: center; transform-style: preserve-3d; }
 .film-work-shot[aria-hidden="true"] { pointer-events: none; }
 .film-work-media { position: relative; width: 100%; height: 100%; display: block; overflow: clip; background: var(--work-bg); }
 .film-work-media img { width: 100%; height: 100%; object-position: center; transition: transform 850ms var(--film-ease); }
 .film-work-media:hover img { transform: scale(1.035); }
-.film-work-open { position: absolute; right: 1.1rem; bottom: 1.1rem; width: 48px; height: 48px; background: var(--film-yellow); color: var(--film-bg); border-radius: 50%; display: grid; place-items: center; }
-.film-work-caption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-top: 1.2rem; }
-.film-work-caption h3 { font-size: clamp(1rem, 1.8vw, 1.6rem); font-family: var(--film-display); font-weight: 600; letter-spacing: -0.02em; }
-.film-work-caption p { font-size: 0.7rem; color: var(--film-muted); margin-top: 0.35rem; }
-.film-work-caption-link { display: flex; align-items: center; gap: 1.1rem; font-size: 0.75rem; min-height: 44px; }
+.film-work-card-footer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  padding: clamp(2.5rem, 5vw, 4.2rem) clamp(1.4rem, 2.5vw, 2.2rem) clamp(1.2rem, 2vw, 1.8rem);
+  background: linear-gradient(to top, rgba(7, 7, 9, 0.92) 0%, rgba(7, 7, 9, 0.45) 55%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.film-work-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+  text-align: left;
+}
+.film-work-card-client {
+  font-family: var(--film-brand);
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--film-white);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+}
+.film-work-card-category {
+  font-family: var(--film-brand);
+  font-size: clamp(0.78rem, 0.98vw, 0.92rem);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  color: rgba(245, 245, 247, 0.8);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+}
+.film-work-open {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--film-yellow);
+  color: var(--film-bg);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 320ms var(--film-ease), background 200ms ease;
+}
+.film-work-media:hover .film-work-open {
+  transform: scale(1.08) rotate(45deg);
+  background: #ffe338;
+}
 .film-reel-controls { position: absolute; bottom: 3rem; inset-inline: var(--film-gutter); display: flex; justify-content: space-between; align-items: flex-end; }
+.film-reel-status { display: flex; align-items: baseline; gap: 1.25rem; }
 .film-reel-count { font-family: var(--film-body); font-variant-numeric: tabular-nums; font-size: 1.5rem; }
 .film-reel-count > span { font-size: 0.75rem; color: var(--film-muted); }
+.film-reel-active-client { font-family: var(--film-brand); font-size: clamp(0.85rem, 1.1vw, 1.05rem); font-weight: 500; letter-spacing: -0.01em; color: rgba(245, 245, 247, 0.88); white-space: nowrap; }
 .film-reel-index { display: flex; gap: 0.5rem; }
 .film-reel-index button { width: 44px; height: 44px; font-size: 0.75rem; color: var(--film-muted); border-bottom: 1px solid var(--film-line); }
 .film-reel-index button.is-current { color: var(--film-yellow); border-color: var(--film-yellow); }
@@ -134,11 +187,10 @@
   .film-header-tools { gap: 0.5rem; }
   .film-intro-button { font-size: 0.68rem; }
   .film-hero { height: 100svh; }
-  .film-hero-note { top: 15%; font-size: 0.75rem; }
+  .film-hero-note { top: 14%; font-size: clamp(0.92rem, 3.6vw, 1.05rem); max-width: 25ch; }
   .film-hero-title { font-size: clamp(3rem, 12vw, 5rem); bottom: 18%; }
   .film-hero-title-small { font-size: clamp(1.1rem, 4.6vw, 1.8rem); }
   .film-hero-bottom { bottom: 4%; }
-  .film-hero-bottom > span { font-size: 0.62rem; }
   .film-explore { max-width: 10.5rem; gap: 0.9rem; font-size: 0.7rem; text-align: left; }
   .film-speaker-target { top: 29%; right: 5%; width: 90%; }
   .film-listen { min-height: 135svh; align-items: flex-end; padding-bottom: 14svh; }
@@ -150,17 +202,20 @@
   .film-amplify-copy > p { font-size: 0.8rem; }
   .film-work-intro { min-height: 90svh; justify-content: flex-end; padding-bottom: 12svh; }
   .film-work-intro h2 { font-size: clamp(4rem, 17vw, 6rem); }
-  .film-work-intro > span { font-size: 0.75rem; margin-top: 2rem; max-width: 23ch; }
-  .film-reel-label { top: 6rem; font-size: 0.65rem; }
-  .film-reel-label span:last-child { max-width: 12ch; text-align: right; }
+  .film-work-lead { font-size: 1.15rem; margin-top: 1.75rem; max-width: 28ch; }
+  .film-reel-label { top: 5.2rem; }
+  .film-reel-cue { font-size: 0.72rem; padding: 0.35rem 0.8rem; }
   .film-work-shot { top: 22%; left: 5%; width: 90%; height: 64%; }
-  .film-work-media { height: calc(100% - 5.5rem); }
-  .film-work-caption { align-items: flex-start; padding-top: 1.2rem; }
-  .film-work-caption h3 { font-size: 1.15rem; }
-  .film-work-caption p { font-size: 0.63rem; max-width: 23ch; line-height: 1.5; }
-  .film-work-caption-link { font-size: 0.65rem; gap: 0.3rem; white-space: nowrap; }
+  .film-work-media { height: 100%; }
+  .film-work-card-footer { padding: 2.2rem 1rem 1rem; gap: 0.75rem; }
+  .film-work-card-client { font-size: 1.15rem; }
+  .film-work-card-category { font-size: 0.7rem; max-width: 22ch; }
+  .film-work-open { width: 40px; height: 40px; }
+  .film-work-open svg { width: 18px; height: 18px; }
   .film-reel-controls { bottom: 2rem; }
+  .film-reel-status { gap: 0.75rem; }
   .film-reel-count { font-size: 1.2rem; }
+  .film-reel-active-client { font-size: 0.75rem; }
   .film-reel-index { gap: 0.25rem; }
   .film-agency { min-height: 125svh; align-items: flex-end; padding-bottom: 8svh; }
   .film-agency-copy { width: 100%; }
@@ -186,12 +241,10 @@
 }
 
 /* O objeto fica no mesmo centro e escala ao terminar a abertura. */
-.film-hero-note { top: 26%; }
 .film-hero-title { font-size: clamp(4.5rem, 9vw, 9rem); bottom: 10.5%; }
 .film-speaker-target { top: 50%; left: 50%; right: auto; width: 44%; transform: translate(-50%, -50%); }
 .film-scene-fallback { top: 50%; left: 50%; right: auto; width: 44%; transform: translate(-50%, -50%); }
 @media (max-width: 768px) {
-  .film-hero-note { top: 15%; max-width: 21ch; font-size: .65rem; }
   .film-hero-title { font-size: clamp(3rem, 12vw, 5rem); bottom: 18%; }
   .film-speaker-target, .film-scene-fallback { width: 87%; top: 50%; }
 }

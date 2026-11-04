@@ -191,6 +191,7 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
           <a href="/trabalhos" onClick={(event) => { event.preventDefault(); scrollToSection('trabalhos'); }}>Trabalhos <span>{String(SELECTED_WORKS.length).padStart(2, '0')}</span></a>
           <a href="/agencia">A agência</a>
           <a href="/abordagem">Abordagem</a>
+          <a href="/mercado">Mercado</a>
           <a href="/contato" onClick={(event) => { event.preventDefault(); scrollToSection('contato'); }}>Vamos conversar <ArrowUpRight size={16} /></a>
         </nav>
         <div className="film-header-tools">
@@ -204,6 +205,7 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
         <a href="/trabalhos" onClick={(event) => { event.preventDefault(); scrollToSection('trabalhos'); }}>Trabalhos <ArrowUpRight /></a>
         <a href="/agencia">A agência <ArrowUpRight /></a>
         <a href="/abordagem">Abordagem <ArrowUpRight /></a>
+        <a href="/mercado">Mercado <ArrowUpRight /></a>
         <a href="/contato" onClick={(event) => { event.preventDefault(); scrollToSection('contato'); }}>Conversar <ArrowUpRight /></a>
         <button onClick={() => { setMenuOpen(false); onReplayIntro(); }}>Rever intro</button>
       </nav>
@@ -218,7 +220,6 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
           <span className="film-line"><span>da sua voz.</span></span>
         </h1>
         <div className="film-hero-bottom">
-          <span>Poços de Caldas, MG<br />Comunicação integrada.</span>
           <button className="film-explore" onClick={() => scrollToSection('escutar')}>Explore a experiência <ArrowDown size={19} /></button>
         </div>
       </section>
@@ -240,12 +241,12 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
 
       <section className="film-work-intro film-section">
         <h2 data-motion-copy>O trabalho<br /><em>fala.</em></h2>
-        <span>Uma seleção de marcas, imagens e ideias.</span>
+        <p className="film-work-lead">Uma seleção de marcas, imagens e ideias.</p>
       </section>
 
       <section id="trabalhos" ref={reelRef} className="film-reel-runway" style={{ '--work-runway': `${100 + WORK_TIMING.duration * 40}svh` }} aria-label="Trabalhos selecionados">
         <div className="film-reel-stage">
-          <div className="film-reel-label"><span>Trabalhos selecionados</span><span>Explore com a rolagem</span></div>
+          <div className="film-reel-label"><span className="film-reel-cue">Explore com a rolagem</span></div>
           <div className="film-work-space">
             {SELECTED_WORKS.map((work, index) => {
               const Media = work.href ? 'a' : 'button';
@@ -272,13 +273,22 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
               <article key={work.id} className="film-work-shot" aria-hidden={!reducedMotion && activeWork !== index} style={{ '--work-bg': work.background }}>
                 <Media className="film-work-media" {...action} tabIndex={reducedMotion || activeWork === index ? 0 : -1} aria-label={`Abrir projeto: ${work.client}`}>
                   <img src={work.image} alt={work.summary} loading="lazy" decoding="async" width="1200" height="900" style={{ objectFit: work.fit }} />
-                  <span className="film-work-open" aria-hidden="true"><ArrowUpRight size={25} /></span>
+                  <div className="film-work-card-footer">
+                    <div className="film-work-card-info">
+                      <h3 className="film-work-card-client">{work.client}</h3>
+                      <p className="film-work-card-category">{work.category}</p>
+                    </div>
+                    <span className="film-work-open" aria-hidden="true"><ArrowUpRight size={25} /></span>
+                  </div>
                 </Media>
               </article>
             );})}
           </div>
           <div className="film-reel-controls">
-            <span className="film-reel-count">{String(activeWork + 1).padStart(2, '0')} <span>/ {String(SELECTED_WORKS.length).padStart(2, '0')}</span></span>
+            <div className="film-reel-status">
+              <span className="film-reel-count">{String(activeWork + 1).padStart(2, '0')} <span>/ {String(SELECTED_WORKS.length).padStart(2, '0')}</span></span>
+              <span className="film-reel-active-client">{SELECTED_WORKS[activeWork].client}</span>
+            </div>
             <div className="film-reel-index" role="group" aria-label="Escolher trabalho">
               {SELECTED_WORKS.map((work, index) => <button key={work.id} onClick={() => selectWork(index)} className={activeWork === index ? 'is-current' : ''} aria-label={`Ver ${work.client}`} aria-pressed={activeWork === index}>{String(index + 1).padStart(2, '0')}</button>)}
             </div>
@@ -301,7 +311,12 @@ export default function CinematicHome({ introActive, onReplayIntro, soundEnabled
           <a className="film-contact-link" href={AGENCY_CONFIG.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">Vamos amplificar <ArrowUpRight size={34} /></a>
           <a className="film-contact-email" href={`mailto:${AGENCY_CONFIG.email}`}>{AGENCY_CONFIG.email}</a>
         </div>
-        <footer className="film-footer"><span>Comunicação Social Ag © {new Date().getFullYear()}</span><span>Poços de Caldas, MG</span><a href={AGENCY_CONFIG.clientPortalUrl} target="_blank" rel="noopener noreferrer">Área do cliente <ArrowUpRight size={13} /></a></footer>
+        <footer className="film-footer">
+          <span>Comunicação Social Ag © {new Date().getFullYear()}</span>
+          <span>Poços de Caldas, MG</span>
+          <a href="/mercado">Mercado</a>
+          <a href={AGENCY_CONFIG.clientPortalUrl} target="_blank" rel="noopener noreferrer">Área do cliente <ArrowUpRight size={13} /></a>
+        </footer>
       </section>
       <div className="film-journey-meter" aria-hidden="true" />
 
