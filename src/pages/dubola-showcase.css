@@ -253,12 +253,15 @@
 
 .dbx-case .dbx-statement p {
   align-self: flex-end;
-  width: 39%;
-  max-width: 43ch;
+  width: 58%;
+  max-width: 34ch;
   margin-top: 44px;
-  font-size: clamp(14px, 1.2vw, 18px);
-  line-height: 1.8;
-  color: var(--dbx-muted);
+  font-family: var(--font-display, 'Syne', sans-serif);
+  font-size: clamp(22px, 2.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.22;
+  color: var(--dbx-white);
 }
 
 /* Runway & Stages */
@@ -286,7 +289,7 @@
 }
 
 .dbx-case.is-cinematic .dbx-runway {
-  height: 570svh;
+  height: 790svh;
 }
 
 .dbx-case.is-cinematic .dbx-stage {
@@ -381,7 +384,24 @@
   z-index: 1;
 }
 
-/* Scenes 1-4 Details */
+/* Packaging lines */
+.dbx-case .dbx-line > img {
+  object-fit: contain;
+}
+
+.dbx-case .dbx-line-mayo-line {
+  background: radial-gradient(circle at 50% 55%, #1c2a80 0%, #0d1550 60%, #080c33 100%);
+}
+
+.dbx-case .dbx-line-tomato-line {
+  background: #070709;
+}
+
+.dbx-case .dbx-line-ketchup-line {
+  background: #fff;
+}
+
+/* Scenes 4-7 Details */
 .dbx-case .dbx-apron img {
   object-position: 50% 58%;
 }
@@ -602,7 +622,7 @@
     font-size: 13.1vw;
   }
   .dbx-case .dbx-statement p {
-    width: 52%;
+    width: 70%;
   }
 }
 
@@ -684,12 +704,12 @@
   .dbx-case .dbx-statement p {
     width: 100%;
     align-self: flex-start;
-    font-size: 14px;
+    font-size: clamp(20px, 5.6vw, 28px);
     margin-top: 24px;
   }
 
   .dbx-case.is-cinematic .dbx-runway {
-    height: 520svh;
+    height: 710svh;
   }
   .dbx-case .dbx-scene {
     min-height: 100svh;

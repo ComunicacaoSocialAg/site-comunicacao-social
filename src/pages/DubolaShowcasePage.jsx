@@ -11,6 +11,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SCENE_NAMES = [
   'Linha de Embalagens',
+  'Maioneses',
+  'Molhos de Tomate',
+  'Ketchups',
   'Identidade em Ação',
   'Embalagens de Transporte',
   'Linha de Cozinha & Brindes',
@@ -21,6 +24,9 @@ const SCENE_NAMES = [
 
 const SCENE_DETAILS = [
   'Arquitetura de rótulos e embalagens para mesa e cozinhas profissionais',
+  'Quatro sabores, quatro cores de rótulo, uma só família',
+  'Rótulo dourado e cor por sabor em potes de vidro',
+  'Tradicional, com goiaba e picante no mesmo sistema de rótulos',
   'Aplicação em uniformes operacionais e presença de equipe',
   'Sacolas kraft com ilustração proprietária de ingredientes e ponto de contato',
   'Pano de prato com arte botânica de tomates frescos e lettering da marca',
@@ -28,6 +34,8 @@ const SCENE_DETAILS = [
   'Landing page oficial dubola.com.br com apresentação de linhas e captação B2B',
   'Direção de arte e filme da linha Barbecue focado em apetite appeal',
 ];
+
+const SCENE_STARTS = [0, 1.12, 2.2, 3.28, 4.36, 5.5, 6.56, 7.62, 8.66, 9.88];
 
 function HeroVideo({ motion, compact }) {
   const videoRef = useRef(null);
@@ -133,11 +141,13 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           root.style.setProperty('--dbx-progress', self.progress);
-          const next = self.progress > 0.87 ? 6 : self.progress > 0.73 ? 5 : self.progress > 0.6 ? 4 : self.progress > 0.47 ? 3 : self.progress > 0.33 ? 2 : self.progress > 0.17 ? 1 : 0;
+          const at = self.progress * edit.duration();
+          let next = 0;
+          SCENE_STARTS.forEach((t, i) => { if (at >= t - 0.1) next = i; });
           if (next !== lastScene) { lastScene = next; setScene(next); }
         },
         onLeave: () => setScene(-1),
-        onEnterBack: () => setScene(6),
+        onEnterBack: () => setScene(SCENE_NAMES.length - 1),
         onLeaveBack: () => setScene(-1),
       } });
 
@@ -172,57 +182,74 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
 
       edit.to('.dbx-products-word', { xPercent: compact ? -5 : -8, duration: 1.4, ease: 'none' }, 0);
 
-      // Scene 1: Apron
+      // Scenes 1-3: packaging lines
       edit.set(scenes[1], { autoAlpha: 1 }, 1.12)
         .fromTo(scenes[1], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 1.12)
-        .fromTo('.dbx-apron img', { scale: 1.15, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none', immediateRender: false }, 1.12)
+        .fromTo('.dbx-line-mayo-line img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 1.12)
         .set(scenes[0], { autoAlpha: 0 }, 1.7);
 
-      // Scene 2: Bag
-      edit.set(scenes[2], { autoAlpha: 1 }, 2.26)
-        .fromTo(scenes[2], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 2.26)
-        .to(scenes[1], { xPercent: -24, duration: 0.6, ease: 'power3.inOut' }, 2.26)
-        .fromTo('.dbx-bag img', { scale: 1.14, xPercent: 2 }, { scale: 1.04, xPercent: -1, duration: 1.1, ease: 'none', immediateRender: false }, 2.26)
-        .set(scenes[1], { autoAlpha: 0 }, 2.87);
+      edit.set(scenes[2], { autoAlpha: 1 }, 2.2)
+        .fromTo(scenes[2], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 2.2)
+        .to(scenes[1], { xPercent: -24, duration: 0.6, ease: 'power3.inOut' }, 2.2)
+        .fromTo('.dbx-line-tomato-line img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 2.2)
+        .set(scenes[1], { autoAlpha: 0 }, 2.81);
 
-      // Scene 3: Towel
-      edit.set(scenes[3], { autoAlpha: 1 }, 3.32)
-        .fromTo(scenes[3], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 3.32)
-        .fromTo('.dbx-towel img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 3.32)
-        .set(scenes[2], { autoAlpha: 0 }, 3.85);
+      edit.set(scenes[3], { autoAlpha: 1 }, 3.28)
+        .fromTo(scenes[3], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 3.28)
+        .fromTo('.dbx-line-ketchup-line img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 3.28)
+        .set(scenes[2], { autoAlpha: 0 }, 3.83);
 
-      // Scene 4: Flags
-      edit.set(scenes[4], { autoAlpha: 1 }, 4.38)
-        .fromTo(scenes[4], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 4.38)
-        .fromTo('.dbx-flags img', { yPercent: 10, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out', immediateRender: false }, 4.38)
-        .set(scenes[3], { autoAlpha: 0 }, 5.02);
+      // Scene 4: Apron
+      edit.set(scenes[4], { autoAlpha: 1 }, 4.36)
+        .fromTo(scenes[4], { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 4.36)
+        .fromTo('.dbx-apron img', { scale: 1.15, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 1.3, ease: 'none', immediateRender: false }, 4.36)
+        .set(scenes[3], { autoAlpha: 0 }, 4.91);
 
-      // Scene 5: Digital
-      edit.set(scenes[5], { autoAlpha: 1 }, 5.42)
-        .fromTo(scenes[5], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 5.42);
+      // Scene 5: Bag
+      edit.set(scenes[5], { autoAlpha: 1 }, 5.5)
+        .fromTo(scenes[5], { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 5.5)
+        .to(scenes[4], { xPercent: -24, duration: 0.6, ease: 'power3.inOut' }, 5.5)
+        .fromTo('.dbx-bag img', { scale: 1.14, xPercent: 2 }, { scale: 1.04, xPercent: -1, duration: 1.1, ease: 'none', immediateRender: false }, 5.5)
+        .set(scenes[4], { autoAlpha: 0 }, 6.11);
+
+      // Scene 6: Towel
+      edit.set(scenes[6], { autoAlpha: 1 }, 6.56)
+        .fromTo(scenes[6], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 6.56)
+        .fromTo('.dbx-towel img', { scale: 1.12 }, { scale: 1, duration: 1.1, ease: 'none', immediateRender: false }, 6.56)
+        .set(scenes[5], { autoAlpha: 0 }, 7.09);
+
+      // Scene 7: Flags
+      edit.set(scenes[7], { autoAlpha: 1 }, 7.62)
+        .fromTo(scenes[7], { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power3.inOut', immediateRender: false }, 7.62)
+        .fromTo('.dbx-flags img', { yPercent: 10, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 1.1, ease: 'power2.out', immediateRender: false }, 7.62)
+        .set(scenes[6], { autoAlpha: 0 }, 8.26);
+
+      // Scene 8: Digital
+      edit.set(scenes[8], { autoAlpha: 1 }, 8.66)
+        .fromTo(scenes[8], { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 8.66);
 
       if (compact) {
         edit.fromTo('.dbx-landing-image',
           { scale: 0.9, rotation: -2, yPercent: 4 },
           { scale: 1, rotation: 0, yPercent: 0, duration: 1.2, ease: 'power2.out', immediateRender: false },
-          5.42
+          8.66
         );
       } else {
         edit.fromTo('.dbx-landing-image',
           { scale: 0.72, rotation: -9, rotationY: -16, xPercent: 13, yPercent: 10 },
           { scale: 1.08, rotation: 0, rotationY: 0, xPercent: 0, yPercent: 0, duration: 1.4, ease: 'power2.inOut', immediateRender: false },
-          5.42
+          8.66
         );
       }
 
-      edit.to('.dbx-digital-word', { xPercent: compact ? -10 : -20, duration: 1.3, ease: 'none' }, 5.42)
-        .set(scenes[4], { autoAlpha: 0 }, 6.01);
+      edit.to('.dbx-digital-word', { xPercent: compact ? -10 : -20, duration: 1.3, ease: 'none' }, 8.66)
+        .set(scenes[7], { autoAlpha: 0 }, 9.25);
 
-      // Scene 6: Campaign Film
-      edit.set(scenes[6], { autoAlpha: 1 }, 6.64)
-        .fromTo(scenes[6], { clipPath: 'inset(0% 0% 0% 100%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 6.64)
-        .set(scenes[5], { autoAlpha: 0 }, 7.2)
-        .to('.dbx-campaign video', { scale: 1.04, duration: 0.8, ease: 'none' }, 7.2);
+      // Scene 9: Campaign Film
+      edit.set(scenes[9], { autoAlpha: 1 }, 9.88)
+        .fromTo(scenes[9], { clipPath: 'inset(0% 0% 0% 100%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.55, ease: 'power3.inOut', immediateRender: false }, 9.88)
+        .set(scenes[8], { autoAlpha: 0 }, 10.44)
+        .to('.dbx-campaign video', { scale: 1.04, duration: 0.8, ease: 'none' }, 10.44);
     }, root);
 
     const frame = requestAnimationFrame(() => ScrollTrigger.refresh());
@@ -261,7 +288,7 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
 
       <section className="dbx-statement" aria-labelledby="dbx-statement-title">
         <h2 id="dbx-statement-title"><span className="dbx-statement-line">DE PONTA</span><span className="dbx-statement-line">A PONTA.</span></h2>
-        <p>Estratégia, branding, embalagens, campanhas, catálogos, digital e experiências de marca. Uma agência multidisciplinar que cuida do conjunto.</p>
+        <p>Estratégia, branding, embalagens, campanhas, catálogos, digital, eventos e experiências de marca. Uma agência multidisciplinar que cuida do conjunto.</p>
       </section>
 
       <section id="trabalho" className="dbx-runway" aria-label="Exposição dos trabalhos da Comunicação Social Ag para Dubola">
@@ -270,12 +297,13 @@ export default function DubolaShowcasePage({ onClose, onContact }) {
             <span className="dbx-products-word" aria-hidden="true">DUBOLA</span>
             <div className="dbx-product-space">{media.products.map((product) => <img key={product.className} className={`dbx-product dbx-product-${product.className}`} src={product.src} alt={product.alt} loading="eager" decoding="async" />)}</div>
           </section>
+          {media.lines.map((line) => <section key={line.className} className={`dbx-scene dbx-line dbx-line-${line.className}`} aria-label={line.alt}><img src={line.src} alt={line.alt} loading="eager" decoding="async" /></section>)}
           <section className="dbx-scene dbx-apron" aria-label="Aplicação da marca em uniforme"><img src={media.apron.src} alt={media.apron.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-bag" aria-label="Design de saco de papel"><img src={media.bag.src} alt={media.bag.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-towel" aria-label="Material de promoção"><img src={media.towel.src} alt={media.towel.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-flags" aria-label="Sinalização de marca"><img src={media.flags.src} alt={media.flags.alt} loading="eager" decoding="async" /></section>
           <section className="dbx-scene dbx-digital" aria-label="Design e desenvolvimento da landing page"><span className="dbx-digital-word" aria-hidden="true">DIGITAL</span><img className="dbx-landing-image" src={media.landing.src} alt={media.landing.alt} loading="eager" decoding="async" /></section>
-          <section className="dbx-scene dbx-campaign" aria-label="Direção de arte e animação de produto"><CampaignVideo active={scene === 6 && motion} motion={motion} /></section>
+          <section className="dbx-scene dbx-campaign" aria-label="Direção de arte e animação de produto"><CampaignVideo active={scene === SCENE_NAMES.length - 1 && motion} motion={motion} /></section>
           
           {scene >= 0 && scene < SCENE_NAMES.length && (
             <div className="dbx-scene-bar">
