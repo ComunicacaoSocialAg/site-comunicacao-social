@@ -59,6 +59,19 @@ const WORKS = [
     summary: 'Branding autoral, experiência web em scrollytelling e SaaS clínico com 9 camadas de segurança.',
     description: 'Ecossistema digital completo para a Psicóloga Clínica Ana Lima: site institucional, consultório virtual e software sob medida com prontuário criptografado e cobrança Pix Asaas.',
   },
+  {
+    id: 'wericson-martins',
+    client: 'Wericson Martins',
+    title: 'O consultório em foco.',
+    category: 'Identidade Digital & Sistema Clínico',
+    image: '/assets/cases/wericson-martins/dashboard-desktop.webp',
+    color: '#d8b08c',
+    background: '#151413',
+    fit: 'cover',
+    href: '/trabalhos/wericson-martins',
+    summary: 'Identidade digital, agendamento de entrevistas e sistema clínico com foco em sigilo e rotina psicanalítica.',
+    description: 'Identidade digital e sistema de gestão clínica para o psicanalista Wericson Martins.',
+  },
 ];
 
 export const SELECTED_WORKS = WORKS;

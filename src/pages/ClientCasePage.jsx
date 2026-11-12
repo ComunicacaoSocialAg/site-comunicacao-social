@@ -3,8 +3,20 @@ import VerdaoShowcasePage from './VerdaoShowcasePage';
 import AlbertoShowcasePage from './AlbertoShowcasePage';
 import PontoCorShowcasePage from './PontoCorShowcasePage';
 import LiviaEsperShowcasePage from './LiviaEsperShowcasePage';
+import AnaLimaShowcasePage from './AnaLimaShowcasePage';
+import WericsonShowcasePage from './WericsonShowcasePage';
 
 export default function ClientCasePage({ caseStudy, onClose, onContact }) {
+  if (caseStudy?.id === 'wericson-martins') {
+    return <WericsonShowcasePage onClose={onClose} onContact={onContact} />;
+  }
+  if (
+    caseStudy?.id === 'ana-lima' ||
+    caseStudy?.id === 'ana-lima-site' ||
+    caseStudy?.id === 'ana-lima-sistema'
+  ) {
+    return <AnaLimaShowcasePage onClose={onClose} onContact={onContact} />;
+  }
   if (
     caseStudy?.id === 'livia-esper' ||
     caseStudy?.id === 'livia-esper-site' ||

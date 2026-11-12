@@ -4,8 +4,27 @@ import { DUBOLA_CASE, VERDAO_CASE } from './clientCases.js';
 import { ALBERTO_CASE } from './albertoShowcase.js';
 import { PONTO_COR_CASE } from './pontoCorShowcase.js';
 import { LIVIA_ESPER_CASE } from './liviaEsperShowcase.js';
+import { ANA_LIMA_CASE } from './anaLimaShowcase.js';
+import { WERICSON_CASE } from './wericsonShowcase.js';
 
 export const PROJECTS = [
+  {
+    id: WERICSON_CASE.id, title: WERICSON_CASE.client, client: WERICSON_CASE.client, year: '',
+    category: WERICSON_CASE.category, categories: ['tech', 'branding'],
+    tags: ['psicanálise', 'identidade digital', 'design de produto', 'software clínico'],
+    role: WERICSON_CASE.category, accent: WERICSON_CASE.accent,
+    isConceptual: false, image: WERICSON_CASE.image,
+    description: WERICSON_CASE.description, results: [], caseStudy: WERICSON_CASE,
+  },
+  {
+    id: 'ana-lima', title: 'Ana Lima', client: 'Ana Lima', year: '',
+    category: ANA_LIMA_CASE.category, categories: ['branding', 'estrategia', 'campanhas', 'tech'],
+    tags: ['psicologia clínica', 'presença digital', 'sistema clínico', 'saas', 'segurança de dados'],
+    role: 'Ecossistema digital e gestão clínica', accent: ANA_LIMA_CASE.accent,
+    isConceptual: false, image: ANA_LIMA_CASE.image,
+    description: ANA_LIMA_CASE.description, challenge: ANA_LIMA_CASE.challenge,
+    thought: ANA_LIMA_CASE.thinking, details: ANA_LIMA_CASE.closing, results: [], caseStudy: ANA_LIMA_CASE,
+  },
   {
     id: 'livia-esper', title: 'Dra. Lívia Esper', client: 'Dra. Lívia Esper', year: '',
     category: LIVIA_ESPER_CASE.category, categories: ['branding', 'estrategia', 'campanhas', 'tech'],

@@ -1,0 +1,11 @@
+{
+  "monograma-wm.svg": "Vetor oficial da identidade de Wericson Martins, em marfim.",
+  "capturas": {
+    "origem": "Aplicação Wericson Miguel Martins, código local e0d6895, renderizado no navegador em 11/11/2026.",
+    "ambiente": "Cópia temporária isolada em modo demonstração, com registros sintéticos. O estado desautenticado do componente de acesso profissional foi renderizado localmente, sem iniciar autenticação nem conexão com Firebase.",
+    "desktop": ["dashboard-desktop.webp", "agenda-desktop.webp", "login-desktop.webp", "lock-desktop.webp"],
+    "mobile": ["dashboard-mobile.webp", "agenda-mobile.webp", "intake-mobile.webp", "login-mobile.webp", "lock-mobile.webp"],
+    "resolucoes": "1280 × 720 em desktop e 390 × 844 em mobile. O arquivo dashboard-desktop-small.webp é uma versão de 680 px da mesma captura.",
+    "processamento": "Capturas convertidas para WebP para uso no site."
+  }
+}
