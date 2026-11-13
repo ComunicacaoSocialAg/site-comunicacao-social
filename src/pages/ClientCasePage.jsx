@@ -5,8 +5,12 @@ import PontoCorShowcasePage from './PontoCorShowcasePage';
 import LiviaEsperShowcasePage from './LiviaEsperShowcasePage';
 import AnaLimaShowcasePage from './AnaLimaShowcasePage';
 import WericsonShowcasePage from './WericsonShowcasePage';
+import BeatrizBarciShowcasePage from './BeatrizBarciShowcasePage';
 
 export default function ClientCasePage({ caseStudy, onClose, onContact }) {
+  if (caseStudy?.id === 'beatriz-barci') {
+    return <BeatrizBarciShowcasePage onClose={onClose} onContact={onContact} />;
+  }
   if (caseStudy?.id === 'wericson-martins') {
     return <WericsonShowcasePage onClose={onClose} onContact={onContact} />;
   }

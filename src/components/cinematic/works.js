@@ -1,3 +1,5 @@
+import { BEATRIZ_CASE } from '../../data/beatrizBarciShowcase.js';
+
 const WORKS = [
   {
     id: 'dubola', client: 'Dubola', title: 'Da embalagem à brasa.',
@@ -71,6 +73,19 @@ const WORKS = [
     href: '/trabalhos/wericson-martins',
     summary: 'Identidade digital, agendamento de entrevistas e sistema clínico com foco em sigilo e rotina psicanalítica.',
     description: 'Identidade digital e sistema de gestão clínica para o psicanalista Wericson Martins.',
+  },
+  {
+    id: BEATRIZ_CASE.id,
+    client: BEATRIZ_CASE.client,
+    title: BEATRIZ_CASE.title,
+    category: BEATRIZ_CASE.category,
+    image: BEATRIZ_CASE.image,
+    color: BEATRIZ_CASE.accent,
+    background: '#122e2b',
+    fit: 'cover',
+    href: `/trabalhos/${BEATRIZ_CASE.id}`,
+    summary: BEATRIZ_CASE.description,
+    description: BEATRIZ_CASE.description,
   },
 ];
 

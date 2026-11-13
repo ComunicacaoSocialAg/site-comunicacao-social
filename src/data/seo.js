@@ -23,7 +23,7 @@ const basePages = [
 
 // Só o case com acervo e narrativa fornecidos entra no índice neste lançamento.
 // Os demais projetos continuam disponíveis; liberar exige verificar suas provas.
-export const VERIFIED_CASE_IDS = new Set(['dubola', 'verdao', 'alberto-brasil', 'ponto-cor', 'livia-esper', 'ana-lima', 'ana-lima-site', 'ana-lima-sistema', 'wericson-martins']);
+export const VERIFIED_CASE_IDS = new Set(['dubola', 'verdao', 'alberto-brasil', 'ponto-cor', 'livia-esper', 'ana-lima', 'ana-lima-site', 'ana-lima-sistema', 'wericson-martins', 'beatriz-barci']);
 export const SEO_PAGES = [
   ...basePages,
   ...PROJECTS.map((project) => ({

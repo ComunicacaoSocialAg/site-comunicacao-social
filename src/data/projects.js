@@ -6,8 +6,17 @@ import { PONTO_COR_CASE } from './pontoCorShowcase.js';
 import { LIVIA_ESPER_CASE } from './liviaEsperShowcase.js';
 import { ANA_LIMA_CASE } from './anaLimaShowcase.js';
 import { WERICSON_CASE } from './wericsonShowcase.js';
+import { BEATRIZ_CASE } from './beatrizBarciShowcase.js';
 
 export const PROJECTS = [
+  {
+    id: BEATRIZ_CASE.id, title: BEATRIZ_CASE.client, client: BEATRIZ_CASE.client, year: '',
+    category: BEATRIZ_CASE.category, categories: ['branding', 'campanhas'],
+    tags: ['odontopediatria', 'branding', 'direção de arte', 'conteúdo educativo'],
+    role: BEATRIZ_CASE.category, accent: BEATRIZ_CASE.accent,
+    isConceptual: false, image: BEATRIZ_CASE.image,
+    description: BEATRIZ_CASE.description, results: [], caseStudy: BEATRIZ_CASE,
+  },
   {
     id: WERICSON_CASE.id, title: WERICSON_CASE.client, client: WERICSON_CASE.client, year: '',
     category: WERICSON_CASE.category, categories: ['tech', 'branding'],
