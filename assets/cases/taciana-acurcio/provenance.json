@@ -1,0 +1,203 @@
+{
+  "client": "Taciana Acurcio Arquitetura",
+  "assets": [
+    {
+      "file": "conceito-botanica.webp",
+      "bytes": 89284,
+      "sha256": "aff5813a105062417655957957c8a6095aa5a960dee18c46c67ee0f08b7cbf60",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 16.png"
+    },
+    {
+      "file": "conceito-canelado.webp",
+      "bytes": 463424,
+      "sha256": "0515a5cfd29f33a13bd1039a5549ccdd25c2b543ae75a7a2b39a8f9974b0250a",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 9.png"
+    },
+    {
+      "file": "conceito-ceramica.webp",
+      "bytes": 72470,
+      "sha256": "f2bca6f71e5b3d219480d3c930f6327b7f70119818ee8f3272b59e8cd2dcc86f",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 10.png"
+    },
+    {
+      "file": "conceito-sofa.webp",
+      "bytes": 116374,
+      "sha256": "d4a8a7b0f298ccad856ee715397fdb6b24952ddc6d67b1f2d852a4bff7da3d69",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 12.png"
+    },
+    {
+      "file": "conceito-veludo.webp",
+      "bytes": 302034,
+      "sha256": "1c8060b337b5035b1bd2ae22efd4ddb1c31aa0242298fe62ac9e227c76ffd4b5",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 5.png"
+    },
+    {
+      "file": "hero-boiserie.webp",
+      "bytes": 98988,
+      "sha256": "a0f52551cee3b9451ec7ed3a3683ce1925840b8ae1a371a66f4c824c0d94b404",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 2.png"
+    },
+    {
+      "file": "logo-color.webp",
+      "bytes": 59716,
+      "sha256": "b7bd787221edb844571d8a01f136e750047d29e016b38115e5d1a782bf8e54f0",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Logo aplicações Cliente/Logo versoes aplicacao-01.png"
+    },
+    {
+      "file": "logo-magenta.webp",
+      "bytes": 57322,
+      "sha256": "277d73d9d3d314f23afc1fc2267de74fb641f45ca8f88fedc3c5de41a6882243",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Logo aplicações Cliente/Logo versoes aplicacao-02.png"
+    },
+    {
+      "file": "logo-seal.webp",
+      "bytes": 33772,
+      "sha256": "4a6fe8fc0daee39e604a4ac194694bfd82ffd9f25920e9429b64955eb6d6e5fa",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Logo aplicações Cliente/Logo versoes aplicacao-03.png"
+    },
+    {
+      "file": "logo-white.webp",
+      "bytes": 12934,
+      "sha256": "ec7ff8e8799c24e209a506eb02cf2e979a5d7bdb5e6fe88b1ffdeb8fb8b1e719",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Logo aplicações Cliente/Logo versoes aplicacao-07.png"
+    },
+    {
+      "file": "papelaria-isologo.webp",
+      "bytes": 12660,
+      "sha256": "bae0ada312eb656695acd68542ec00c90273db7dc41301dda874d3b22ad2e369",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/papelaria/Prancheta 1@4x.png"
+    },
+    {
+      "file": "papelaria-poliedro.webp",
+      "bytes": 177038,
+      "sha256": "3c9b030d2967252dcf00469a3c479e2c00a08a682a49e82bfba4acb4750d19a7",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/papelaria/Prancheta 5@4x.png"
+    },
+    {
+      "file": "papelaria-portfolio.webp",
+      "bytes": 177876,
+      "sha256": "20be957fbd01675b5c3be0aff4d02c20e7e60a75da81bc2c3be440388c753050",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/papelaria/Prancheta 3@4x.png"
+    },
+    {
+      "file": "passarela-casa-campo.webp",
+      "bytes": 119044,
+      "sha256": "7905166de7a5babd4d524140e0ddd766f52b49f8ce585ad98c6f7b0664d31bc2",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/INSTAGRAM/CASA DE CAMPO AMANDA/Prancheta 1 copiar.png"
+    },
+    {
+      "file": "passarela-clinica-saude.webp",
+      "bytes": 118630,
+      "sha256": "833e7fa1dca0124e0da352a9031f93d6b53b22da60f001783fe5d045c85c18be",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/INSTAGRAM/Clínica de psicologia/Prancheta 1.png"
+    },
+    {
+      "file": "passarela-cores-2026.webp",
+      "bytes": 216960,
+      "sha256": "33fb4166b40a623b1751466256d346701e527bc951caff287517fb5deb585f13",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/INSTAGRAM/STORIES CORES/Prancheta 1.png"
+    },
+    {
+      "file": "passarela-identidade-park.webp",
+      "bytes": 137200,
+      "sha256": "470131f117ab69a353bcfeb4fdb77b8c0b74b40e06d1db8b641fdc011fdceb1e",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Posts/Prancheta 3.png"
+    },
+    {
+      "file": "passarela-pantone-ny.webp",
+      "bytes": 51902,
+      "sha256": "dc63a223bcc90fa5ad2cb76f331f8f990ca2107316153113ff57dd5928e03981",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/INSTAGRAM/STORIES CORES/Prancheta 3.png"
+    },
+    {
+      "file": "passarela-site-mobile.webp",
+      "bytes": 39628,
+      "sha256": "3e95b05b8a0259980c65dad025bc9a12cf8256ada4514754f9d872066ce737af",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/site/celular-taciana-acurcio-arquiteta-topo-site-pocos-de-caldas.jpg"
+    },
+    {
+      "file": "projeto-posto-palace.webp",
+      "bytes": 278756,
+      "sha256": "36cbb42ec5b8ae24bd5960a55ef917e3d80622f63180cba900ce65bfa8bc4d18",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/site/posto palace.png"
+    },
+    {
+      "file": "quadro-botanico.webp",
+      "bytes": 615356,
+      "sha256": "0a3506911a23c98c6bb5892bcc134a95e8d458b0205f5aee0d3765d662650163",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/pasta sem título/Prancheta 3.png"
+    },
+    {
+      "file": "sistema-interiores.webp",
+      "bytes": 133520,
+      "sha256": "2b5d68bba93af363834247f43aa06ff22944896a7c10d6c81136f93d877a5373",
+      "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Clientes/Taciana Acursio Arquitetura/Moodboard/TELAS/Prancheta 17.png"
+    },
+    {
+      "file": "site-desktop-hero.webp",
+      "bytes": 86614,
+      "sha256": "b9ebf8251886ef2307081dd6efd235e454324eb582a7f3f745e8894784e473eb",
+      "source": "https://tacianaacurcioarquitetura.com.br/ (captura real desktop hero)"
+    },
+    {
+      "file": "site-desktop-setores.webp",
+      "bytes": 111296,
+      "sha256": "9c7f55433c66a8cef388e3418516a6f5d27d7572f2de8f526717a2594f68a0b3",
+      "source": "https://tacianaacurcioarquitetura.com.br/ (captura real desktop especialidades)"
+    },
+    {
+      "file": "site-mobile-real.webp",
+      "bytes": 87318,
+      "sha256": "436b56155b148bc47ddcb971e2ed87c710de0094e0860563889eb6fa4a05a92d",
+      "source": "https://tacianaacurcioarquitetura.com.br/ (captura real mobile)"
+    },
+    {
+      "file": "video-dona-dulce-poster.webp",
+      "bytes": 244980,
+      "sha256": "821996682404028f2343287ff5baf85f48b3670e69c590c8eb0bb8b45b3b9eba",
+      "source": "/Users/bruno/Documents/Taciana Acurcio/copy_1C0C0E30-1B6F-4BFE-943E-F273AB923030.MOV"
+    },
+    {
+      "file": "video-dona-dulce.mp4",
+      "bytes": 2469785,
+      "sha256": "f510431eed317f588f90c849bb874b219f420403d4d4c8a3feaaec631b531488",
+      "source": "/Users/bruno/Documents/Taciana Acurcio/copy_1C0C0E30-1B6F-4BFE-943E-F273AB923030.MOV"
+    },
+    {
+      "file": "video-escritorio-poster.webp",
+      "bytes": 98762,
+      "sha256": "9a965bed0b2ff64fc5f482998009b2e0d89a118618c8720050ac94d6b7519cc5",
+      "source": "/Users/bruno/Documents/Taciana Acurcio/1A9B060C-CB2E-48EB-B31F-00984BECAA29.MP4"
+    },
+    {
+      "file": "video-escritorio.mp4",
+      "bytes": 2914291,
+      "sha256": "4b76f78c3482cc5b1adbdd11e6dda20aa806497f620120dacb8610dec6d326c0",
+      "source": "/Users/bruno/Documents/Taciana Acurcio/1A9B060C-CB2E-48EB-B31F-00984BECAA29.MP4"
+    },
+    {
+      "file": "montagem-dona-dulce.mp4",
+      "bytes": 573436,
+      "sha256": "d2b9fdd5bbae6dd33effbbbb438339bb2b294ad3e9291619094a15c3379d2ec7",
+      "source": "Recortes 00:00 a 00:01.25 e 00:02.42 a 00:04.24 de abertura-dona-dulce.mp4, derivado do filme original do Projeto Dona Dulce"
+    },
+    {
+      "file": "montagem-dona-dulce-poster.jpg",
+      "bytes": 190266,
+      "sha256": "dd0f912bd6c7b9092ad8a35cbfb7dda61d2a657edfafb7008df909f1231dd7b3",
+      "source": "Quadro extraído a 00:00.15 de montagem-dona-dulce.mp4"
+    },
+    {
+      "file": "montagem-escritorio.mp4",
+      "bytes": 491519,
+      "sha256": "8ba191f1642ef86887da9098b4c10e2a1b65cdbdf5b52c065f4433cb79681534",
+      "source": "Recorte 00:03.70 a 00:10.70 de video-escritorio.mp4"
+    },
+    {
+      "file": "montagem-escritorio-poster.jpg",
+      "bytes": 79275,
+      "sha256": "7a9120873b90ede979c4436ca1c7e54f9623b6b5b4501865fe16401cda125aa9",
+      "source": "Quadro extraído a 00:00.15 de montagem-escritorio.mp4"
+    }
+  ]
+}

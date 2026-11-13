@@ -1,0 +1,442 @@
+[
+  {
+    "file": "hero.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/ombreira3.png",
+    "source_sha256": "1a527faf92590a8eade6044759f86340dad1bc097ab096a623ee30bddec8ddec",
+    "size": [
+      1344,
+      1800
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-neon.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/4 tendências/modelo tendencia neon carnaval 2026.png",
+    "source_sha256": "7b05d98d69106f98a7544cc1fac3899698127668e361b2c6e4f52f0f9ecd9712",
+    "size": [
+      1000,
+      1241
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-maximal.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/4 tendências/maximal.png",
+    "source_sha256": "c3c13900e29ff15630bf8d936c0cfeb9fc6a587e944774f5005c0b699be30ab7",
+    "size": [
+      1000,
+      1241
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-ombreira.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/ombreiras/Prancheta 1.png",
+    "source_sha256": "4001296a5c2884f36b495d4ea2502dd09d1eb9171d10f35e395ffb839e654344",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-headpiece.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/headpieces/Prancheta 1.png",
+    "source_sha256": "684ec480c1d878bd6d8fc2bd4f5c364a8997a49c77b0296d83c2aeafbc68c79a",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-brincos.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/brincos/Prancheta 1.png",
+    "source_sha256": "843fd40fa74505126fd6310a2b5c2da45896c99c1f04f3e643bcbaec4cba9e22",
+    "size": [
+      1000,
+      1250
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-micangas.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Tendências/carnaval micangas 2026 ponto cor-100.jpg",
+    "source_sha256": "e81e252539278dece08ea6d04148bd99b5c284e9c1c4957599c26bb339054b80",
+    "size": [
+      1000,
+      1250
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-customizacao.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/post customização/Prancheta 6.png",
+    "source_sha256": "309fd5a5feb600dabff9ace1c6a13a2b6e6eb5a204c063cce8744a337bd02b43",
+    "size": [
+      1000,
+      1250
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "carnaval-acessorios.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Acessórios/Prancheta 2.png",
+    "source_sha256": "efdaeed996cc50ab6d2522feaad41d49ac49248189cbf8aae6cd913ee061f7ef",
+    "size": [
+      1000,
+      1250
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "cor-chocolate.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/cores e alimentos/Prancheta 2@2x.png",
+    "source_sha256": "5fcabcda34a37ab7d266a57639ca2856f3f2f06f3853b6620871bff103d88c1d",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "cor-mirtilo.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/cores e alimentos/Prancheta 3@2x.png",
+    "source_sha256": "35dc224742340e3b85cff376380b2d1793af7f54509b1a55da1f387d7eeb8e9e",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento, remoção do lettering a pedido do usuário com interpolação de fundo e conversão WebP."
+  },
+  {
+    "file": "cor-azeite.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/cores e alimentos/Prancheta 4@2x.png",
+    "source_sha256": "a13aa6773899804db7a8c53aafd98791e43ea65292a82827cf41c35ec6621373",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "cor-capim.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/cores e alimentos/Prancheta 5@2x.png",
+    "source_sha256": "e62cccd663ff00c56b6512f0a783ca619278cc8b427e76b8896c876dacf556ed",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "cor-pitaya.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/cores e alimentos/Prancheta 6@2x.png",
+    "source_sha256": "c37a3568db079975aa33e78280d3137660342f9e5f7548bc3e4fdbd03b17c248",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-cores.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/Cores inverno 26/post/Prancheta 1@2x.png",
+    "source_sha256": "31da3b1e8187affa543e84a654240e98ecbe9d708be449ec05d9006ce8ac4fcb",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-vermelhos.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/Cores inverno 26/post/Prancheta 3@2x.png",
+    "source_sha256": "e7e8a37dd1a3ee114d9abaf0eee0dac802de9ff1c3468987accfcc6d9645a330",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-azuis.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/Cores inverno 26/post/Prancheta 4@2x.png",
+    "source_sha256": "dc827f450457927ca6324794fc102aa1710378f6e5959903fff89ce3eea3c235",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-verdes.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/Cores inverno 26/post/Prancheta 5@2x.png",
+    "source_sha256": "e244633987c427098d2b3a10615f9a6a3fe982414880d5f4469289b780bf4a9b",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-neutros.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/Cores inverno 26/post/Prancheta 7@2x.png",
+    "source_sha256": "9d3000f15206abd146a9bbcab6c5345c36fb795085d714554e666c0947af2f05",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "inverno-teal.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/cores do inverno/post/Prancheta 1@2x.png",
+    "source_sha256": "1fa3de6c55c58dfac02ac6f9d24d1d08727c1643c5fa639bf80d6dac0401f152",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "kit-bordado.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Março 26/kit primeiro bordado.png",
+    "source_sha256": "ff273e3bb0e74da13ed811d2cbd63fdb09c3b52556c874c90c701a453be9ea35",
+    "size": [
+      1000,
+      1241
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "bouquet.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/maio/bouquet croche/Prancheta 1@2x.png",
+    "source_sha256": "2b2076ecfd0152bdb20dd5a2ce472433152d9cc585c31402418a28b347449da1",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "bolsa-croche.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Abril 26/top 3 maes/post/Prancheta 1@2x.png",
+    "source_sha256": "7f62ef5c94abe16a279e820d6d353e2e68bdd392894c083d28ca7800bde92fe7",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "manta.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Março 26/manta barroco maxcolor 6 post@2x.png",
+    "source_sha256": "b4c7149de3076624046d7d99d5b056b039b56d94cb1c5eea5ee9bd02bea5e966",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "dia-mulheres.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Instagram/Março 26/Dia das Mulheres/post mulheres@2x.png",
+    "source_sha256": "2f25ce5e0b7051cd53c08f703c87ced7a67dff6d3228d3128f33e5784e327335",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "logo-color.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Marca e Logos Ponto Cor/Logo (500 x 500 px) - 30.png",
+    "source_sha256": "218f35a474a9c726e925779c75034a185435837bcdcd85f9280e491c29c49b72",
+    "size": [
+      1000,
+      341
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "logo-white.webp",
+    "source": "/Users/bruno/Google Drive/Meu Drive/Ponto Cor/Marca e Logos Ponto Cor/Logo (500 x 500 px) - 35.png",
+    "source_sha256": "37babf619d6ba7f16ebe5ce70a46128859337ca87656dc1a0a112126dcbe9d6d",
+    "size": [
+      1000,
+      1187
+    ],
+    "treatment": "Redimensionamento e WebP. Logos: apenas remoção da margem transparente. Sem criação ou alteração da arte."
+  },
+  {
+    "file": "hero-reel.mp4",
+    "source": "/Users/bruno/Documents/Ponto cor/reels ponto cor.mp4",
+    "source_sha256": "204b545fd2bb3980c620a9678c5dc9f7d80220b96005ea564bdd73526af334a4",
+    "size": [
+      1280,
+      720
+    ],
+    "treatment": "Conversão de HEVC para H.264, yuv420p e faststart; duração e montagem preservadas. Removida somente a faixa de áudio integralmente silenciosa (-91 dB)."
+  },
+  {
+    "file": "hero-reel-poster.webp",
+    "source": "/Users/bruno/Documents/Ponto cor/reels ponto cor.mp4",
+    "source_sha256": "204b545fd2bb3980c620a9678c5dc9f7d80220b96005ea564bdd73526af334a4",
+    "size": [
+      1280,
+      720
+    ],
+    "treatment": "Quadro original do reel em 0,5 s, convertido para WebP como poster e fallback."
+  },
+  {
+    "file": "mirtilo-novelo.mp4",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/f9e172d1-cb9d-4f0a-a758-711c78f0d741-0.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Transcodificação H.264 web standard 24fps yuv420p faststart sem áudio.",
+    "source_sha256": "156a6803bc7b8e523ebc9a6dd76c4b587738e992731f2df7fb35497cbde1c4fd"
+  },
+  {
+    "file": "mirtilo-novelo-poster.webp",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/f9e172d1-cb9d-4f0a-a758-711c78f0d741-0.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Poster WebP extraído do trecho em vídeo.",
+    "source_sha256": "156a6803bc7b8e523ebc9a6dd76c4b587738e992731f2df7fb35497cbde1c4fd"
+  },
+  {
+    "file": "mirtilo-artesanato.mp4",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/871D5F73-B984-45EC-81D0-881C7F583B97-1.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Transcodificação H.264 web standard 24fps yuv420p faststart sem áudio.",
+    "source_sha256": "46f053fa2a6389b3a767448b5d2769af23fd1a269a1a30ca567045d4c5ed689a"
+  },
+  {
+    "file": "mirtilo-artesanato-poster.webp",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/871D5F73-B984-45EC-81D0-881C7F583B97-1.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Poster WebP extraído do trecho em vídeo.",
+    "source_sha256": "46f053fa2a6389b3a767448b5d2769af23fd1a269a1a30ca567045d4c5ed689a"
+  },
+  {
+    "file": "mirtilo-bailarina.mp4",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/9c81c356-bca6-4844-9eea-c483ab812552-0.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Transcodificação H.264 web standard 24fps yuv420p faststart sem áudio.",
+    "source_sha256": "982f4dca3c2bae8843c1d867c1d1daf779d5b0f367f4e2c52178ddf14bd049d3"
+  },
+  {
+    "file": "mirtilo-bailarina-poster.webp",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/9c81c356-bca6-4844-9eea-c483ab812552-0.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Poster WebP extraído do trecho em vídeo.",
+    "source_sha256": "982f4dca3c2bae8843c1d867c1d1daf779d5b0f367f4e2c52178ddf14bd049d3"
+  },
+  {
+    "file": "mirtilo-armarinho.mp4",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/video.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Transcodificação H.264 web standard 24fps yuv420p faststart sem áudio, com remoção precisa da marca d'água via unblending alfa no tricô e interpolação contínua na madeira.",
+    "source_sha256": "00c465d5a70881e12fbbddf4b9857aa2edd4d93d6bfd9850d702e02ddfda2ea0"
+  },
+  {
+    "file": "mirtilo-armarinho-poster.webp",
+    "source": "/Users/bruno/Downloads/pontocor/Mirtilo/video.mov",
+    "size": [
+      360,
+      640
+    ],
+    "treatment": "Poster WebP extraído do trecho em vídeo.",
+    "source_sha256": "00c465d5a70881e12fbbddf4b9857aa2edd4d93d6bfd9850d702e02ddfda2ea0"
+  },
+  {
+    "file": "inverno-desenrola.webp",
+    "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Ponto Cor/Instagram/Abril 26/o que desenrola no seu coração@2x.png",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Acervo Ponto Cor. Sem criação ou alteração da arte.",
+    "source_sha256": "b863e17d6e2b22ce17f827d6a4cf270c6f4ca7a02967e8d908fca78a8acc3f78"
+  },
+  {
+    "file": "inverno-marrom-preto.webp",
+    "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Ponto Cor/Instagram/Março 26/Prancheta 1@2x.png",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Acervo Ponto Cor. Sem criação ou alteração da arte.",
+    "source_sha256": "7397eb1d25d8691033ed98e398423f173beb2c01b2e8cf8fc0508d93ceb510ea"
+  },
+  {
+    "file": "inverno-tons-marrom.webp",
+    "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Ponto Cor/Instagram/Março 26/Prancheta 4@2x.png",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Acervo Ponto Cor. Sem criação ou alteração da arte.",
+    "source_sha256": "587514e3983d90b2dcb1ebeb31be1466f3faa862d7271f8b4626d736ef7652fb"
+  },
+  {
+    "file": "inverno-botoes-ziperes.webp",
+    "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Ponto Cor/Instagram/Março 26/Prancheta 16@2x.png",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Acervo Ponto Cor. Sem criação ou alteração da arte.",
+    "source_sha256": "5e890b4d2eba6d3b1b65231a1bcce69d0e9be23703a1b0f153dbc3ad031a6ca5"
+  },
+  {
+    "file": "inverno-paleta.webp",
+    "source": "/Users/bruno/Library/CloudStorage/GoogleDrive-comunicacaosocialag@gmail.com/Meu Drive/Ponto Cor/Instagram/coresoutinv2026.png",
+    "size": [
+      1000,
+      1333
+    ],
+    "treatment": "Redimensionamento e WebP. Acervo Ponto Cor. Sem criação ou alteração da arte.",
+    "source_sha256": "6f354f725630ef8b5e1e95c0ab3aff9cc9be46a9e22f80f15fd676e974fe35dc"
+  },
+  {
+    "file": "mirtilo-armarinho-v2.mp4",
+    "source": "Magnific AI (google-veo3_1, id: rgV4gPrxtc) a partir do primeiro frame limpo da ilustração do acervo",
+    "size": [
+      720,
+      1280
+    ],
+    "treatment": "Geração direta de vídeo via Google Veo 3.1 no Magnific sem marca d'água, transcodificado para web H.264 24fps yuv420p faststart sem áudio.",
+    "source_sha256": "3eacd8cb2601a5ebcd2e3919e13cf6cbdf4ec244b75eb3c7f999966144e54823"
+  },
+  {
+    "file": "mirtilo-armarinho-v2-poster.webp",
+    "source": "Magnific AI (google-veo3_1, id: rgV4gPrxtc)",
+    "size": [
+      720,
+      1280
+    ],
+    "treatment": "Poster WebP de alta fidelidade extraído do frame inicial do vídeo gerado no Magnific.",
+    "source_sha256": "3eacd8cb2601a5ebcd2e3919e13cf6cbdf4ec244b75eb3c7f999966144e54823"
+  }
+]

@@ -1,0 +1,123 @@
+# Configuração Apache / LiteSpeed para Comunicação Social Ag (CS Ag)
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_mime.c>
+  AddType application/wasm .wasm
+  AddType application/javascript .js
+  AddType model/gltf-binary .glb
+  AddType model/gltf+json .gltf
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType video/mp4 .mp4
+  AddType video/webm .webm
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  <FilesMatch "\.(glb|gltf|webp|png|jpg|jpeg|svg|mp4|webm|woff2?|ttf|otf)$">
+    Header set Cache-Control "public, max-age=2592000, stale-while-revalidate=86400"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Força HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redirecionamentos de query string do site legado
+  RewriteCond %{QUERY_STRING} ^case=dubola$ [NC]
+  RewriteRule ^$ /trabalhos/dubola? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=verdao$ [NC]
+  RewriteRule ^$ /trabalhos/verdao? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=iluminismo$ [NC]
+  RewriteRule ^$ /trabalhos/iluminismo? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=rupestre$ [NC]
+  RewriteRule ^$ /trabalhos/rupestre? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=neon-city$ [NC]
+  RewriteRule ^$ /trabalhos/neon-city? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=moda-editorial$ [NC]
+  RewriteRule ^$ /trabalhos/moda-editorial? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=radio-tv$ [NC]
+  RewriteRule ^$ /trabalhos/radio-tv? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=festival$ [NC]
+  RewriteRule ^$ /trabalhos/festival? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=tech-summit$ [NC]
+  RewriteRule ^$ /trabalhos/tech-summit? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=gastronomia$ [NC]
+  RewriteRule ^$ /trabalhos/gastronomia? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=amplificacao$ [NC]
+  RewriteRule ^$ /trabalhos/amplificacao? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=floresta$ [NC]
+  RewriteRule ^$ /trabalhos/floresta? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=imoveis$ [NC]
+  RewriteRule ^$ /trabalhos/imoveis? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=esportes$ [NC]
+  RewriteRule ^$ /trabalhos/esportes? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=csag$ [NC]
+  RewriteRule ^$ /trabalhos/csag? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=eliteos$ [NC]
+  RewriteRule ^$ /trabalhos/eliteos? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=alberto$ [NC]
+  RewriteRule ^$ /trabalhos/alberto? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=ponto-cor$ [NC]
+  RewriteRule ^$ /trabalhos/ponto-cor? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=livia-esper$ [NC]
+  RewriteRule ^$ /trabalhos/livia-esper? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=livia-esper-site$ [NC]
+  RewriteRule ^$ /trabalhos/livia-esper-site? [R=301,L]
+
+  RewriteCond %{QUERY_STRING} ^case=livia-esper-sistema$ [NC]
+  RewriteRule ^$ /trabalhos/livia-esper-sistema? [R=301,L]
+
+  # Redirecionamentos estáticos de rotas legadas
+  RewriteRule ^about/?$ /agencia [R=301,L]
+  RewriteRule ^vamos-conversar/?$ /contato [R=301,L]
+  RewriteRule ^services/?$ /agencia#agency-disciplines-title [R=301,NE,L]
+
+  # Se o arquivo existe fisicamente, entrega direto
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Se for pasta com index.html, entrega index.html
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.*)/?$ $1/index.html [L]
+
+  # Se o arquivo .html correspondente existe
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
