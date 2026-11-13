@@ -1,0 +1,6 @@
+AddType image/apng .apng
+<IfModule mod_headers.c>
+  <Files "assinatura-enquadrada.apng">
+    Header set Cache-Control "public, max-age=2592000, no-transform"
+  </Files>
+</IfModule>
